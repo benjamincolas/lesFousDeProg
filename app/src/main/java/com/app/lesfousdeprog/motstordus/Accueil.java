@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 public class Accueil extends AppCompatActivity {
 
+    private String bonjour;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
