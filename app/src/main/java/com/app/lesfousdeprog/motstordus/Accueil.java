@@ -9,6 +9,7 @@ import android.widget.Button;
 public class Accueil extends AppCompatActivity implements View.OnClickListener {
 
     private Button btn_quitter;
+    private Button btn_regles;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +19,9 @@ public class Accueil extends AppCompatActivity implements View.OnClickListener {
 
         btn_quitter = (Button)this.findViewById(R.id.btn_quitter);
         btn_quitter.setOnClickListener(this);
+
+        btn_regles = (Button)this.findViewById(R.id.btn_regles);
+        btn_regles.setOnClickListener(this);
     }
 
     @Override
