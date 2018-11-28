@@ -10,6 +10,7 @@ public class Accueil extends AppCompatActivity implements View.OnClickListener {
 
     private Button btn_quitter;
     private Button btn_regles;
+    private Button btn_jouer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,9 @@ public class Accueil extends AppCompatActivity implements View.OnClickListener {
 
         btn_regles = (Button)this.findViewById(R.id.btn_regles);
         btn_regles.setOnClickListener(this);
+
+        btn_jouer = (Button)this.findViewById(R.id.btn_jouer);
+        btn_jouer.setOnClickListener(this);
     }
 
     @Override
