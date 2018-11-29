@@ -3,5 +3,23 @@
     <string name="btn_jouer">Jouer</string>
     <string name="btn_regles">Règles</string>
     <string name="btn_quitter">Quitter</string>
+    <string name="txt_titreregles">Les Règles du Jeu</string>
+    <string name="txt_regles">IL FAUT BIEN REPONDRE AU QUIZZ POUR DÉBLOQUER LA SUITE
+\n
+\n
+
+\n SI TU AS ENTRE 0/10 ET 4/10 : DEBLOQUE LE JEU "RANGE TA BD !"
+\n
+        \n
+\n SI VOUS AVEZ ENTRE 5/10 ET 10/10 : DEBLOQUE LE JEU "MÉMO-RIGOLO" ET "RANGE TA BD !"
+\n
+\n
+        \n
+
+					\n BONNE CHANCE !</string>
+    <string name="txt_choix">Choisis le thème du Quizz :</string>
+    <string name="btn_manga">MANGA</string>
+    <string name="btn_bd">BANDE DESSINÉE</string>
+    <string name="btn_comics">COMICS</string>
     <string name="memorigolo">Mémo-Rigolo</string>
 </resources>

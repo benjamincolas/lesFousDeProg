@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Regles" />
+        <activity android:name=".Quizz"></activity>
         <activity android:name=".MemoRigolo"></activity>
     </application>
 
