@@ -19,6 +19,7 @@
         <activity android:name=".Regles" />
         <activity android:name=".Quizz"></activity>
         <activity android:name=".MemoRigolo"></activity>
+        <activity android:name=".RangeTaBd"></activity>
     </application>
 
 </manifest>

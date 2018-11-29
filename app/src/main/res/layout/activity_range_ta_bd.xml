@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RangeTaBd"
+    android:background="@mipmap/background">
+
+    <ImageView
+        android:id="@+id/imgfondblancgris"
+        android:layout_width="1250dp"
+        android:layout_height="623dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="20dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/blancgris"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/img1"
+        android:layout_width="510dp"
+        android:layout_height="255dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="8dp"
+        android:background="@mipmap/background"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toStartOf="@+id/img2"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/img2"
+        android:layout_width="510dp"
+        android:layout_height="255dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="88dp"
+        android:background="@mipmap/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/img4"
+        android:layout_width="510dp"
+        android:layout_height="255dp"
+        android:layout_marginEnd="88dp"
+        android:layout_marginBottom="80dp"
+        android:background="@mipmap/background"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/img3"
+        android:layout_width="510dp"
+        android:layout_height="254dp"
+        android:layout_marginStart="-20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="80dp"
+        android:background="@mipmap/background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/img4"
+        app:layout_constraintHorizontal_bias="0.562"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txtViewTitre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="448dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="33dp"
+        android:background="@color/blancgris"
+        android:fontFamily="@font/adventure"
+        android:text="  Range ta BD !  "
+        android:textColor="@color/noir"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toTopOf="@+id/imgfondblancgris"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.488"
+        tools:text="  Range ta BD !  " />
+
+    <Button
+        android:id="@+id/btn_valider"
+        android:layout_width="225dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bouton_arrondie"
+        android:text="VALIDER"
+        android:textSize="45sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+</android.support.constraint.ConstraintLayout>
