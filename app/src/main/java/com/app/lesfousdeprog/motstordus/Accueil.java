@@ -6,11 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class Accueil extends AppCompatActivity implements View.OnClickListener {
+public class Accueil extends AppCompatActivity{
 
     private Button btn_quitter;
-    private Button btn_regles;
-    private Button btn_jouer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,17 +17,10 @@ public class Accueil extends AppCompatActivity implements View.OnClickListener {
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
         btn_quitter = (Button)this.findViewById(R.id.btn_quitter);
-        btn_quitter.setOnClickListener(this);
-
-        btn_regles = (Button)this.findViewById(R.id.btn_regles);
-        btn_regles.setOnClickListener(this);
-
-        btn_jouer = (Button)this.findViewById(R.id.btn_jouer);
-        btn_jouer.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-        finish();
+        btn_quitter.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                finish();
+            }
+        });
     }
 }
