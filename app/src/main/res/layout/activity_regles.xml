@@ -15,14 +15,14 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/bouton_arrondie"
-        android:text="Retour"
         android:fontFamily="@font/adventure"
+        android:text="Retour"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.075" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/txt_titreregles"
@@ -31,12 +31,11 @@
         android:layout_marginStart="529dp"
         android:layout_marginTop="31dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/txt_titreregles"
         android:fontFamily="@font/adventure"
+        android:text="@string/txt_titreregles"
         android:textAlignment="textStart"
         android:textColor="@color/rouge"
         android:textSize="30sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
