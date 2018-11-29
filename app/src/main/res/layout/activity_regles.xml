@@ -6,4 +6,57 @@
     android:layout_height="match_parent"
     tools:context=".Regles">
 
+    <Button
+        android:id="@+id/btn_retour"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bouton_arrondie"
+        android:text="Retour"
+        android:fontFamily="@font/adventure"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.075" />
+
+    <TextView
+        android:id="@+id/txt_titreregles"
+        android:layout_width="257dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="529dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/txt_titreregles"
+        android:fontFamily="@font/adventure"
+        android:textAlignment="textStart"
+        android:textColor="@color/rouge"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_regles"
+        android:layout_width="1052dp"
+        android:layout_height="406dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/txt_regles"
+        android:fontFamily="@font/adventure"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.693"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.825" />
 </android.support.constraint.ConstraintLayout>
