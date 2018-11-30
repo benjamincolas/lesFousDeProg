@@ -11,7 +11,6 @@ import android.widget.Button;
 
 public class Accueil extends AppCompatActivity {
 
-    private Button btn_quitter;
     private Button btn_regles;
     private Button btn_jouer;
     private final int code_fenetre=20;
@@ -28,7 +27,7 @@ public class Accueil extends AppCompatActivity {
         btn_jouer.setOnClickListener(new View.OnClickListener() {
             //@Override
             public void onClick(View view) {
-                Intent unIntent = new Intent(Accueil.this,RangeTaBd.class);
+                Intent unIntent = new Intent(Accueil.this,Quizz.class);
                 Accueil.this.startActivityForResult(unIntent, code_fenetre);
             }
         });
