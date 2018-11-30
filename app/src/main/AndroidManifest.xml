@@ -17,9 +17,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".Regles" />
-        <activity android:name=".Quizz"></activity>
-        <activity android:name=".MemoRigolo"></activity>
-        <activity android:name=".RangeTaBd"></activity>
+        <activity android:name=".Quizz" />
+        <activity android:name=".MemoRigolo" />
+        <activity android:name=".RangeTaBd" />
+        <activity android:name=".QuizzBD" />
+        <activity android:name=".QuizzComics" />
+        <activity android:name=".QuizzManga"></activity>
     </application>
 
 </manifest>
