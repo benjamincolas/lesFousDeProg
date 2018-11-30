@@ -10,10 +10,8 @@
 \n SI TU AS ENTRE 0/10 ET 4/10 : DEBLOQUE LE JEU "RANGE TA BD !"
 \n
         \n
-\n SI VOUS AVEZ ENTRE 5/10 ET 10/10 : DEBLOQUE LE JEU "MÉMO-RIGOLO" ET "RANGE TA BD !"
+\n SI TU AS ENTRE 5/10 ET 10/10 : DEBLOQUE LE JEU "MÉMO-RIGOLO" \n ET "RANGE TA BD !"
 \n
-\n
-        \n
 
 					\n BONNE CHANCE !</string>
     <string name="txt_choix">Choisis le thème du Quizz :</string>
@@ -21,4 +19,5 @@
     <string name="btn_bd">BANDE DESSINÉE</string>
     <string name="btn_comics">COMICS</string>
     <string name="memorigolo">Mémo-Rigolo</string>
+    <string name="btn_valider">Valider</string>
 </resources>
