@@ -11,7 +11,6 @@ import android.widget.Button;
 
 public class Accueil extends AppCompatActivity {
 
-    private Button btn_quitter;
     private Button btn_regles;
     private Button btn_jouer;
     private final int code_fenetre=20;
