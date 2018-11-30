@@ -7,12 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class Quizz extends AppCompatActivity {
     private Button btn_manga;
     private Button btn_bd;
     private Button btn_comics;
     private Button btn_retour;
+    private int num;
     private final int code_fenetre = 20;
 
     @Override
@@ -55,4 +57,77 @@ public class Quizz extends AppCompatActivity {
             }
         });
     }
+
+    private void jouerBD(int unNumQ){
+        Intent unIntent = new Intent(this, QuizzBD.class);
+        unIntent.putExtra("Numero", unNumQ);
+        this.startActivityForResult(unIntent,code_fenetre); }
+
+    private void jouerComics(int unNumQ){
+        Intent unIntent = new Intent(this, QuizzComics.class);
+        unIntent.putExtra("Numero", unNumQ);
+        this.startActivityForResult(unIntent,code_fenetre); }
+
+    private void jouerManga(int unNumQ){
+        Intent unIntent = new Intent(this, QuizzManga.class);
+        unIntent.putExtra("Numero", unNumQ);
+        this.startActivityForResult(unIntent,code_fenetre); }
+
+
+
+
+    protected void onActivityResultBD(int requestCode, int resultCode, Intent data)
+    {     //super.onActivityResult(requestCode, resultCode, data);     //on gère l’activité concernée
+        if(requestCode==code_fenetre){
+            //si l’activité a retourner ok
+            if(resultCode==RESULT_OK){
+                //on vérifie la présence d’un ‘numéro’ (celui de la question traitée
+                if(data.hasExtra(("Numero"))){
+                    //récupère e numéro de la dernière question
+                    num = data.getExtras().getInt("Numero");
+                    //incrémente pour lancer la question suivante
+                    num++;
+                    jouerBD(num);
+                }
+            }
+            else{
+                Toast.makeText(this, "Fin du jeu", Toast.LENGTH_SHORT);
+                num = 0;         }     } }
+
+
+    protected void onActivityResultComics(int requestCode, int resultCode, Intent data)
+    {     //super.onActivityResult(requestCode, resultCode, data);     //on gère l’activité concernée
+        if(requestCode==code_fenetre){
+            //si l’activité a retourner ok
+            if(resultCode==RESULT_OK){
+                //on vérifie la présence d’un ‘numéro’ (celui de la question traitée
+                if(data.hasExtra(("Numero"))){
+                    //récupère e numéro de la dernière question
+                    num = data.getExtras().getInt("Numero");
+                    //incrémente pour lancer la question suivante
+                    num++;
+                    jouerComics(num);
+                }
+            }
+            else{
+                Toast.makeText(this, "Fin du jeu", Toast.LENGTH_SHORT);
+                num = 0;         }     } }
+
+    protected void onActivityResultManga(int requestCode, int resultCode, Intent data)
+    {     //super.onActivityResult(requestCode, resultCode, data);     //on gère l’activité concernée
+        if(requestCode==code_fenetre){
+            //si l’activité a retourner ok
+            if(resultCode==RESULT_OK){
+                //on vérifie la présence d’un ‘numéro’ (celui de la question traitée
+                if(data.hasExtra(("Numero"))){
+                    //récupère e numéro de la dernière question
+                    num = data.getExtras().getInt("Numero");
+                    //incrémente pour lancer la question suivante
+                    num++;
+                    jouerManga(num);
+                }
+            }
+            else{
+                Toast.makeText(this, "Fin du jeu", Toast.LENGTH_SHORT);
+                num = 0;         }     } }
 }
