@@ -30,7 +30,7 @@
         android:layout_height="255dp"
         android:layout_marginTop="108dp"
         android:layout_marginEnd="8dp"
-        android:background="@mipmap/luckyluke1"
+        android:background="@mipmap/mg1"
         android:scaleType="fitCenter"
         android:visibility="visible"
         app:layout_constraintEnd_toStartOf="@+id/img2"
@@ -45,7 +45,7 @@
         android:layout_height="255dp"
         android:layout_marginTop="108dp"
         android:layout_marginEnd="88dp"
-        android:background="@mipmap/luckyluke2"
+        android:background="@mipmap/mg2"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -57,7 +57,7 @@
         android:layout_height="255dp"
         android:layout_marginEnd="88dp"
         android:layout_marginBottom="80dp"
-        android:background="@mipmap/luckyluke3"
+        android:background="@mipmap/mg4"
         android:visibility="visible"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -71,7 +71,7 @@
         android:layout_marginStart="-20dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="80dp"
-        android:background="@mipmap/luckyluke4"
+        android:background="@mipmap/mg3"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/img4"
@@ -90,6 +90,7 @@
         android:text="  Range ta BD !  "
         android:textColor="@color/noir"
         android:textSize="60sp"
+
         app:layout_constraintBottom_toTopOf="@+id/imgfondblancgris"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -119,66 +120,122 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
+        android:textColor="@color/noir"
+        android:background="@color/blanc"
         android:textSize="45sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imgpos1"
-        android:layout_width="512dp"
-        android:layout_height="255dp"
-        android:layout_marginTop="108dp"
-        android:layout_marginEnd="8dp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toStartOf="@+id/imgpos2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/luckyluke1"
-        tools:ignore="MissingConstraints" />
-
-    <ImageView
-        android:id="@+id/imgpos2"
-        android:layout_width="512dp"
-        android:layout_height="255dp"
-        android:visibility="invisible"
-        app:srcCompat="@mipmap/luckyluke1"
-        tools:layout_editor_absoluteX="682dp"
-        tools:layout_editor_absoluteY="108dp"
-        tools:ignore="MissingConstraints"/>
-
-    <ImageView
-        android:id="@+id/imgpos3"
-        android:layout_width="512dp"
-        android:layout_height="255dp"
-        android:visibility="invisible"
-        app:srcCompat="@mipmap/luckyluke1"
-        tools:layout_editor_absoluteX="90dp"
-        tools:layout_editor_absoluteY="392dp"
-        tools:ignore="MissingConstraints"/>
-
-    <ImageView
-        android:id="@+id/imgpos4"
-        android:layout_width="510dp"
-        android:layout_height="255dp"
-        android:layout_marginEnd="88dp"
-        android:layout_marginBottom="80dp"
-        android:background="@drawable/ic_launcher_foreground"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@mipmap/luckyluke1"
-        tools:ignore="MissingConstraints" />
-
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/txtView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="600dp"
+        android:layout_marginTop="300dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/imgpos4"
-        app:layout_constraintEnd_toEndOf="@+id/imgpos4"
-        app:layout_constraintStart_toStartOf="@+id/imgpos4"
-        app:layout_constraintTop_toTopOf="@+id/imgpos4" />
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/txtView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="600dp"
+        android:layout_marginBottom="8dp"
+        android:text="TextView"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/txtView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="600dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="250dp"
+        android:text="TextView"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/txtView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="600dp"
+        android:layout_marginBottom="250dp"
+        android:text="TextView"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imgpos1"
+        android:layout_width="510dp"
+        android:layout_height="255dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="8dp"
+        android:visibility="visible"
+
+        app:layout_constraintEnd_toStartOf="@+id/img2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/imgpos2"
+        android:layout_width="508dp"
+        android:layout_height="255dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="88dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+      />
+
+    <ImageView
+        android:id="@+id/imgpos3"
+        android:layout_width="508dp"
+        android:layout_height="252dp"
+        android:layout_marginStart="-19dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="80dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/img4"
+        app:layout_constraintHorizontal_bias="0.554"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/imgpos4"
+        android:layout_width="513dp"
+        android:layout_height="254dp"
+        android:layout_marginEnd="88dp"
+        android:layout_marginBottom="80dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
 </android.support.constraint.ConstraintLayout>
