@@ -7,6 +7,7 @@
     tools:context=".RangeTaBd"
     android:background="@mipmap/background">
 
+
     <ImageView
         android:id="@+id/imgfondblancgris"
         android:layout_width="1108dp"
@@ -24,6 +25,82 @@
         app:layout_constraintVertical_bias="0.613"
         app:srcCompat="@color/blancgris"
         tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:id="@+id/rect3"
+        android:layout_width="549dp"
+        android:layout_height="289dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp"
+        android:background="@color/vert"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.982"
+        tools:ignore="MissingConstraints"></LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rect4"
+        android:layout_width="549dp"
+        android:layout_height="289dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp"
+        android:background="@color/vert"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.961"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.97"
+        tools:ignore="MissingConstraints"></LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rect2"
+        android:layout_width="549dp"
+        android:layout_height="289dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp"
+        android:background="@color/vert"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.961"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.127"
+        tools:ignore="MissingConstraints"></LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rect1"
+        android:layout_width="549dp"
+        android:layout_height="289dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp"
+        android:background="@color/vert"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.029"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible"
+        app:layout_constraintVertical_bias="0.114"
+        tools:ignore="MissingConstraints"></LinearLayout>
 
     <ImageView
         android:id="@+id/img1"
@@ -101,8 +178,7 @@
         android:id="@+id/txtView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="408dp"
-        android:layout_marginTop="320dp"
+        android:layout_marginStart="28dp"
         android:background="@color/blancgris"
         android:fontFamily="@font/adventure"
         android:text="  Range ta BD !  "
@@ -125,8 +201,27 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btn_lancer"
+        android:layout_width="225dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/bouton_arrondie"
+        android:text="LANCER"
+        android:textSize="45sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+
+
 
 </android.support.constraint.ConstraintLayout>
