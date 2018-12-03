@@ -27,7 +27,7 @@ public class Accueil extends AppCompatActivity {
         btn_jouer.setOnClickListener(new View.OnClickListener() {
             //@Override
             public void onClick(View view) {
-                Intent unIntent = new Intent(Accueil.this,Quizz.class);
+                Intent unIntent = new Intent(Accueil.this,MemoRigolo.class);
                 Accueil.this.startActivityForResult(unIntent, code_fenetre);
             }
         });

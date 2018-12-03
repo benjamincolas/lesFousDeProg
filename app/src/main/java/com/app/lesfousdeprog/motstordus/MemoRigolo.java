@@ -1,24 +1,21 @@
 package com.app.lesfousdeprog.motstordus;
 
+import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.TextView;
-
-import java.util.List;
-import java.util.Random;
+import java.util.ArrayList;
 
 public class MemoRigolo extends AppCompatActivity {
 
     private int click = 0;
-    private TextView txtV;
     private ImageView[] imageView;
     private int[] image;
-    private int[] numero;
-    private Random random = new Random();
+    private ImageView image1;
+    private ImageView image2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,69 +24,69 @@ public class MemoRigolo extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        txtV = (TextView) this.findViewById(R.id.numero);
-
         image = new int[]{
-                R.drawable.balai,
-                R.drawable.batman,
-                R.drawable.luffy,
-                R.drawable.titeuf
+                R.mipmap.balai,
+                R.mipmap.batman,
+                R.mipmap.luffy,
+                R.mipmap.titeuf
         };
 
         imageView = new ImageView[]{
                 this.findViewById(R.id.imageView),
-                this.findViewById(R.id.imageView2)
+                this.findViewById(R.id.imageView2),
+                this.findViewById(R.id.imageView3),
+                this.findViewById(R.id.imageView4),
+                this.findViewById(R.id.imageView5),
+                this.findViewById(R.id.imageView6),
+                this.findViewById(R.id.imageView7),
+                this.findViewById(R.id.imageView8)
         };
 
-        numero = new int[]{
-                1,2,3,4,5,6,7,8
-        };
+        setImage();
 
-
-        imageView[0].setOnClickListener(new View.OnClickListener() {
+        this.findViewById(R.id.imageView10).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-
-                int imageAlea = 0 + (int)(Math.random() * ((4 - 0) + 1));
-
-                imageView[0].setTag(image[imageAlea]);
-                imageView[0].setBackgroundResource(image[imageAlea]);
                 click ++;
-                txtV.setText(Integer.toString(click));
+
+                if(click == 1){
+                    image1 = imageView[0];
+                }
+                if(click == 2){
+                    image2 = imageView[0];
+                }
 
                 if(click == 2){
-                    if(getImageResource(imageView[0]) == getImageResource(imageView[1])){
-                        imageView[0].setVisibility(View.INVISIBLE);
-                        imageView[1].setVisibility(View.INVISIBLE);
+                    if(getImageResource(image1) == getImageResource(image2)){
                         click = 0;
                     }
                     else{
-                        imageView[0].setBackgroundResource(R.drawable.pow);
-                        imageView[1].setBackgroundResource(R.drawable.pow);
+                        image1.setBackgroundResource(R.mipmap.pow);
+                        image2.setBackgroundResource(R.mipmap.pow);
                         click = 0;
                     }
                 }
             }
         });
 
-        imageView[1].setOnClickListener(new View.OnClickListener() {
+        this.findViewById(R.id.imageView11).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
 
-                int imageAlea = 0 + (int)(Math.random() * ((4 - 0) + 1));
-
-                imageView[1].setTag(image[imageAlea]);
-                imageView[1].setBackgroundResource(image[imageAlea]);
                 click ++;
-                txtV.setText(Integer.toString(click));
+
+                if(click == 1){
+                    image1 = imageView[1];
+                }
+                if(click == 2){
+                    image2 = imageView[1];
+                }
 
                 if(click == 2){
-                    if(getImageResource(imageView[0]) == getImageResource(imageView[1])){
-                        imageView[0].setVisibility(View.INVISIBLE);
-                        imageView[1].setVisibility(View.INVISIBLE);
+                    if(getImageResource(image1) == getImageResource(image2)){
                         click = 0;
                     }
                     else{
-                        imageView[0].setBackgroundResource(R.drawable.pow);
-                        imageView[1].setBackgroundResource(R.drawable.pow);
+                        image1.setBackgroundResource(R.mipmap.pow);
+                        image2.setBackgroundResource(R.mipmap.pow);
                         click = 0;
                     }
                 }
@@ -99,5 +96,27 @@ public class MemoRigolo extends AppCompatActivity {
 
     public int getImageResource(ImageView iv) {
         return (Integer) iv.getTag();
+    }
+
+    public void setImage(){
+        ArrayList<Integer> nbAlea = new ArrayList<>();
+
+        nbAlea.add(1,1);
+        nbAlea.add(2,1);
+        nbAlea.add(3,2);
+        nbAlea.add(4,2);
+        nbAlea.add(5,3);
+        nbAlea.add(6,3);
+        nbAlea.add(7,4);
+        nbAlea.add(8,4);
+
+        for (ImageView imageTemp : imageView){
+            int alea = (int) (Math.random() * ((nbAlea.size())));
+
+            imageTemp.setTag(image[nbAlea.get(alea)]);
+            imageTemp.setBackgroundResource(image[nbAlea.get(alea)]);
+
+            nbAlea.remove(alea);
+        }
     }
 }
