@@ -4,13 +4,15 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
-public class Quizz extends AppCompatActivity {
-    private Button btn_manga;
+public class Quizz extends AppCompatActivity implements View.OnClickListener{
+/*    private Button btn_manga;
     private Button btn_bd;
     private Button btn_comics;
     private Button btn_retour;
@@ -75,13 +77,12 @@ public class Quizz extends AppCompatActivity {
 
 
 
-
-    protected void onActivityResultBD(int requestCode, int resultCode, Intent data)
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {     //super.onActivityResult(requestCode, resultCode, data);     //on gère l’activité concernée
         if(requestCode==code_fenetre){
             //si l’activité a retourner ok
             if(resultCode==RESULT_OK){
-                //on vérifie la présence d’un ‘numéro’ (celui de la question traitée
+                //on vérifie la présence d’un ‘numéro’ (celui de la question traitée)
                 if(data.hasExtra(("Numero"))){
                     //récupère e numéro de la dernière question
                     num = data.getExtras().getInt("Numero");
@@ -92,10 +93,40 @@ public class Quizz extends AppCompatActivity {
             }
             else{
                 Toast.makeText(this, "Fin du jeu", Toast.LENGTH_SHORT);
-                num = 0;         }     } }
+                num = 0;         }     } }*/
 
 
-    protected void onActivityResultComics(int requestCode, int resultCode, Intent data)
+
+
+
+
+
+
+    private Button leBouton;
+    private final int code_fenetre = 20;
+    private int num;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_quizz);
+
+        leBouton= (Button)this.findViewById(R.id.btn_bd);
+        leBouton.setOnClickListener(this);
+
+
+
+
+    }
+
+    @Override
+    public void onClick(View v) {
+jouer(num); }
+
+
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {     //super.onActivityResult(requestCode, resultCode, data);     //on gère l’activité concernée
         if(requestCode==code_fenetre){
             //si l’activité a retourner ok
@@ -106,28 +137,17 @@ public class Quizz extends AppCompatActivity {
                     num = data.getExtras().getInt("Numero");
                     //incrémente pour lancer la question suivante
                     num++;
-                    jouerComics(num);
+                    jouer(num);
                 }
             }
             else{
                 Toast.makeText(this, "Fin du jeu", Toast.LENGTH_SHORT);
                 num = 0;         }     } }
 
-    protected void onActivityResultManga(int requestCode, int resultCode, Intent data)
-    {     //super.onActivityResult(requestCode, resultCode, data);     //on gère l’activité concernée
-        if(requestCode==code_fenetre){
-            //si l’activité a retourner ok
-            if(resultCode==RESULT_OK){
-                //on vérifie la présence d’un ‘numéro’ (celui de la question traitée
-                if(data.hasExtra(("Numero"))){
-                    //récupère e numéro de la dernière question
-                    num = data.getExtras().getInt("Numero");
-                    //incrémente pour lancer la question suivante
-                    num++;
-                    jouerManga(num);
-                }
-            }
-            else{
-                Toast.makeText(this, "Fin du jeu", Toast.LENGTH_SHORT);
-                num = 0;         }     } }
+
+
+    private void jouer(int unNumQ){
+        Intent unIntent = new Intent(this, QuizzBD.class);
+        unIntent.putExtra("Numero", unNumQ);
+        this.startActivityForResult(unIntent,code_fenetre); }
 }

@@ -72,72 +72,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.987" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="1200dp"
-        android:layout_height="wrap_content"
+    <RadioGroup
+        android:id="@+id/rdbg_question"
+        android:layout_width="1152dp"
+        android:layout_height="250dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.621">
-
-        <RadioButton
-            android:id="@+id/radioButton1"
-            android:layout_width="wrap_content"
-            android:layout_height="125dp"
-            android:layout_weight="1"
-            android:text="RadioButton"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="125dp"
-            android:layout_weight="1"
-            android:text="RadioButton"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="1200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.834">
-
-        <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="125dp"
-            android:layout_weight="1"
-            android:text="RadioButton"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-
-        <RadioButton
-            android:id="@+id/radioButton4"
-            android:layout_width="wrap_content"
-            android:layout_height="125dp"
-            android:layout_weight="1"
-            android:text="RadioButton"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-    </LinearLayout>
+        app:layout_constraintVertical_bias="0.809" />
 
 </android.support.constraint.ConstraintLayout>
