@@ -37,6 +37,7 @@ public class RangeTaBd extends AppCompatActivity {
     Button valider, lancer,suivant;
     LinearLayout rect1, rect2, rect3, rect4;
     int visibilite = 0;
+    int test = 1;
     private boolean boolImg1 = false;
     private boolean boolImg2 = false;
     private boolean boolImg3 = false;
@@ -83,7 +84,7 @@ public int score=0;
         img2.setOnDragListener(listenerimg2);
         img3.setOnDragListener(listenerimg3);
         img4.setOnDragListener(listenerimg4);
-        lol();
+
     }
 
 //region onclicklistener
@@ -145,6 +146,15 @@ public int score=0;
                             img1.setX(x);
                             img1.setY(y);
                         } else if (vData.getId() == R.id.img4) {
+                            y = vData.getY();
+                            x = vData.getX();
+                            vData.setY(img1.getY());
+                            vData.setX(img1.getX());
+                            img1.setY(y);
+                            img1.setX(x);
+
+                        }
+                        else if (vData.getId() == R.id.img1) {
                             y = vData.getY();
                             x = vData.getX();
                             vData.setY(img1.getY());
@@ -508,11 +518,6 @@ public int score=0;
             luckyluke.add(R.mipmap.luckyluke1);luckyluke.add(R.mipmap.luckyluke2);luckyluke.add(R.mipmap.luckyluke3);luckyluke.add(R.mipmap.luckyluke4);
             listImg = new ArrayList<List<Integer>>();
             listImg.add(spiderman);listImg.add(tintin);listImg.add(overwatch);listImg.add(onepiece);listImg.add(dbz);listImg.add(luckyluke);
-
-
-
-
-
             Random r = new Random();
             int i1 = r.nextInt(4);
             Random rand2 = new Random();
@@ -622,9 +627,7 @@ public int score=0;
         }
 
     };
-private void lol(){
 
-}
 }
 
 
