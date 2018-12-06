@@ -1,7 +1,7 @@
 package com.app.lesfousdeprog.motstordus;
 
+import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
-import android.media.Image;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,11 +14,9 @@ public class MemoRigolo extends AppCompatActivity {
 
     private int click = 0;
     private ImageView[] imageView;
-    private Integer[] image;
-    private ImageView image1;
-    private ImageView image2;
-    private ImageView tempimage1;
-    private ImageView tempimage2;
+    private ImageView imageClick;
+    private ImageView choiceImage1;
+    private ImageView choiceImage2;
     private Handler handler = new Handler();
 
     @Override
@@ -32,199 +30,92 @@ public class MemoRigolo extends AppCompatActivity {
 
         this.findViewById(R.id.imageView10).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                click ++;
-
-                if(click == 1){
-                    imageView[0].setVisibility(View.VISIBLE);
-                    image1 = imageView[0];
-                    tempimage1 = findViewById(R.id.imageView10);
-                    tempimage1.setVisibility(View.INVISIBLE);
-                }
-                if(click == 2){
-                    imageView[0].setVisibility(View.VISIBLE);
-                    image2 = imageView[0];
-                    tempimage2 = findViewById(R.id.imageView10);
-                    tempimage2.setVisibility(View.INVISIBLE);
-                }
-
+                ImageView temp1 = imageView[0];
+                ImageView temp2 = findViewById(R.id.imageView10);
+                testClick(temp1, temp2);
                 testImage();
             }
         });
 
         this.findViewById(R.id.imageView11).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                click ++;
-
-                if(click == 1){
-                    imageView[1].setVisibility(View.VISIBLE);
-                    image1 = imageView[1];
-                    tempimage1 = findViewById(R.id.imageView11);
-                    tempimage1.setVisibility(View.INVISIBLE);
-                }
-                if(click == 2){
-                    imageView[1].setVisibility(View.VISIBLE);
-                    image2 = imageView[1];
-                    tempimage2 = findViewById(R.id.imageView11);
-                    tempimage2.setVisibility(View.INVISIBLE);
-                }
-
+                ImageView temp1 = imageView[1];
+                ImageView temp2 = findViewById(R.id.imageView11);
+                testClick(temp1, temp2);
                 testImage();
             }
         });
 
         this.findViewById(R.id.imageView12).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                click ++;
-
-                if(click == 1){
-                    imageView[2].setVisibility(View.VISIBLE);
-                    image1 = imageView[2];
-                    tempimage1 = findViewById(R.id.imageView12);
-                    tempimage1.setVisibility(View.INVISIBLE);
-                }
-                if(click == 2){
-                    imageView[2].setVisibility(View.VISIBLE);
-                    image2 = imageView[2];
-                    tempimage2 = findViewById(R.id.imageView12);
-                    tempimage2.setVisibility(View.INVISIBLE);
-                }
-
+                ImageView temp1 = imageView[2];
+                ImageView temp2 = findViewById(R.id.imageView12);
+                testClick(temp1, temp2);
                 testImage();
             }
         });
 
         this.findViewById(R.id.imageView13).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                click ++;
-
-                if(click == 1){
-                    imageView[3].setVisibility(View.VISIBLE);
-                    image1 = imageView[3];
-                    tempimage1 = findViewById(R.id.imageView13);
-                    tempimage1.setVisibility(View.INVISIBLE);
-                }
-                if(click == 2){
-                    imageView[3].setVisibility(View.VISIBLE);
-                    image2 = imageView[3];
-                    tempimage2 = findViewById(R.id.imageView13);
-                    tempimage2.setVisibility(View.INVISIBLE);
-                }
-
+                ImageView temp1 = imageView[3];
+                ImageView temp2 = findViewById(R.id.imageView13);
+                testClick(temp1, temp2);
                 testImage();
             }
         });
 
         this.findViewById(R.id.imageView14).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                click ++;
-
-                if(click == 1){
-                    imageView[4].setVisibility(View.VISIBLE);
-                    image1 = imageView[4];
-                    tempimage1 = findViewById(R.id.imageView14);
-                    tempimage1.setVisibility(View.INVISIBLE);
-                }
-                if(click == 2){
-                    imageView[4].setVisibility(View.VISIBLE);
-                    image2 = imageView[4];
-                    tempimage2 = findViewById(R.id.imageView14);
-                    tempimage2.setVisibility(View.INVISIBLE);
-                }
-
+                ImageView temp1 = imageView[4];
+                ImageView temp2 = findViewById(R.id.imageView14);
+                testClick(temp1, temp2);
                 testImage();
             }
         });
 
         this.findViewById(R.id.imageView15).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                click ++;
-
-                if(click == 1){
-                    imageView[5].setVisibility(View.VISIBLE);
-                    image1 = imageView[5];
-                    tempimage1 = findViewById(R.id.imageView15);
-                    tempimage1.setVisibility(View.INVISIBLE);
-                }
-                if(click == 2){
-                    imageView[5].setVisibility(View.VISIBLE);
-                    image2 = imageView[5];
-                    tempimage2 = findViewById(R.id.imageView15);
-                    tempimage2.setVisibility(View.INVISIBLE);
-                }
-
+                ImageView temp1 = imageView[5];
+                ImageView temp2 = findViewById(R.id.imageView15);
+                testClick(temp1, temp2);
                 testImage();
             }
         });
 
         this.findViewById(R.id.imageView16).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                click ++;
-
-                if(click == 1){
-                    imageView[6].setVisibility(View.VISIBLE);
-                    image1 = imageView[6];
-                    tempimage1 = findViewById(R.id.imageView16);
-                    tempimage1.setVisibility(View.INVISIBLE);
-                }
-                if(click == 2){
-                    imageView[6].setVisibility(View.VISIBLE);
-                    image2 = imageView[6];
-                    tempimage2 = findViewById(R.id.imageView16);
-                    tempimage2.setVisibility(View.INVISIBLE);
-                }
-
+                ImageView temp1 = imageView[6];
+                ImageView temp2 = findViewById(R.id.imageView16);
+                testClick(temp1, temp2);
                 testImage();
             }
         });
 
         this.findViewById(R.id.imageView17).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                click ++;
-
-                if(click == 1){
-                    imageView[7].setVisibility(View.VISIBLE);
-                    image1 = imageView[7];
-                    tempimage1 = findViewById(R.id.imageView17);
-                    tempimage1.setVisibility(View.INVISIBLE);
-                }
-                if(click == 2){
-                    imageView[7].setVisibility(View.VISIBLE);
-                    image2 = imageView[7];
-                    tempimage2 = findViewById(R.id.imageView17);
-                    tempimage2.setVisibility(View.INVISIBLE);
-                }
-
+                ImageView temp1 = imageView[7];
+                ImageView temp2 = findViewById(R.id.imageView17);
+                testClick(temp1, temp2);
                 testImage();
             }
         });
     }
 
-    public int getImageResource(ImageView iv) {
-        return (Integer) iv.getTag();
-    }
-
     public void testImage(){
         if(click == 2){
-            if(getImageResource(image1) == getImageResource(image2)){
-                click = 0;
-            }
-            else{
-                handler.postDelayed(new Runnable() {
-                    public void run() {
-                        tempimage1.setVisibility(View.VISIBLE);
-                        tempimage2.setVisibility(View.VISIBLE);
-                        image1.setVisibility(View.INVISIBLE);
-                        image2.setVisibility(View.INVISIBLE);
-                        click = 0;
-                    }
-
-                }, 1000);
-            }
+            handler.postDelayed(new Runnable() {
+                public void run() {
+                    choiceImage1.setVisibility(View.VISIBLE);
+                    choiceImage2.setVisibility(View.VISIBLE);
+                    imageClick.setVisibility(View.INVISIBLE);
+                    click = 0;
+                }
+            }, 1000);
         }
     }
 
     public void setImage(){
-        image = new Integer[]{
+        Integer[] listImage = new Integer[]{
                 R.mipmap.balai,
                 R.mipmap.batman,
                 R.mipmap.luffy,
@@ -257,9 +148,26 @@ public class MemoRigolo extends AppCompatActivity {
 
         for (ImageView imageTemp : imageView){
             int alea = (int) (nbAlea.size() * Math.random());
-            imageTemp.setBackgroundResource(image[nbAlea.get(alea)]);
-            imageTemp.setTag(image[nbAlea.get(alea)]);
+            imageTemp.setBackgroundResource(listImage[nbAlea.get(alea)]);
+            imageTemp.setTag(listImage[nbAlea.get(alea)]);
             nbAlea.remove(alea);
+        }
+    }
+
+    @SuppressLint("CutPasteId")
+    public void testClick(ImageView iv1, ImageView iv2){
+        click ++;
+        if(click == 1){
+            imageClick = iv1;
+            imageClick.setVisibility(View.VISIBLE);
+            choiceImage1 = iv2;
+            choiceImage1.setVisibility(View.INVISIBLE);
+        }
+        else if(click == 2){
+            imageClick = iv1;
+            imageClick.setVisibility(View.VISIBLE);
+            choiceImage2 = iv2;
+            choiceImage2.setVisibility(View.INVISIBLE);
         }
     }
 }
