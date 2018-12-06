@@ -13,7 +13,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class QuizzBD extends AppCompatActivity implements View.OnClickListener{
+public class QuizzBD extends AppCompatActivity{
 /*    private int NumQuestionRecup;
     private TextView txt_qu;
     private TextView txt_numquest;
@@ -104,116 +104,124 @@ public class QuizzBD extends AppCompatActivity implements View.OnClickListener{
        }*/
 
 
+    private Quizz nQuizz = new Quizz();
+
+    private TextView nScoreView;
+    private TextView nQuestionView;
+    private Button nButtonChoice1;
+    private Button nButtonChoice2;
+    private Button nButtonChoice3;
+    private Button nButtonChoice4;
+
+
+    private String nAnswer;
+    private int nscore = 0;
+    private int nQuestionNumber = 0;
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    private TextView joueur;
-    private TextView uneQuestion;
-    private RadioGroup ensQuestions;
-    private int NumQuestionRecup;
-    private int[] numBoutonRadio;
-    private int numQuestion;
-    private RadioButton[] reponses;
-    private Button result;
-    private String questions[][] = {
-            {"Tom Felton","Drago Malefoy","Neville Londubat","Ron Weasley","1" },
-            {"Alan Rickman","Rubeus Hagrid","Albus Dumbledoret","Severus Rogue","3" },
-            {"Emma Watson","Katie Bell","Hermione Granger","Minerva McGonagall","2" },
-            {"Fiona Shaw","Pétunia Dursley","Molly Weasley","Alicia Spinnet","1" } };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quizz_bd);
-        String lePrenomRecup = this.getIntent().getExtras().getString("Joueur");
-        NumQuestionRecup = this.getIntent().getExtras().getInt("Numero");
 
-        //initialisation des contrôles
-        uneQuestion=(TextView)this.findViewById(R.id.txt_qu);
-        uneQuestion.setMinWidth(400);
-        ensQuestions = (RadioGroup)this.findViewById(R.id.rdbg_question);
-        reponses = new RadioButton[3];
+        nScoreView = (TextView)findViewById(R.id.score);
+        nQuestionView =(TextView)findViewById(R.id.txt_qu);
+        nButtonChoice1=(Button)findViewById(R.id.choix1);
+        nButtonChoice2=(Button)findViewById(R.id.choix2);
+        nButtonChoice3=(Button)findViewById(R.id.choix3);
+        nButtonChoice4=(Button)findViewById(R.id.choix4);
 
-
-        // creation de boutons radio
-        reponses[0].setTextColor(Color.parseColor("#4DF73C"));
-        reponses[0].setMinWidth(400);
+        updateQuestion();
 
 
-        reponses[1].setTextColor(Color.parseColor("#4DF73C"));
-        reponses[1].setMinWidth(400);
+        nButtonChoice1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                if (nButtonChoice1.getText() == nAnswer){
+                    nscore = nscore +1;
+                    updateScore(nscore);
+                    updateQuestion();
 
+                    Toast.makeText(QuizzBD.this, "Correct", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(QuizzBD.this, "Faux", Toast.LENGTH_SHORT).show();
+                    updateQuestion();
+                }
+            }
+        });
 
-        reponses[2].setTextColor(Color.parseColor("#4DF73C"));
-        reponses[2].setMinWidth(400);
+        nButtonChoice2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                if (nButtonChoice2.getText() == nAnswer){
+                    nscore = nscore +1;
+                    updateScore(nscore);
+                    updateQuestion();
 
-        //generation d’un Id pour les boutons radio
-        numBoutonRadio = new int[3];
-        numBoutonRadio[0] = View.generateViewId();
-        numBoutonRadio[1] = View.generateViewId();
-        numBoutonRadio[2] = View.generateViewId();
+                    Toast.makeText(QuizzBD.this, "Correct", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(QuizzBD.this, "Faux", Toast.LENGTH_SHORT).show();
+                    updateQuestion();
+                }
+            }
+        });
 
+        nButtonChoice3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        // affectation d’un id aux boutons radio afin de savoir lequel est selectionné
-        reponses[0].setId(numBoutonRadio[0]);
-        reponses[1].setId(numBoutonRadio[1]);
-        reponses[2].setId(numBoutonRadio[2]);
+                if (nButtonChoice3.getText() == nAnswer){
+                    nscore = nscore +1;
+                    updateScore(nscore);
+                    updateQuestion();
 
+                    Toast.makeText(QuizzBD.this, "Correct", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(QuizzBD.this, "Faux", Toast.LENGTH_SHORT).show();
+                    updateQuestion();
+                }
+            }
+        });
 
-        // gestion du bouton
-        result=(Button)this.findViewById(R.id.btn_valider);
-        result.setOnClickListener(this);
+        nButtonChoice4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                if (nButtonChoice4.getText() == nAnswer){
+                    nscore = nscore +1;
+                    updateScore(nscore);
+                    updateQuestion();
 
-        //lancement des questions….
-        rempQuestions(NumQuestionRecup);
+                    Toast.makeText(QuizzBD.this, "Correct", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(QuizzBD.this, "Faux", Toast.LENGTH_SHORT).show();
+                    updateQuestion();
+                }
+            }
+        });
     }
+private void updateQuestion(){
+        nQuestionView.setText(nQuizz.getQuestions(nQuestionNumber));
+        nButtonChoice1.setText(nQuizz.getChoices(nQuestionNumber));
+    nButtonChoice2.setText(nQuizz.getChoices2(nQuestionNumber));
+    nButtonChoice3.setText(nQuizz.getChoices3(nQuestionNumber));
+    nButtonChoice4.setText(nQuizz.getChoices4(nQuestionNumber));
 
-    private void rempQuestions(int unNumQ){
-        uneQuestion.setText("Qui joue " + questions[unNumQ][0] + " dans l'école des sorciers ?");
-        reponses[0].setText(questions[unNumQ][1]);
-        reponses[1].setText(questions[unNumQ][2]);
-        reponses[2].setText(questions[unNumQ][3]);
-        ensQuestions.addView(reponses[0]);
-        ensQuestions.addView(reponses[1]);
-        ensQuestions.addView(reponses[2]); }
-
-    @Override
-    public void onClick(View v) {
-        int retour = ensQuestions.getCheckedRadioButtonId();
-        //int bonneRep = Integer.parseInt(questions[numQuestion][4]);
-        int bonneRep = Integer.parseInt(questions[NumQuestionRecup][4]);
-        if(numBoutonRadio[bonneRep-1]==retour) {
-            Toast.makeText(this, "Réponse correcte", Toast.LENGTH_SHORT).show();
-        }
-        else{
-            Toast.makeText(this, "Réponse fausse, il fallait choisir : " + questions[NumQuestionRecup][bonneRep], Toast.LENGTH_SHORT).show();
-        }
+    nAnswer = nQuizz.getCorrectAnwer(nQuestionNumber);
+    nQuestionNumber++;
+}
 
 
-        if(NumQuestionRecup <  (questions.length-1)){
-            setResult(RESULT_OK, new Intent().putExtra("Numero",NumQuestionRecup));
-        }
-        else{
-            setResult(RESULT_CANCELED, new Intent());
-        }
-        finish();
-    }
+
+private  void updateScore(int a){
+        nScoreView.setText("" + nscore);
+}
+
+
 }
