@@ -139,48 +139,129 @@ public class Quizz extends AppCompatActivity {
                 num = 0;         }     } }*/
 
 
-        private String mquestions[] = {
-                "QUEL EST BLABLA ?",
-                "QUEL EST YOYOYAYA ?",
-                "QUI EST CE MEC?",};
+        private String bdquestions[] = {
+                "Dans la bande dessinée BOULE ET BILL, qui est Boule ?",
+                "Dans quel album Tintin fait-il la connaissance du Capitaine Haddock ?",
+                "Peyo est connu pour Les Schtroumpfs, mails il est aussi le créateur de...",
+                "Quel est le prénom du druide dans les albums Astérix ?",
+                "Quel personnage de bande dessinée aime particulièrement les lasagnes ?",
+                "Gaston Lagaffe est un fervent défenseur de la cause animale. Qui sont ses 2 plus fidèles compagnons ?",
+                "Comment s'appelle l'amoureuse de Titeuf ?",
+                "Dans la bande dessinée Pif et Hercule, qui est Pif ?",
+                "Comment s'intitule le dernier album d'Astérix ?",
+                "Qu'est-ce que le gaffophone ?",
+
+        };
+
+    private String mquestions[] = {
+            "Dans quel manga les personnages sont coincés sur une île ?",
+            "Comment s'appelle le personnage principal de Fairy Tail ?",
+            "Comment s'appelle le Pokémon de Sacha ?",
+            "Combien y a-t-il de boules de cristal dans Dragon Ball ?",
+            "Quel est le nom de ce personnage ?",
+            "Quel est le nom de ce personnage ?",
+            "Quel objet sert à capturer les Pokémon ?",
+            "Inazuma Eleven est un manga ayant comme thème principal :",
+            "One Piece est un manga ayant comme thème principal :",
+            "Comment s'appelle le personnage principal de Dragon Ball ? ",
+
+    };
+
+    private String cquestions[] = {
+            "Par quoi a été mordu Spiderman ?",
+            "Quel est le vrai nom de Superman ?",
+            "Dans quelle ville fictive vit Batman ?",
+            "Comment s'appelle l'acolyte de Batman ?",
+            "Quel est l'arme de Captain America ?\n",
+            "Quel est le super-pouvoir de Flash ?",
+            "Dans quoi vit Aquaman ?",
+            "Qui est la version maléfique de Spiderman ?",
+            "De quel royaume vient Thor ?\n",
+            "De quelle couleur est Hulk ?",
+
+    };
 
 
-        private String mChoices[][] = {
-                {"CE MEC", "CE TRUC", "CE GARS", "CETTE CHOSE"},
-                {"CE MAC", "CE TROC", "CE GORS", "CETTE CHISE"},
-                {"CE MIC", "CE TRIC", "CE GIRS", "CETTE CHUSE"},};
 
-        private String mCorrectAnswers[] = {"CE MEC", "CETTE CHISE", "CE TRIC"};
+
+
+        private String bdChoices[][] = {
+                {"Le gamin", "Le chien", "Le père", "La tortue"},
+                {"Le Secret de la licorne", "Le Crabe aux pinces d'or", "Le Trésor de Rackham le Rouge", "Le Sceptre d'Ottokar"},
+                {"Bob et Bobette", "Johan et Pirlouit", "Tif et Tondu", "Blake et Mortimer"},
+                {"Panoramix", "Abraracourcix", "Homéopatix", "Assurancetourix"},
+                {"Milou", "Fantasio", "Garfield", "Rantanplan"},
+                {"Un chat et un canari", "Une mouette et un chat", "Un chat et un chien", "Un canari et une mouette"},
+                {"Nadia", "Paula", "Célia", "Laura"},
+                {"Le chat", "Le chien", "La souris", "Le hérisson"},
+                {"Astérix le Gaulois", "Le Ciel lui tombe sur la tête", "Le papyrus de César", "Astérix et la Transitalique"},
+                {"Un téléphone", "Un instrument de musique", "Une fourgonnette", "Un animal"},
+
+        };
+
+    private String mChoices[][] = {
+            {"Naruto", "One Piece", "Dragon Ball", "Fairy Tail"},
+            {"Lucy", "Cana", "Natsu", "Grey"},
+            {"Sourichu", "Pikaro", "Souriclair", "Pikachu"},
+            {"5", "6", "7", "8"},
+            {"Franky", "Nami", "Luffy", "Baggy"},
+            {"Shino", "Naruto", "Kakashi", "Sasuke"},
+            {"Une Pokéboule", "Une Pokéboîte", "Une Pokéball", "Une Pokétupperware"},
+            {"Le Football", "Le Basket", "Le Rugby", "La Pétanque"},
+            {"Les animaux", "Les pirates", "Les fées", "Les robots"},
+            {"Vegeta", "Freezer", "Son Goku", "Piccolo"},
+
+    };
+
+    private String cChoices[][] = {
+            {"Un castor", "Un cheval", "Un chien", "Une araignée"},
+            {"Clark Kent", "Klark Cent", "Klarc Kainte", "Clarque Kent"},
+            {"Metropolis", "Gotham City", "Heliopoils", "Comicpolis"},
+            {"Martin", "Benjamin", "Antonin", "Robin"},
+            {"Une épée", "Un marteau", "Un bouclier", "Une massue"},
+            {"Il a une grande force", "Il lit dans les pensées", "Il court très vite", "Il fait léviter des objets"},
+            {"Dans l'air", "Dans l'eau", "Dans le feu", "Dans la terre"},
+            {"Venom", "SpiderTom", "Octopus", "Spiderbad"},
+            {"Asgrad", "Asgard", "Agsard", "Arsgad"},
+            {"Bleu", "Rouge", "Vert", "Orange"},
+
+    };
+
+        private String bdCorrectAnswers[] = {"Le gamin", "Le Crabe aux pinces d'or", "Johan et Pirlouit", "Panoramix", "Garfield", "Une mouette et un chat", "Nadia", "Le chien", "Astérix et la Transitalique", "Un instrument de musique"};
+
+        private String mCorrectAnswers[] = {"Fairy Tail", "Natsu", "Pikachu", "7", "Luffy", "Naruto", "Une Pokéball", "Le Football", "Les pirates", "Son Goku"};
+
+        private String cCorrectAnswers[] = {"Une araignée", "Clark Kent", "Gotham City", "Robin", "Un bouclier", "Il court très vite", "Dans l'eau", "Venom", "Asgard", "Vert"};
 
 
         public String getQuestions ( int a){
-            String question = mquestions[a];
+            String question = bdquestions[a];
             return question;
         }
 
         public String getChoices ( int a){
-            String choices0 = mChoices[a][0];
+            String choices0 = bdChoices[a][0];
             return choices0;
         }
 
         public String getChoices2 ( int a){
-            String choice1 = mChoices[a][1];
+            String choice1 = bdChoices[a][1];
             return choice1;
         }
 
 
         public String getChoices3 ( int a){
-            String choice2 = mChoices[a][2];
+            String choice2 = bdChoices[a][2];
             return choice2;
         }
 
         public String getChoices4 ( int a){
-            String choice3 = mChoices[a][3];
+            String choice3 = bdChoices[a][3];
             return choice3;
         }
 
         public String getCorrectAnwer ( int a){
-            String answer = mCorrectAnswers[a];
+            String answer = bdCorrectAnswers[a];
             return answer;
         }
 
