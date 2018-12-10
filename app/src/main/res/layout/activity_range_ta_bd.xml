@@ -84,7 +84,7 @@
         android:layout_height="255dp"
         android:layout_marginTop="108dp"
         android:layout_marginEnd="8dp"
-        android:background="@mipmap/mg1"
+        android:background="@color/blanc"
         android:scaleType="fitCenter"
         android:visibility="visible"
         app:layout_constraintEnd_toStartOf="@+id/img2"
@@ -99,7 +99,7 @@
         android:layout_height="255dp"
         android:layout_marginTop="108dp"
         android:layout_marginEnd="88dp"
-        android:background="@mipmap/mg2"
+        android:background="@color/blanc"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -111,7 +111,7 @@
         android:layout_height="256dp"
         android:layout_marginEnd="88dp"
         android:layout_marginBottom="80dp"
-        android:background="@mipmap/mg4"
+        android:background="@color/blanc"
         android:visibility="visible"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -124,7 +124,7 @@
         android:layout_height="255dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="80dp"
-        android:background="@mipmap/mg3"
+        android:background="@color/blanc"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/img4"
@@ -150,21 +150,6 @@
         app:layout_constraintVertical_bias="0.488"
         tools:text="  Range ta BD !  " />
 
-    <TextView
-        android:id="@+id/txtView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:background="@color/blancgris"
-        android:fontFamily="@font/adventure"
-        android:text="  Range ta BD !  "
-        android:textColor="@color/noir"
-        android:textSize="60sp"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="  Range ta BD !  " />
-
     <Button
         android:id="@+id/btn_valider"
         android:layout_width="225dp"
@@ -186,14 +171,12 @@
         android:layout_height="66dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="12dp"
         android:background="@drawable/bouton_arrondie"
         android:text="LANCER"
         android:textSize="45sp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
@@ -206,7 +189,7 @@
         android:background="@drawable/bouton_arrondie"
         android:text="SUIVANT"
         android:textSize="45sp"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.884"

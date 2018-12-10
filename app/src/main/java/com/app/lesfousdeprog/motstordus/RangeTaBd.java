@@ -33,7 +33,6 @@ import java.util.Random;
 public class RangeTaBd extends AppCompatActivity {
 
     ImageView img1, img2, img3, img4, imgFond;
-    TextView txtView2;
     Button valider, lancer,suivant;
     LinearLayout rect1, rect2, rect3, rect4;
     int visibilite = 0;
@@ -51,7 +50,8 @@ public class RangeTaBd extends AppCompatActivity {
     private List<Float> listPosY;
     private List<Integer> spiderman;
     private List<List<Integer>> listImg;
-public int score=0;
+    public int score=0;
+    public int listNum=0;
 
     @Override
 
@@ -72,19 +72,19 @@ public int score=0;
         valider = (Button) findViewById(R.id.btn_valider);
         lancer = (Button) findViewById(R.id.btn_lancer);
         suivant = (Button) findViewById(R.id.btn_suivant);
-        txtView2 = (TextView) findViewById(R.id.txtView2);
         img1.setOnLongClickListener(longClickListener);
         img2.setOnLongClickListener(longClickListener);
         img3.setOnLongClickListener(longClickListener);
         img4.setOnLongClickListener(longClickListener);
         lancer.setOnClickListener(clickListener);
         valider.setOnClickListener(clickListenerValider);
-        suivant.setOnClickListener(clickListener2);
+        suivant.setOnClickListener(clickListener);
+        valider.setVisibility(View.INVISIBLE);
         img1.setOnDragListener(listenerimg1);
         img2.setOnDragListener(listenerimg2);
         img3.setOnDragListener(listenerimg3);
         img4.setOnDragListener(listenerimg4);
-
+        suivant.setVisibility(View.INVISIBLE);
     }
 
 //region onclicklistener
@@ -477,9 +477,13 @@ public int score=0;
     };
     //endregion
 //region click Listener
+
     View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            valider.setVisibility(View.VISIBLE);
+            lancer.setVisibility(View.INVISIBLE);
+            suivant.setVisibility(View.INVISIBLE);
             xImg1 = img1.getX();
             yImg1 = img1.getY();//prend position de l'image 1 à temps =0
             xImg2 = img2.getX();
@@ -552,12 +556,11 @@ public int score=0;
             img3.setX(listPosX.get(i3));
             img4.setY(listPosY.get(i4));
             img4.setX(listPosX.get(i4));
-            txtView2.setText(i1 + " " + i2 + " " + i3 + " " + i4);
 
-            img1.setImageResource(listImg.get(score).get(0));
-            img2.setImageResource(listImg.get(score).get(1));
-            img3.setImageResource(listImg.get(score).get(2));
-            img4.setImageResource(listImg.get(score).get(3));
+            img1.setImageResource(listImg.get(listNum).get(0));
+            img2.setImageResource(listImg.get(listNum).get(1));
+            img3.setImageResource(listImg.get(listNum).get(2));
+            img4.setImageResource(listImg.get(listNum).get(3));
 
             rect1.setVisibility(View.INVISIBLE);
             rect2.setVisibility(View.INVISIBLE);
@@ -613,20 +616,24 @@ public int score=0;
             }
 
             if (boolImg1 == true && boolImg2 == true && boolImg3 == true && boolImg4 == true) {
-                txtView2.setText("Bravo t'as win gg a toi t le besta mon giga bro");
-            }
+                suivant.setVisibility(View.VISIBLE);
+                if (listNum<6) {
+                    ajouterNumListe();
+                }
+                if(listNum==6){
+                    suivant.setVisibility(View.INVISIBLE);
+                }
 
+            }
 
         }
     };
     //endregion
-    View.OnClickListener clickListener2 = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            score=score+1;
-        }
 
-    };
+    public void ajouterNumListe(){
+        listNum=listNum+1;
+
+    }
 
 }
 
