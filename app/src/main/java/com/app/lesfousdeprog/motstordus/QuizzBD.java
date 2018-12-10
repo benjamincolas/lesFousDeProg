@@ -207,13 +207,13 @@ public class QuizzBD extends AppCompatActivity{
         });
     }
 private void updateQuestion(){
-        nQuestionView.setText(nQuizz.getQuestions(nQuestionNumber));
-        nButtonChoice1.setText(nQuizz.getChoices(nQuestionNumber));
-    nButtonChoice2.setText(nQuizz.getChoices2(nQuestionNumber));
-    nButtonChoice3.setText(nQuizz.getChoices3(nQuestionNumber));
-    nButtonChoice4.setText(nQuizz.getChoices4(nQuestionNumber));
+        nQuestionView.setText(nQuizz.getQuestionsbd(nQuestionNumber));
+        nButtonChoice1.setText(nQuizz.getChoicesbd(nQuestionNumber));
+    nButtonChoice2.setText(nQuizz.getChoices2bd(nQuestionNumber));
+    nButtonChoice3.setText(nQuizz.getChoices3bd(nQuestionNumber));
+    nButtonChoice4.setText(nQuizz.getChoices4bd(nQuestionNumber));
 
-    nAnswer = nQuizz.getCorrectAnwer(nQuestionNumber);
+    nAnswer = nQuizz.getCorrectAnwerbd(nQuestionNumber);
     nQuestionNumber++;
 }
 

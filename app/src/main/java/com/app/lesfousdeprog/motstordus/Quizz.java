@@ -52,7 +52,7 @@ public class Quizz extends AppCompatActivity {
             }
         });
 
-       /* btn_retour = (Button) this.findViewById(R.id.btn_retour);
+        /*btn_retour = (Button) this.findViewById(R.id.btn_retour);
         btn_retour.setOnClickListener(new View.OnClickListener() {
             //@Override
             public void onClick(View view) {
@@ -172,11 +172,11 @@ public class Quizz extends AppCompatActivity {
             "Quel est le vrai nom de Superman ?",
             "Dans quelle ville fictive vit Batman ?",
             "Comment s'appelle l'acolyte de Batman ?",
-            "Quel est l'arme de Captain America ?\n",
+            "Quel est l'arme de Captain America ?",
             "Quel est le super-pouvoir de Flash ?",
             "Dans quoi vit Aquaman ?",
             "Qui est la version maléfique de Spiderman ?",
-            "De quel royaume vient Thor ?\n",
+            "De quel royaume vient Thor ?",
             "De quelle couleur est Hulk ?",
 
     };
@@ -234,69 +234,95 @@ public class Quizz extends AppCompatActivity {
         private String cCorrectAnswers[] = {"Une araignée", "Clark Kent", "Gotham City", "Robin", "Un bouclier", "Il court très vite", "Dans l'eau", "Venom", "Asgard", "Vert"};
 
 
-        public String getQuestions ( int a){
+        public String getQuestionsbd ( int a){
             String question = bdquestions[a];
             return question;
         }
 
-        public String getChoices ( int a){
+    public String getQuestionsm ( int a){
+        String question = mquestions[a];
+        return question;
+    }
+
+    public String getQuestionsc ( int a){
+        String question = cquestions[a];
+        return question;
+    }
+
+        public String getChoicesbd ( int a){
             String choices0 = bdChoices[a][0];
             return choices0;
         }
 
-        public String getChoices2 ( int a){
+        public String getChoices2bd ( int a){
             String choice1 = bdChoices[a][1];
             return choice1;
         }
 
 
-        public String getChoices3 ( int a){
+        public String getChoices3bd ( int a){
             String choice2 = bdChoices[a][2];
             return choice2;
         }
 
-        public String getChoices4 ( int a){
+        public String getChoices4bd ( int a){
             String choice3 = bdChoices[a][3];
             return choice3;
         }
 
-        public String getCorrectAnwer ( int a){
+        public String getCorrectAnwerbd ( int a){
             String answer = bdCorrectAnswers[a];
             return answer;
         }
+    public String getChoicesm ( int a){
+        String choices0 = mChoices[a][0];
+        return choices0;
+    }
+
+    public String getChoices2m ( int a){
+        String choice1 = mChoices[a][1];
+        return choice1;
+    }
 
 
+    public String getChoices3m ( int a){
+        String choice2 = mChoices[a][2];
+        return choice2;
+    }
+
+    public String getChoices4m ( int a){
+        String choice3 = mChoices[a][3];
+        return choice3;
+    }
+
+    public String getCorrectAnwerm ( int a){
+        String answer = mCorrectAnswers[a];
+        return answer;
+    }
+    public String getChoicesc ( int a){
+        String choices0 = cChoices[a][0];
+        return choices0;
+    }
+
+    public String getChoices2c ( int a){
+        String choice1 = cChoices[a][1];
+        return choice1;
+    }
 
 
+    public String getChoices3c ( int a){
+        String choice2 = cChoices[a][2];
+        return choice2;
+    }
 
+    public String getChoices4c ( int a){
+        String choice3 = cChoices[a][3];
+        return choice3;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public String getCorrectAnwerc ( int a){
+        String answer = cCorrectAnswers[a];
+        return answer;
+    }
 
 }

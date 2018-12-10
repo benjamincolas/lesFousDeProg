@@ -31,7 +31,7 @@ public class QuizzComics extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quizz_comics);
+        setContentView(R.layout.activity_quizz_bd);
 
         nScoreView = (TextView)findViewById(R.id.score);
         nQuestionView =(TextView)findViewById(R.id.txt_qu);
@@ -112,13 +112,13 @@ public class QuizzComics extends AppCompatActivity {
         });
     }
     private void updateQuestion(){
-        nQuestionView.setText(nQuizz.getQuestions(nQuestionNumber));
-        nButtonChoice1.setText(nQuizz.getChoices(nQuestionNumber));
-        nButtonChoice2.setText(nQuizz.getChoices2(nQuestionNumber));
-        nButtonChoice3.setText(nQuizz.getChoices3(nQuestionNumber));
-        nButtonChoice4.setText(nQuizz.getChoices4(nQuestionNumber));
+        nQuestionView.setText(nQuizz.getQuestionsc(nQuestionNumber));
+        nButtonChoice1.setText(nQuizz.getChoicesc(nQuestionNumber));
+        nButtonChoice2.setText(nQuizz.getChoices2c(nQuestionNumber));
+        nButtonChoice3.setText(nQuizz.getChoices3c(nQuestionNumber));
+        nButtonChoice4.setText(nQuizz.getChoices4c(nQuestionNumber));
 
-        nAnswer = nQuizz.getCorrectAnwer(nQuestionNumber);
+        nAnswer = nQuizz.getCorrectAnwerc(nQuestionNumber);
         nQuestionNumber++;
     }
 
