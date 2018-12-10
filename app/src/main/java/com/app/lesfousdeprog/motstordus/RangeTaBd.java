@@ -16,6 +16,7 @@ import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.DragEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -50,7 +51,7 @@ public class RangeTaBd extends AppCompatActivity {
     private List<Float> listPosY;
     private List<Integer> spiderman;
     private List<List<Integer>> listImg;
-    public int score=0;
+    public int vie =0;
     public int listNum=0;
 
     @Override
@@ -72,10 +73,10 @@ public class RangeTaBd extends AppCompatActivity {
         valider = (Button) findViewById(R.id.btn_valider);
         lancer = (Button) findViewById(R.id.btn_lancer);
         suivant = (Button) findViewById(R.id.btn_suivant);
-        img1.setOnLongClickListener(longClickListener);
-        img2.setOnLongClickListener(longClickListener);
-        img3.setOnLongClickListener(longClickListener);
-        img4.setOnLongClickListener(longClickListener);
+        img1.setOnTouchListener(onTouchListener);
+        img2.setOnTouchListener(onTouchListener);
+        img3.setOnTouchListener(onTouchListener);
+        img4.setOnTouchListener(onTouchListener);
         lancer.setOnClickListener(clickListener);
         valider.setOnClickListener(clickListenerValider);
         suivant.setOnClickListener(clickListener);
@@ -85,18 +86,21 @@ public class RangeTaBd extends AppCompatActivity {
         img3.setOnDragListener(listenerimg3);
         img4.setOnDragListener(listenerimg4);
         suivant.setVisibility(View.INVISIBLE);
+
     }
 
 //region onclicklistener
-    View.OnLongClickListener longClickListener = new View.OnLongClickListener() {
-        @Override
-        public boolean onLongClick(View view) { //quand on fait un long click
-            ClipData data = ClipData.newPlainText("", "");
-            View.DragShadowBuilder myShadow = new View.DragShadowBuilder(view);
-            view.startDrag(data, myShadow, view, 0); // crée l'ombre de l'image quand long click
-            return true;
-        }
-    };
+
+  View.OnTouchListener onTouchListener = new View.OnTouchListener(){
+
+      @Override
+      public boolean onTouch(View view, MotionEvent motionEvent) {
+          ClipData data = ClipData.newPlainText("", "");
+          View.DragShadowBuilder myShadow = new View.DragShadowBuilder(view);
+          view.startDrag(data, myShadow, view, 0); // crée l'ombre de l'image quand click
+          return true;
+      }
+  };
     //endregion
 //region dragListener
     View.OnDragListener dragListener = new View.OnDragListener() {
@@ -128,16 +132,16 @@ public class RangeTaBd extends AppCompatActivity {
 
             switch (dragEvent) {
                 case DragEvent.ACTION_DRAG_ENTERED: // si on entre dans l'image 1 fait un prévisualisation de sa place si on le drop
-                    if (boolImg1 == false) {
+                    if (boolImg1 == false) { // si il n'est pas validé
                         if (vData.getId() == R.id.img2) {
                             x = vData.getX();
                             y = vData.getY();
-
                             vData.setX(img1.getX());
                             vData.setY(img1.getY());
                             img1.setX(x);
                             img1.setY(y);
-                        } else if (vData.getId() == R.id.img3) {
+                        }
+                        else if (vData.getId() == R.id.img3) {
                             x = vData.getX();
                             y = vData.getY();
 
@@ -145,7 +149,8 @@ public class RangeTaBd extends AppCompatActivity {
                             vData.setY(img1.getY());
                             img1.setX(x);
                             img1.setY(y);
-                        } else if (vData.getId() == R.id.img4) {
+                        }
+                        else if (vData.getId() == R.id.img4) {
                             y = vData.getY();
                             x = vData.getX();
                             vData.setY(img1.getY());
@@ -172,7 +177,7 @@ public class RangeTaBd extends AppCompatActivity {
                     break;
                 case DragEvent.ACTION_DROP:
                     if (boolImg1 == false) {
-                        if (vData.getId() == R.id.img1) { // si l'image drag est l'img 1
+                        /*if (vData.getId() == R.id.img1) { // si l'image drag est l'img 1
                             x = vData.getX(); // prend le x de l'image drag
                             y = vData.getY(); // prend le y
 //
@@ -181,13 +186,16 @@ public class RangeTaBd extends AppCompatActivity {
                             img1.setX(x);
                             img1.setY(y); // envoie l'img 1 sur la pos de l'img drop
 
-                        } else if (vData.getId() == R.id.img2) {
+                        }*/
+                        if (vData.getId() == R.id.img2) {
+
                             x = vData.getX();
                             y = vData.getY();
                             vData.setX(img1.getX());
                             vData.setY(img1.getY());
                             img1.setX(x);
                             img1.setY(y);
+
                         } else if (vData.getId() == R.id.img3) {
                             x = vData.getX();
                             y = vData.getY();
@@ -570,10 +578,10 @@ public class RangeTaBd extends AppCompatActivity {
             boolImg2 = false;
             boolImg3 = false;
             boolImg4 = false;
-            img1.setLongClickable(true);
-            img2.setLongClickable(true);
-            img3.setLongClickable(true);
-            img4.setLongClickable(true);
+            img1.setFocusable(true);
+            img2.setClickable(false);
+            img3.setClickable(true);
+            img4.setClickable(true);
 
 
         }
@@ -589,7 +597,7 @@ public class RangeTaBd extends AppCompatActivity {
 
             if (img1.getX() == xImg1 && img1.getY() == yImg1) {
                 boolImg1 = true;
-                img1.setLongClickable(false);
+                //img1.set(false);
 
                 rect1.setVisibility(View.VISIBLE);
             }
@@ -598,21 +606,22 @@ public class RangeTaBd extends AppCompatActivity {
 
                 rect2.setVisibility((View.VISIBLE));
                 boolImg2 = true;
-                img2.setLongClickable(false);
+                img2.setClickable(false);
             }
 
             if (img3.getX() == xImg3 && img3.getY() == yImg3) {
 
                 rect3.setVisibility((View.VISIBLE));
                 boolImg3 = true;
-                img3.setLongClickable(false);
+                img3.setClickable(false);
             }
 
             if (img4.getX() == xImg4 && img4.getY() == yImg4) {
 
                 rect4.setVisibility((View.VISIBLE));
                 boolImg4 = true;
-                img4.setLongClickable(false);
+                img4.setClickable(false);
+
             }
 
             if (boolImg1 == true && boolImg2 == true && boolImg3 == true && boolImg4 == true) {
