@@ -246,7 +246,7 @@
 
         android:layout_marginEnd="61dp"
         android:layout_marginBottom="26dp"
-        android:background="@color/vert"
+        android:background="@color/blancgris"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/btn_valider"
         app:layout_constraintEnd_toStartOf="@+id/imgbulle"
@@ -263,10 +263,22 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="283dp"
-            android:layout_marginEnd="278dp"
-            android:layout_marginBottom="21dp"
-            android:text="Button" />
+            android:layout_marginStart="90dp"
+            android:layout_marginEnd="471dp"
+            android:layout_marginBottom="19dp"
+            android:text="RETOUR" />
+
+        <Button
+            android:id="@+id/btnlayoutdefrecommencer"
+            android:layout_width="148dp"
+            android:layout_height="72dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="448dp"
+            android:layout_marginEnd="113dp"
+            android:layout_marginBottom="20dp"
+            android:text="RECOMMENCER" />
 
         <ImageView
             android:id="@+id/imglayoutdef"
@@ -299,19 +311,19 @@
     <RelativeLayout
         android:id="@+id/layoutvic"
         android:layout_width="711dp"
-        android:layout_height="582dp"
+        android:layout_height="646dp"
         android:layout_marginStart="512dp"
         android:layout_marginTop="29dp"
         android:layout_marginEnd="61dp"
         android:layout_marginBottom="26dp"
-        android:background="@color/rouge"
+        android:background="@color/blancgris"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/btn_valider"
         app:layout_constraintEnd_toStartOf="@+id/imgbulle"
-        app:layout_constraintHorizontal_bias="0.539"
+        app:layout_constraintHorizontal_bias="0.578"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtViewTitre"
-        app:layout_constraintVertical_bias="0.982"
+        app:layout_constraintVertical_bias="0.991"
         tools:ignore="MissingConstraints">
 
         <Button
@@ -324,7 +336,7 @@
             android:layout_marginStart="283dp"
             android:layout_marginEnd="278dp"
             android:layout_marginBottom="21dp"
-            android:text="Button" />
+            android:text="RETOUR" />
 
         <ImageView
             android:id="@+id/imglayoutvic"
@@ -346,11 +358,42 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="150dp"
-            android:layout_marginBottom="120dp"
+            android:layout_marginBottom="102dp"
             android:text="T ARCHI FORT"
             android:textColor="@color/vert"
             android:textSize="60dp"
 
             tools:text="T ARCHI NAZE" />
+
+        <ImageView
+            android:id="@+id/imgetoile1"
+            android:layout_width="86dp"
+            android:layout_height="78dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="220dp"
+            android:layout_marginBottom="259dp"
+            android:src="@mipmap/etoilevide" />
+
+        <ImageView
+            android:id="@+id/imgetoile2"
+            android:layout_width="86dp"
+            android:layout_height="78dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="328dp"
+            android:layout_marginBottom="257dp"
+            android:src="@mipmap/etoilevide" />
+
+        <ImageView
+            android:id="@+id/imgetoile3"
+            android:layout_width="86dp"
+            android:layout_height="78dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="437dp"
+            android:layout_marginBottom="256dp"
+            android:src="@mipmap/etoilevide" />
+
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

@@ -1,46 +1,35 @@
 package com.app.lesfousdeprog.motstordus;
 
 import android.annotation.SuppressLint;
-import android.app.LauncherActivity;
 import android.content.ClipData;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.drawable.BitmapDrawable;
-import android.media.Image;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.content.pm.ActivityInfo;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
+import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
-import java.util.BitSet;
 import java.util.List;
 import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class RangeTaBd extends AppCompatActivity {
 
-    ImageView img1, img2, img3, img4, imgFond, imgCoeurGauche,imgCoeurDroite;
-    Button valider, lancer,suivant;
+    ImageView img1, img2, img3, img4, imgFond, imgCoeurGauche,imgCoeurDroite,img1etoile,img2etoile,img3etoile,imglayoutdef,imglayoutvic;
+    Button valider, lancer,suivant,btn_layoutvic,btn_layoutdef,btnlayoutdefrecommencer;
     LinearLayout rect1, rect2, rect3, rect4;
+    TextView txtviewlayoutvic,txtviewlayoutdef;
     RelativeLayout layoutdef,layoutvic;
 
     private int vie=2;
@@ -49,9 +38,8 @@ public class RangeTaBd extends AppCompatActivity {
     private boolean boolImg2 = false;
     private boolean boolImg3 = false;
     private boolean boolImg4 = false;
-
     Handler handler = new Handler();
-
+    private int nombreFautes=0;
     float y;
     float x;
     private float xImg1, xImg2, xImg3, xImg4;
@@ -74,9 +62,16 @@ public class RangeTaBd extends AppCompatActivity {
         img2 = (ImageView) findViewById(R.id.img2);
         img3 = (ImageView) findViewById(R.id.img3);
         img4 = (ImageView) findViewById(R.id.img4);
+        imglayoutdef = (ImageView) findViewById(R.id.imglayoutdef);
+        imglayoutvic = (ImageView) findViewById(R.id.imglayoutvic);
+        txtviewlayoutvic= (TextView) findViewById(R.id.txtviewlayoutvic);
+        txtviewlayoutdef= (TextView) findViewById(R.id.txtviewlayoutdef);
         imgCoeurGauche = (ImageView) findViewById(R.id.imgcoeurgauche);
         imgCoeurDroite = (ImageView) findViewById(R.id.imgcoeurdroit);
         imgFond = (ImageView) findViewById(R.id.imgfondblancgris);
+        img3etoile = (ImageView) findViewById(R.id.imgetoile3);
+        img2etoile = (ImageView) findViewById(R.id.imgetoile2);
+        img1etoile = (ImageView) findViewById(R.id.imgetoile1);
         rect1 = (LinearLayout) findViewById(R.id.rect1);
         rect2 = (LinearLayout) findViewById(R.id.rect2);
         rect3 = (LinearLayout) findViewById(R.id.rect3);
@@ -86,6 +81,9 @@ public class RangeTaBd extends AppCompatActivity {
         valider = (Button) findViewById(R.id.btn_valider);
         lancer = (Button) findViewById(R.id.btn_lancer);
         suivant = (Button) findViewById(R.id.btn_suivant);
+        btn_layoutvic = (Button) findViewById(R.id.btnlayoutvic);
+        btn_layoutdef = (Button) findViewById(R.id.btnlayoutdef);
+        btnlayoutdefrecommencer = (Button) findViewById(R.id.btnlayoutdefrecommencer);
         img1.setOnTouchListener(onTouchListener);
         img2.setOnTouchListener(onTouchListener);
         img3.setOnTouchListener(onTouchListener);
@@ -93,6 +91,7 @@ public class RangeTaBd extends AppCompatActivity {
         lancer.setOnClickListener(clickListener);
         valider.setOnClickListener(clickListenerValider);
         suivant.setOnClickListener(clickListener);
+        btnlayoutdefrecommencer.setOnClickListener(clickListener);
         valider.setVisibility(View.INVISIBLE);
         img1.setOnDragListener(listenerimg1);
         img2.setOnDragListener(listenerimg2);
@@ -698,12 +697,14 @@ public class RangeTaBd extends AppCompatActivity {
                 }
                 if(listNum==6){
                     suivant.setVisibility(View.INVISIBLE);
+                    nbEtoile();
                     Runnable runnable = new Runnable() {
                         public void run() {
                             layoutvic.setVisibility(View.VISIBLE);
                         }
                     };
-                    handler.postDelayed(runnable, 700);
+                    handler.postDelayed(runnable, 500);
+
 
 
 
@@ -712,8 +713,9 @@ public class RangeTaBd extends AppCompatActivity {
             }
             else{
                 vie=vie-1;
-               vie();
-                valider.setText("sasa "+vie+" ");
+                nombreFautes=nombreFautes+1;
+                vie();
+                valider.setText("sasa "+nombreFautes+" ");
 
 
             }
@@ -736,18 +738,38 @@ public class RangeTaBd extends AppCompatActivity {
         imgCoeurDroite.setImageResource(R.mipmap.coeurvide);
         }
         if(vie==0) {
-
+            txtviewlayoutdef.setText("Tocard");
             imgCoeurGauche.setImageResource(R.mipmap.coeurvide);
             Runnable runnable = new Runnable() {
                 public void run() {
 
-                    //layoutdef.setVisibility(View.VISIBLE);
+                    layoutdef.setVisibility(View.VISIBLE);
                 }
             };
-            handler.postDelayed(runnable, 700);
+            handler.postDelayed(runnable, 500);
 
         }
 
+        }
+        public void nbEtoile(){
+
+        if (nombreFautes<=1){
+           img1etoile.setImageResource(R.mipmap.etoile);
+            img2etoile.setImageResource(R.mipmap.etoile);
+            img3etoile.setImageResource(R.mipmap.etoile);
+            txtviewlayoutvic.setText("T'es le boss enfaite");
+        }
+
+        if (nombreFautes==2 || nombreFautes==3){
+            img1etoile.setImageResource(R.mipmap.etoile);
+            img2etoile.setImageResource(R.mipmap.etoile);
+            txtviewlayoutvic.setText("T'es moyen enfaite");
+            }
+
+         if (nombreFautes>3){
+             img1etoile.setImageResource(R.mipmap.etoile);
+             txtviewlayoutvic.setText("T'es naze enfaite");
+            }
         }
 
     }
