@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
 import android.media.Image;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -21,27 +22,35 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.List;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class RangeTaBd extends AppCompatActivity {
 
-    ImageView img1, img2, img3, img4, imgFond;
+    ImageView img1, img2, img3, img4, imgFond, imgCoeurGauche,imgCoeurDroite;
     Button valider, lancer,suivant;
     LinearLayout rect1, rect2, rect3, rect4;
-    int visibilite = 0;
-    int test = 1;
+    RelativeLayout layoutdef,layoutvic;
+
+    private int vie=2;
+
     private boolean boolImg1 = false;
     private boolean boolImg2 = false;
     private boolean boolImg3 = false;
     private boolean boolImg4 = false;
+
+    Handler handler = new Handler();
 
     float y;
     float x;
@@ -51,7 +60,7 @@ public class RangeTaBd extends AppCompatActivity {
     private List<Float> listPosY;
     private List<Integer> spiderman;
     private List<List<Integer>> listImg;
-    public int vie =0;
+
     public int listNum=0;
 
     @Override
@@ -65,11 +74,15 @@ public class RangeTaBd extends AppCompatActivity {
         img2 = (ImageView) findViewById(R.id.img2);
         img3 = (ImageView) findViewById(R.id.img3);
         img4 = (ImageView) findViewById(R.id.img4);
+        imgCoeurGauche = (ImageView) findViewById(R.id.imgcoeurgauche);
+        imgCoeurDroite = (ImageView) findViewById(R.id.imgcoeurdroit);
         imgFond = (ImageView) findViewById(R.id.imgfondblancgris);
         rect1 = (LinearLayout) findViewById(R.id.rect1);
         rect2 = (LinearLayout) findViewById(R.id.rect2);
         rect3 = (LinearLayout) findViewById(R.id.rect3);
         rect4 = (LinearLayout) findViewById(R.id.rect4);
+        layoutdef = (RelativeLayout) findViewById(R.id.layoutdef);
+        layoutvic = (RelativeLayout) findViewById(R.id.layoutvic);
         valider = (Button) findViewById(R.id.btn_valider);
         lancer = (Button) findViewById(R.id.btn_lancer);
         suivant = (Button) findViewById(R.id.btn_suivant);
@@ -87,6 +100,7 @@ public class RangeTaBd extends AppCompatActivity {
         img4.setOnDragListener(listenerimg4);
         suivant.setVisibility(View.INVISIBLE);
 
+
     }
 
 //region onclicklistener
@@ -97,7 +111,7 @@ public class RangeTaBd extends AppCompatActivity {
       public boolean onTouch(View view, MotionEvent motionEvent) {
           ClipData data = ClipData.newPlainText("", "");
           View.DragShadowBuilder myShadow = new View.DragShadowBuilder(view);
-          view.startDrag(data, myShadow, view, 0); // crée l'ombre de l'image quand click
+          view.startDragAndDrop(data, myShadow, view, 0); // crée l'ombre de l'image quand click
           return true;
       }
   };
@@ -133,39 +147,48 @@ public class RangeTaBd extends AppCompatActivity {
             switch (dragEvent) {
                 case DragEvent.ACTION_DRAG_ENTERED: // si on entre dans l'image 1 fait un prévisualisation de sa place si on le drop
                     if (boolImg1 == false) { // si il n'est pas validé
-                        if (vData.getId() == R.id.img2) {
-                            x = vData.getX();
-                            y = vData.getY();
-                            vData.setX(img1.getX());
-                            vData.setY(img1.getY());
-                            img1.setX(x);
-                            img1.setY(y);
+                        if (vData.getId() == R.id.img2) { // si c'est l'img 2 qui entre dans la 1
+                            if (boolImg2==false) {
+
+                                x = vData.getX();
+                                y = vData.getY();
+                                vData.setX(img1.getX());
+                                vData.setY(img1.getY());
+                                img1.setX(x);
+                                img1.setY(y);
+                            }
                         }
                         else if (vData.getId() == R.id.img3) {
-                            x = vData.getX();
-                            y = vData.getY();
+                            if (boolImg3==false){
+                                x = vData.getX();
+                                y = vData.getY();
 
-                            vData.setX(img1.getX());
-                            vData.setY(img1.getY());
-                            img1.setX(x);
-                            img1.setY(y);
+                                vData.setX(img1.getX());
+                                vData.setY(img1.getY());
+                                img1.setX(x);
+                                img1.setY(y);}
+
                         }
                         else if (vData.getId() == R.id.img4) {
-                            y = vData.getY();
-                            x = vData.getX();
-                            vData.setY(img1.getY());
-                            vData.setX(img1.getX());
-                            img1.setY(y);
-                            img1.setX(x);
+                            if (boolImg4==false) {
+                                y = vData.getY();
+                                x = vData.getX();
+                                vData.setY(img1.getY());
+                                vData.setX(img1.getX());
+                                img1.setY(y);
+                                img1.setX(x);
+                            }
 
                         }
                         else if (vData.getId() == R.id.img1) {
-                            y = vData.getY();
-                            x = vData.getX();
-                            vData.setY(img1.getY());
-                            vData.setX(img1.getX());
-                            img1.setY(y);
-                            img1.setX(x);
+
+                                y = vData.getY();
+                                x = vData.getX();
+                                vData.setY(img1.getY());
+                                vData.setX(img1.getX());
+                                img1.setY(y);
+                                img1.setX(x);
+
 
                         }
                     }
@@ -188,30 +211,36 @@ public class RangeTaBd extends AppCompatActivity {
 
                         }*/
                         if (vData.getId() == R.id.img2) {
-
-                            x = vData.getX();
-                            y = vData.getY();
-                            vData.setX(img1.getX());
-                            vData.setY(img1.getY());
-                            img1.setX(x);
-                            img1.setY(y);
+                            if (boolImg3==false) {
+                                x = vData.getX();
+                                y = vData.getY();
+                                vData.setX(img1.getX());
+                                vData.setY(img1.getY());
+                                img1.setX(x);
+                                img1.setY(y);
+                            }
 
                         } else if (vData.getId() == R.id.img3) {
-                            x = vData.getX();
-                            y = vData.getY();
+                            if (boolImg3==false) {
 
-                            vData.setX(img1.getX());
-                            vData.setY(img1.getY());
-                            img1.setX(x);
-                            img1.setY(y);
+                                x = vData.getX();
+                                y = vData.getY();
+
+                                vData.setX(img1.getX());
+                                vData.setY(img1.getY());
+                                img1.setX(x);
+                                img1.setY(y);
+                            }
                         } else if (vData.getId() == R.id.img4) {
-                            y = vData.getY();
-                            x = vData.getX();
-                            vData.setY(img1.getY());
-                            vData.setX(img1.getX());
-                            img1.setY(y);
-                            img1.setX(x);
+                            if (boolImg4==false) {
 
+                                y = vData.getY();
+                                x = vData.getX();
+                                vData.setY(img1.getY());
+                                vData.setX(img1.getX());
+                                img1.setY(y);
+                                img1.setX(x);
+                            }
                         }
 
                         break;
@@ -233,31 +262,37 @@ public class RangeTaBd extends AppCompatActivity {
             switch (dragEvent) {
                 case DragEvent.ACTION_DRAG_ENTERED:// si on entre dans l'image 1 fait un prévisualisation de sa place si on le drop
                     if (boolImg2 == false) {
-                        if (vData.getId() == R.id.img1) {
+
+                            if (vData.getId() == R.id.img1) {
+                                if(boolImg1==false){
                             x = vData.getX();
                             y = vData.getY();
 
                             vData.setX(img2.getX());
                             vData.setY(img2.getY());
                             img2.setX(x);
-                            img2.setY(y);
+                            img2.setY(y);}
+
 
                         } else if (vData.getId() == R.id.img3) {
-                            x = vData.getX();
-                            y = vData.getY();
+                                if (boolImg3==false) {
+                                    x = vData.getX();
+                                    y = vData.getY();
 
-                            vData.setX(img2.getX());
-                            vData.setY(img2.getY());
-                            img2.setX(x);
-                            img2.setY(y);
+                                    vData.setX(img2.getX());
+                                    vData.setY(img2.getY());
+                                    img2.setX(x);
+                                    img2.setY(y);
+                                }
                         } else if (vData.getId() == R.id.img4) {
-                            y = vData.getY();
-                            x = vData.getX();
-                            vData.setY(img2.getY());
-                            vData.setX(img2.getX());
-                            img2.setY(y);
-                            img2.setX(x);
-
+                                if (boolImg4==false) {
+                                    y = vData.getY();
+                                    x = vData.getX();
+                                    vData.setY(img2.getY());
+                                    vData.setX(img2.getX());
+                                    img2.setY(y);
+                                    img2.setX(x);
+                                }
                         }
                     }
 
@@ -269,37 +304,46 @@ public class RangeTaBd extends AppCompatActivity {
                     break;
                 case DragEvent.ACTION_DROP:
                     if (boolImg2 == false) {
+
                         if (vData.getId() == R.id.img1) {
-                            x = vData.getX();
-                            y = vData.getY();
+                            if(boolImg1==false) {
+                                x = vData.getX();
+                                y = vData.getY();
 //
-                            vData.setX(img2.getX());
-                            vData.setY(img2.getY());
-                            img2.setX(x);
-                            img2.setY(y);
-
+                                vData.setX(img2.getX());
+                                vData.setY(img2.getY());
+                                img2.setX(x);
+                                img2.setY(y);
+                            }
                         } else if (vData.getId() == R.id.img2) {
-                            x = vData.getX();
-                            y = vData.getY();
-                            vData.setX(img2.getX());
-                            vData.setY(img2.getY());
-                            img2.setX(x);
-                            img2.setY(y);
+                            if (boolImg2==false) {
+                                x = vData.getX();
+                                y = vData.getY();
+                                vData.setX(img2.getX());
+                                vData.setY(img2.getY());
+                                img2.setX(x);
+                                img2.setY(y);
+                            }
                         } else if (vData.getId() == R.id.img3) {
-                            x = vData.getX();
-                            y = vData.getY();
+                            if (boolImg3==false) {
 
-                            vData.setX(img2.getX());
-                            vData.setY(img2.getY());
-                            img2.setX(x);
-                            img2.setY(y);
+                                x = vData.getX();
+                                y = vData.getY();
+
+                                vData.setX(img2.getX());
+                                vData.setY(img2.getY());
+                                img2.setX(x);
+                                img2.setY(y);
+                            }
+
                         } else if (vData.getId() == R.id.img4) {
-                            y = vData.getY();
-                            x = vData.getX();
-                            vData.setY(img2.getY());
-                            vData.setX(img2.getX());
-                            img2.setY(y);
-                            img2.setX(x);
+                            if (boolImg4==false){
+                               y = vData.getY();
+                               x = vData.getX();
+                               vData.setY(img2.getY());
+                               vData.setX(img2.getX());
+                               img2.setY(y);
+                               img2.setX(x);}
 
                         }
 
@@ -323,30 +367,35 @@ public class RangeTaBd extends AppCompatActivity {
 
                 case DragEvent.ACTION_DRAG_ENTERED: // si on entre dans l'image 1 fait un prévisualisation de sa place si on le drop
                     if (boolImg3 == false) {
+
                         if (vData.getId() == R.id.img1) {
+                            if (boolImg1==false){
                             x = vData.getX();
                             y = vData.getY();
 //
                             vData.setX(img3.getX());
                             vData.setY(img3.getY());
                             img3.setX(x);
-                            img3.setY(y);
+                            img3.setY(y);}
 
                         } else if (vData.getId() == R.id.img2) {
-                            x = vData.getX();
-                            y = vData.getY();
-                            vData.setX(img3.getX());
-                            vData.setY(img3.getY());
-                            img3.setX(x);
-                            img3.setY(y);
-                        } else if (vData.getId() == R.id.img4) {
-                            y = vData.getY();
-                            x = vData.getX();
-                            vData.setY(img3.getY());
-                            vData.setX(img3.getX());
-                            img3.setY(y);
-                            img3.setX(x);
+                            if (boolImg2==false){
+                                x = vData.getX();
+                                y = vData.getY();
+                                vData.setX(img3.getX());
+                                vData.setY(img3.getY());
+                                img3.setX(x);
+                                img3.setY(y);}
 
+                        } else if (vData.getId() == R.id.img4) {
+                                if (boolImg4==false) {
+                                    y = vData.getY();
+                                    x = vData.getX();
+                                    vData.setY(img3.getY());
+                                    vData.setX(img3.getX());
+                                    img3.setY(y);
+                                    img3.setX(x);
+                                }
                         }
                         break;
                     }
@@ -360,37 +409,43 @@ public class RangeTaBd extends AppCompatActivity {
 
 
                         if (vData.getId() == R.id.img1) {
-                            x = vData.getX();
-                            y = vData.getY();
+                            if (boolImg1==false){
+                                x = vData.getX();
+                                y = vData.getY();
 //
-                            vData.setX(img3.getX());
-                            vData.setY(img3.getY());
-                            img3.setX(x);
-                            img3.setY(y);
+                                vData.setX(img3.getX());
+                                vData.setY(img3.getY());
+                                img3.setX(x);
+                                img3.setY(y);}
 
                         } else if (vData.getId() == R.id.img2) {
-                            x = vData.getX();
-                            y = vData.getY();
-                            vData.setX(img3.getX());
-                            vData.setY(img3.getY());
-                            img3.setX(x);
-                            img3.setY(y);
+                            if (boolImg2==false) {
+                                x = vData.getX();
+                                y = vData.getY();
+                                vData.setX(img3.getX());
+                                vData.setY(img3.getY());
+                                img3.setX(x);
+                                img3.setY(y);
+                            }
                         } else if (vData.getId() == R.id.img3) {
-                            x = vData.getX();
-                            y = vData.getY();
+                            if (boolImg3==false) {
+                                x = vData.getX();
+                                y = vData.getY();
 
-                            vData.setX(img3.getX());
-                            vData.setY(img3.getY());
-                            img3.setX(x);
-                            img3.setY(y);
+                                vData.setX(img3.getX());
+                                vData.setY(img3.getY());
+                                img3.setX(x);
+                                img3.setY(y);
+                            }
                         } else if (vData.getId() == R.id.img4) {
-                            y = vData.getY();
-                            x = vData.getX();
-                            vData.setY(img3.getY());
-                            vData.setX(img3.getX());
-                            img3.setY(y);
-                            img3.setX(x);
-
+                            if (boolImg4==false) {
+                                y = vData.getY();
+                                x = vData.getX();
+                                vData.setY(img3.getY());
+                                vData.setX(img3.getX());
+                                img3.setY(y);
+                                img3.setX(x);
+                            }
                         }
 
 
@@ -411,23 +466,28 @@ public class RangeTaBd extends AppCompatActivity {
             switch (dragEvent) {
                 case DragEvent.ACTION_DRAG_ENTERED: // si on entre dans l'image 1 fait un prévisualisation de sa place si on le drop
                     if (boolImg4 == false) {
+
                         if (vData.getId() == R.id.img1) {
-                            x = vData.getX();
-                            y = vData.getY();
+                            if (boolImg1==false) {
+                                x = vData.getX();
+                                y = vData.getY();
 //
-                            vData.setX(img4.getX());
-                            vData.setY(img4.getY());
-                            img4.setX(x);
-                            img4.setY(y);
-
+                                vData.setX(img4.getX());
+                                vData.setY(img4.getY());
+                                img4.setX(x);
+                                img4.setY(y);
+                            }
                         } else if (vData.getId() == R.id.img2) {
-                            x = vData.getX();
-                            y = vData.getY();
-                            vData.setX(img4.getX());
-                            vData.setY(img4.getY());
-                            img4.setX(x);
-                            img4.setY(y);
+                            if (boolImg2==false) {
+                                x = vData.getX();
+                                y = vData.getY();
+                                vData.setX(img4.getX());
+                                vData.setY(img4.getY());
+                                img4.setX(x);
+                                img4.setY(y);
+                            }
                         } else if (vData.getId() == R.id.img3) {
+                            if (boolImg3==false){
                             x = vData.getX();
                             y = vData.getY();
 
@@ -435,7 +495,7 @@ public class RangeTaBd extends AppCompatActivity {
                             vData.setY(img4.getY());
                             img4.setX(x);
                             img4.setY(y);
-                        }
+                        }}
                         break;
                     }
                 case DragEvent.ACTION_DRAG_EXITED:
@@ -445,37 +505,43 @@ public class RangeTaBd extends AppCompatActivity {
                 case DragEvent.ACTION_DROP:
                     if (boolImg4 == false) {
                         if (vData.getId() == R.id.img1) {
-                            x = vData.getX();
-                            y = vData.getY();
+                            if (boolImg1==false) {
+                                x = vData.getX();
+                                y = vData.getY();
 //
-                            vData.setX(img4.getX());
-                            vData.setY(img4.getY());
-                            img4.setX(x);
-                            img4.setY(y);
-
+                                vData.setX(img4.getX());
+                                vData.setY(img4.getY());
+                                img4.setX(x);
+                                img4.setY(y);
+                            }
                         } else if (vData.getId() == R.id.img2) {
-                            x = vData.getX();
-                            y = vData.getY();
-                            vData.setX(img4.getX());
-                            vData.setY(img4.getY());
-                            img4.setX(x);
-                            img4.setY(y);
+                            if (boolImg2==false) {
+                                x = vData.getX();
+                                y = vData.getY();
+                                vData.setX(img4.getX());
+                                vData.setY(img4.getY());
+                                img4.setX(x);
+                                img4.setY(y);
+                            }
                         } else if (vData.getId() == R.id.img3) {
-                            x = vData.getX();
-                            y = vData.getY();
+                            if (boolImg3==false) {
+                                x = vData.getX();
+                                y = vData.getY();
 
-                            vData.setX(img4.getX());
-                            vData.setY(img4.getY());
-                            img4.setX(x);
-                            img4.setY(y);
+                                vData.setX(img4.getX());
+                                vData.setY(img4.getY());
+                                img4.setX(x);
+                                img4.setY(y);
+                            }
                         } else if (vData.getId() == R.id.img4) {
-                            y = vData.getY();
-                            x = vData.getX();
-                            vData.setY(img4.getY());
-                            vData.setX(img4.getX());
-                            img4.setY(y);
-                            img4.setX(x);
-
+                            if (boolImg4==false) {
+                                y = vData.getY();
+                                x = vData.getX();
+                                vData.setY(img4.getY());
+                                vData.setX(img4.getX());
+                                img4.setY(y);
+                                img4.setX(x);
+                            }
                         }
 
                     }
@@ -591,14 +657,13 @@ public class RangeTaBd extends AppCompatActivity {
     //endregion
 //region clickvalider
     View.OnClickListener clickListenerValider = new View.OnClickListener() {
+
         @SuppressLint("SetTextI18n")
         @Override
         public void onClick(View v) {
 
             if (img1.getX() == xImg1 && img1.getY() == yImg1) {
                 boolImg1 = true;
-                //img1.set(false);
-
                 rect1.setVisibility(View.VISIBLE);
             }
 
@@ -606,34 +671,53 @@ public class RangeTaBd extends AppCompatActivity {
 
                 rect2.setVisibility((View.VISIBLE));
                 boolImg2 = true;
-                img2.setClickable(false);
+
             }
 
             if (img3.getX() == xImg3 && img3.getY() == yImg3) {
 
                 rect3.setVisibility((View.VISIBLE));
                 boolImg3 = true;
-                img3.setClickable(false);
+
             }
 
             if (img4.getX() == xImg4 && img4.getY() == yImg4) {
 
                 rect4.setVisibility((View.VISIBLE));
                 boolImg4 = true;
-                img4.setClickable(false);
+
 
             }
 
             if (boolImg1 == true && boolImg2 == true && boolImg3 == true && boolImg4 == true) {
                 suivant.setVisibility(View.VISIBLE);
+                vie=2;
+                vie();
                 if (listNum<6) {
                     ajouterNumListe();
                 }
                 if(listNum==6){
                     suivant.setVisibility(View.INVISIBLE);
+                    Runnable runnable = new Runnable() {
+                        public void run() {
+                            layoutvic.setVisibility(View.VISIBLE);
+                        }
+                    };
+                    handler.postDelayed(runnable, 700);
+
+
+
                 }
 
             }
+            else{
+                vie=vie-1;
+               vie();
+                valider.setText("sasa "+vie+" ");
+
+
+            }
+
 
         }
     };
@@ -643,8 +727,33 @@ public class RangeTaBd extends AppCompatActivity {
         listNum=listNum+1;
 
     }
+    public void vie(){
+        if (vie==2){
+            imgCoeurDroite.setImageResource(R.mipmap.coeur);
+            imgCoeurGauche.setImageResource(R.mipmap.coeur);
+        }
+        if(vie==1) {
+        imgCoeurDroite.setImageResource(R.mipmap.coeurvide);
+        }
+        if(vie==0) {
 
-}
+            imgCoeurGauche.setImageResource(R.mipmap.coeurvide);
+            Runnable runnable = new Runnable() {
+                public void run() {
+
+                    //layoutdef.setVisibility(View.VISIBLE);
+                }
+            };
+            handler.postDelayed(runnable, 700);
+
+        }
+
+        }
+
+    }
+
+
+
 
 
 

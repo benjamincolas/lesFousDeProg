@@ -8,6 +8,8 @@
     android:background="@mipmap/background">
 
 
+
+
     <ImageView
         android:id="@+id/imgfondblancgris"
         android:layout_width="1108dp"
@@ -19,12 +21,22 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.613"
+        app:layout_constraintVertical_bias="0.724"
         app:srcCompat="@color/blancgris"
         tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imgbulle"
+        android:layout_width="378dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="80dp"
+        android:background="@mipmap/bullepensive"
+        app:layout_constraintStart_toEndOf="@+id/txtViewTitre"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="0dp"
+        tools:srcCompat="@tools:sample/avatars" />
 
     <LinearLayout
         android:id="@+id/rect3"
@@ -82,13 +94,13 @@
         android:id="@+id/img1"
         android:layout_width="510dp"
         android:layout_height="255dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="132dp"
         android:layout_marginEnd="8dp"
         android:background="@color/blanc"
         android:scaleType="fitCenter"
         android:visibility="visible"
         app:layout_constraintEnd_toStartOf="@+id/img2"
-        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintHorizontal_bias="0.551"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
@@ -97,7 +109,7 @@
         android:id="@+id/img2"
         android:layout_width="510dp"
         android:layout_height="255dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="132dp"
         android:layout_marginEnd="88dp"
         android:background="@color/blanc"
         android:visibility="visible"
@@ -110,7 +122,7 @@
         android:layout_width="510dp"
         android:layout_height="256dp"
         android:layout_marginEnd="88dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="68dp"
         android:background="@color/blanc"
         android:visibility="visible"
 
@@ -123,7 +135,7 @@
         android:layout_width="510dp"
         android:layout_height="255dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="68dp"
         android:background="@color/blanc"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -152,8 +164,8 @@
 
     <Button
         android:id="@+id/btn_valider"
-        android:layout_width="225dp"
-        android:layout_height="66dp"
+        android:layout_width="210dp"
+        android:layout_height="58dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/bouton_arrondie"
@@ -197,4 +209,148 @@
         tools:ignore="MissingConstraints" />
 
 
+    <ImageView
+        android:id="@+id/imgcoeurgauche"
+        android:layout_width="73dp"
+        android:layout_height="67dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:src="@mipmap/coeur"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.438"
+        app:layout_constraintStart_toEndOf="@+id/txtViewTitre"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/imgcoeurdroit"
+        android:layout_width="69dp"
+        android:layout_height="67dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:src="@mipmap/coeur"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.141"
+        app:layout_constraintStart_toEndOf="@+id/imgcoeurgauche"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <RelativeLayout
+        android:id="@+id/layoutdef"
+        android:layout_width="711dp"
+        android:layout_height="582dp"
+        android:layout_marginStart="512dp"
+        android:layout_marginTop="29dp"
+
+        android:layout_marginEnd="61dp"
+        android:layout_marginBottom="26dp"
+        android:background="@color/vert"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/btn_valider"
+        app:layout_constraintEnd_toStartOf="@+id/imgbulle"
+        app:layout_constraintHorizontal_bias="0.539"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewTitre"
+        app:layout_constraintVertical_bias="0.982"
+        tools:ignore="MissingConstraints">
+
+        <Button
+            android:id="@+id/btnlayoutdef"
+            android:layout_width="148dp"
+            android:layout_height="72dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="283dp"
+            android:layout_marginEnd="278dp"
+            android:layout_marginBottom="21dp"
+            android:text="Button" />
+
+        <ImageView
+            android:id="@+id/imglayoutdef"
+            android:layout_width="303dp"
+            android:layout_height="270dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="217dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="189dp"
+            android:background="@mipmap/grizoul"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/txtviewlayoutdef"
+            android:layout_width="489dp"
+            android:layout_height="151dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="150dp"
+            android:layout_marginBottom="120dp"
+            android:text="T ARCHI NAZE"
+            android:textColor="@color/rouge"
+            android:textSize="60dp"
+
+            tools:text="T ARCHI NAZE" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutvic"
+        android:layout_width="711dp"
+        android:layout_height="582dp"
+        android:layout_marginStart="512dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="61dp"
+        android:layout_marginBottom="26dp"
+        android:background="@color/rouge"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/btn_valider"
+        app:layout_constraintEnd_toStartOf="@+id/imgbulle"
+        app:layout_constraintHorizontal_bias="0.539"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewTitre"
+        app:layout_constraintVertical_bias="0.982"
+        tools:ignore="MissingConstraints">
+
+        <Button
+            android:id="@+id/btnlayoutvic"
+            android:layout_width="148dp"
+            android:layout_height="72dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="283dp"
+            android:layout_marginEnd="278dp"
+            android:layout_marginBottom="21dp"
+            android:text="Button" />
+
+        <ImageView
+            android:id="@+id/imglayoutvic"
+            android:layout_width="303dp"
+            android:layout_height="270dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="217dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="189dp"
+            android:background="@mipmap/grizoul"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/txtviewlayoutvic"
+            android:layout_width="489dp"
+            android:layout_height="151dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="150dp"
+            android:layout_marginBottom="120dp"
+            android:text="T ARCHI FORT"
+            android:textColor="@color/vert"
+            android:textSize="60dp"
+
+            tools:text="T ARCHI NAZE" />
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
