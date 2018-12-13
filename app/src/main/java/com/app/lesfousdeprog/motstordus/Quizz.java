@@ -184,7 +184,6 @@ public class Quizz extends AppCompatActivity {
 
 
 
-
         private String bdChoices[][] = {
                 {"Le gamin", "Le chien", "Le père", "La tortue"},
                 {"Le Secret de la licorne", "Le Crabe aux pinces d'or", "Le Trésor de Rackham le Rouge", "Le Sceptre d'Ottokar"},
@@ -324,5 +323,6 @@ public class Quizz extends AppCompatActivity {
         String answer = cCorrectAnswers[a];
         return answer;
     }
+
 
 }
