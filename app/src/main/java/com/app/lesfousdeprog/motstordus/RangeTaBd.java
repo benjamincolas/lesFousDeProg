@@ -3,6 +3,7 @@ package com.app.lesfousdeprog.motstordus;
 import android.annotation.SuppressLint;
 import android.content.ClipData;
 import android.os.Handler;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -10,7 +11,10 @@ import android.content.pm.ActivityInfo;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -38,6 +42,7 @@ public class RangeTaBd extends AppCompatActivity {
     private boolean boolImg2 = false;
     private boolean boolImg3 = false;
     private boolean boolImg4 = false;
+    ConstraintLayout layout;
     Handler handler = new Handler();
     private int nombreFautes=0;
     float y;
@@ -48,9 +53,9 @@ public class RangeTaBd extends AppCompatActivity {
     private List<Float> listPosY;
     private List<Integer> spiderman;
     private List<List<Integer>> listImg;
-
     public int listNum=0;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +63,7 @@ public class RangeTaBd extends AppCompatActivity {
         setContentView(R.layout.activity_range_ta_bd);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);//mode horizontale
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN); //met en fullscreen l'app
+        layout = (ConstraintLayout) findViewById(R.id.layoutid);
         img1 = (ImageView) findViewById(R.id.img1); // initialise une variable img1 de type imageview et dont l'id dans le fichier xml est img1
         img2 = (ImageView) findViewById(R.id.img2);
         img3 = (ImageView) findViewById(R.id.img3);
@@ -98,7 +104,7 @@ public class RangeTaBd extends AppCompatActivity {
         img3.setOnDragListener(listenerimg3);
         img4.setOnDragListener(listenerimg4);
         suivant.setVisibility(View.INVISIBLE);
-
+        disableLayout(false);
 
     }
 
@@ -676,6 +682,8 @@ public class RangeTaBd extends AppCompatActivity {
             if (img3.getX() == xImg3 && img3.getY() == yImg3) {
 
                 rect3.setVisibility((View.VISIBLE));
+
+
                 boolImg3 = true;
 
             }
@@ -688,7 +696,7 @@ public class RangeTaBd extends AppCompatActivity {
 
             }
 
-            if (boolImg1 == true && boolImg2 == true && boolImg3 == true && boolImg4 == true) {
+            if (boolImg1 && boolImg2 && boolImg3 && boolImg4) {
                 suivant.setVisibility(View.VISIBLE);
                 vie=2;
                 vie();
@@ -704,6 +712,7 @@ public class RangeTaBd extends AppCompatActivity {
                         }
                     };
                     handler.postDelayed(runnable, 500);
+                    disableLayout(true);
 
 
 
@@ -715,7 +724,7 @@ public class RangeTaBd extends AppCompatActivity {
                 vie=vie-1;
                 nombreFautes=nombreFautes+1;
                 vie();
-                valider.setText("sasa "+nombreFautes+" ");
+
 
 
             }
@@ -743,15 +752,18 @@ public class RangeTaBd extends AppCompatActivity {
             Runnable runnable = new Runnable() {
                 public void run() {
 
-                    layoutdef.setVisibility(View.VISIBLE);
+                    layoutvic.setVisibility(View.VISIBLE);
+                    Animation animation=AnimationUtils.loadAnimation(layoutvic.getContext(),R.anim.fadein);
+                    layoutvic.startAnimation(animation);
+                    Animation animation2=AnimationUtils.loadAnimation(layoutvic.getContext(),R.anim.rotate);
+                    img1etoile.startAnimation(animation2);
                 }
             };
             handler.postDelayed(runnable, 500);
+            disableLayout(true);
 
-        }
-
-        }
-        public void nbEtoile(){
+        }}
+    public void nbEtoile(){
 
         if (nombreFautes<=1){
            img1etoile.setImageResource(R.mipmap.etoile);
@@ -771,8 +783,23 @@ public class RangeTaBd extends AppCompatActivity {
              txtviewlayoutvic.setText("T'es naze enfaite");
             }
         }
+    private void disableLayout(boolean lay){// permet de "désactiver" ou non la possibilité d'utiliser le layout de jeu
+
+        if (lay==true){
+            for (int i = 0; i < layout.getChildCount(); i++) {
+                View child = layout.getChildAt(i);
+                child.setEnabled(false);}}
+        else{for (int i = 0; i < layout.getChildCount(); i++) {
+            View child = layout.getChildAt(i);
+            child.setEnabled(true);}}
+
+        }
+
 
     }
+
+
+
 
 
 
