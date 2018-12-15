@@ -10,7 +10,6 @@
 
 
 
-
     <ImageView
         android:id="@+id/imgfondblancgris"
         android:layout_width="1108dp"
@@ -247,10 +246,9 @@
         android:layout_height="582dp"
         android:layout_marginStart="512dp"
         android:layout_marginTop="29dp"
-
         android:layout_marginEnd="61dp"
         android:layout_marginBottom="26dp"
-        android:background="@color/blancgris"
+        android:background="@mipmap/imglose"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/btn_valider"
         app:layout_constraintEnd_toStartOf="@+id/imgbulle"
@@ -320,14 +318,14 @@
         android:layout_marginTop="29dp"
         android:layout_marginEnd="61dp"
         android:layout_marginBottom="26dp"
-        android:background="@color/blancgris"
+        android:background="@mipmap/imgvic"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/btn_valider"
         app:layout_constraintEnd_toStartOf="@+id/imgbulle"
-        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintHorizontal_bias="0.61"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtViewTitre"
-        app:layout_constraintVertical_bias="0.991"
+        app:layout_constraintVertical_bias="0.745"
         tools:ignore="MissingConstraints">
 
         <Button
@@ -369,35 +367,70 @@
 
             tools:text="T ARCHI NAZE" />
 
-        <ImageView
-            android:id="@+id/imgetoile1"
-            android:layout_width="86dp"
-            android:layout_height="78dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="220dp"
-            android:layout_marginBottom="259dp"
-            android:src="@mipmap/etoilevide" />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/confetti"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:lottie_fileName="confetti.json"
 
-        <ImageView
-            android:id="@+id/imgetoile2"
-            android:layout_width="86dp"
-            android:layout_height="78dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="328dp"
-            android:layout_marginBottom="257dp"
-            android:src="@mipmap/etoilevide" />
 
-        <ImageView
-            android:id="@+id/imgetoile3"
-            android:layout_width="86dp"
-            android:layout_height="78dp"
+            />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/trophy"
+            android:layout_width="152dp"
+            android:layout_height="167dp"
+            android:layout_alignTop="@+id/imglayoutvic"
+            android:layout_alignEnd="@+id/txtviewlayoutvic"
+            android:layout_alignBottom="@+id/btnlayoutvic"
+            android:layout_marginTop="223dp"
+            android:layout_marginEnd="-49dp"
+            android:layout_marginBottom="200dp"
+            app:lottie_fileName="trophy.json" />
+
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/etoile1"
+            android:layout_width="75dp"
+            android:layout_height="85dp"
+
+
+            android:layout_alignTop="@+id/imglayoutvic"
+            android:layout_alignBottom="@+id/imglayoutvic"
             android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="437dp"
-            android:layout_marginBottom="256dp"
-            android:src="@mipmap/etoilevide" />
+
+            android:layout_marginStart="217dp"
+            android:layout_marginTop="269dp"
+            android:layout_marginBottom="-82dp"
+            app:lottie_fileName="stars.json" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/etoile3"
+            android:layout_width="75dp"
+            android:layout_height="85dp"
+
+
+            android:layout_alignTop="@+id/imglayoutvic"
+            android:layout_alignEnd="@+id/imglayoutvic"
+            android:layout_alignBottom="@+id/btnlayoutvic"
+            android:layout_marginTop="269dp"
+            android:layout_marginBottom="239dp"
+            app:lottie_fileName="stars.json" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/etoile2"
+            android:layout_width="75dp"
+            android:layout_height="85dp"
+
+
+            android:layout_alignTop="@+id/imglayoutvic"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="270dp"
+            android:layout_marginEnd="32dp"
+            android:layout_toStartOf="@+id/etoile3"
+            android:layout_toEndOf="@+id/etoile1"
+            app:lottie_fileName="stars.json" />
 
     </RelativeLayout>
+
 </android.support.constraint.ConstraintLayout>

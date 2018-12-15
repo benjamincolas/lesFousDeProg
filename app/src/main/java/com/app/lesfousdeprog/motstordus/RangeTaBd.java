@@ -1,7 +1,10 @@
 package com.app.lesfousdeprog.motstordus;
 
+import android.animation.Animator;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.ClipData;
+import android.content.Intent;
 import android.os.Handler;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -22,6 +25,8 @@ import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
+
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -30,7 +35,7 @@ import java.util.Random;
 
 public class RangeTaBd extends AppCompatActivity {
 
-    ImageView img1, img2, img3, img4, imgFond, imgCoeurGauche,imgCoeurDroite,img1etoile,img2etoile,img3etoile,imglayoutdef,imglayoutvic;
+    ImageView img1, img2, img3, img4, imgFond, imgCoeurGauche,imgCoeurDroite,imglayoutdef,imglayoutvic;
     Button valider, lancer,suivant,btn_layoutvic,btn_layoutdef,btnlayoutdefrecommencer;
     LinearLayout rect1, rect2, rect3, rect4;
     TextView txtviewlayoutvic,txtviewlayoutdef;
@@ -43,7 +48,10 @@ public class RangeTaBd extends AppCompatActivity {
     private boolean boolImg3 = false;
     private boolean boolImg4 = false;
     ConstraintLayout layout;
+    LottieAnimationView etoile1,etoile2,etoile3,trophe,confetti;
+    Animator.AnimatorListener animEtoile1,animEtoile2,animEtoile3;
     Handler handler = new Handler();
+
     private int nombreFautes=0;
     float y;
     float x;
@@ -75,9 +83,12 @@ public class RangeTaBd extends AppCompatActivity {
         imgCoeurGauche = (ImageView) findViewById(R.id.imgcoeurgauche);
         imgCoeurDroite = (ImageView) findViewById(R.id.imgcoeurdroit);
         imgFond = (ImageView) findViewById(R.id.imgfondblancgris);
-        img3etoile = (ImageView) findViewById(R.id.imgetoile3);
-        img2etoile = (ImageView) findViewById(R.id.imgetoile2);
-        img1etoile = (ImageView) findViewById(R.id.imgetoile1);
+        etoile1 = (LottieAnimationView) findViewById(R.id.etoile1);
+        etoile2 = (LottieAnimationView) findViewById(R.id.etoile2);
+        etoile3 = (LottieAnimationView) findViewById(R.id.etoile3);
+        trophe = (LottieAnimationView) findViewById(R.id.trophy);
+
+        confetti = (LottieAnimationView) findViewById(R.id.confetti);
         rect1 = (LinearLayout) findViewById(R.id.rect1);
         rect2 = (LinearLayout) findViewById(R.id.rect2);
         rect3 = (LinearLayout) findViewById(R.id.rect3);
@@ -94,10 +105,10 @@ public class RangeTaBd extends AppCompatActivity {
         img2.setOnTouchListener(onTouchListener);
         img3.setOnTouchListener(onTouchListener);
         img4.setOnTouchListener(onTouchListener);
-        lancer.setOnClickListener(clickListener);
+        lancer.setOnClickListener(lancerApp);
         valider.setOnClickListener(clickListenerValider);
-        suivant.setOnClickListener(clickListener);
-        btnlayoutdefrecommencer.setOnClickListener(clickListener);
+        suivant.setOnClickListener(lancerApp);
+        btnlayoutdefrecommencer.setOnClickListener(relancerApp);
         valider.setVisibility(View.INVISIBLE);
         img1.setOnDragListener(listenerimg1);
         img2.setOnDragListener(listenerimg2);
@@ -557,7 +568,7 @@ public class RangeTaBd extends AppCompatActivity {
     //endregion
 //region click Listener
 
-    View.OnClickListener clickListener = new View.OnClickListener() {
+    View.OnClickListener lancerApp = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             valider.setVisibility(View.VISIBLE);
@@ -709,6 +720,9 @@ public class RangeTaBd extends AppCompatActivity {
                     Runnable runnable = new Runnable() {
                         public void run() {
                             layoutvic.setVisibility(View.VISIBLE);
+
+
+
                         }
                     };
                     handler.postDelayed(runnable, 500);
@@ -727,12 +741,22 @@ public class RangeTaBd extends AppCompatActivity {
 
 
 
+
             }
 
 
         }
     };
     //endregion
+    View.OnClickListener relancerApp = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            startActivity(new Intent(RangeTaBd.this, RangeTaBd.class));
+        }};
+
+
+
+
 
     public void ajouterNumListe(){
         listNum=listNum+1;
@@ -752,40 +776,45 @@ public class RangeTaBd extends AppCompatActivity {
             Runnable runnable = new Runnable() {
                 public void run() {
 
-                    layoutvic.setVisibility(View.VISIBLE);
-                    Animation animation=AnimationUtils.loadAnimation(layoutvic.getContext(),R.anim.fadein);
-                    layoutvic.startAnimation(animation);
-                    Animation animation2=AnimationUtils.loadAnimation(layoutvic.getContext(),R.anim.rotate);
-                    img1etoile.startAnimation(animation2);
+                    layoutdef.setVisibility(View.VISIBLE);
+                    Animation animation=AnimationUtils.loadAnimation(layoutdef.getContext(),R.anim.fadein);
+                    layoutdef.startAnimation(animation);
+                    //trophe.playAnimation();
+                    confetti.playAnimation();
+
                 }
             };
-            handler.postDelayed(runnable, 500);
+            handler.postDelayed(runnable, 0);
             disableLayout(true);
 
         }}
     public void nbEtoile(){
+        if (nombreFautes<=1) {
+            Runnable runnable = new Runnable() {
+                public void run() {
+                    etoile1.playAnimation();
+                    etoile2.playAnimation();
+                    etoile3.playAnimation();
 
-        if (nombreFautes<=1){
-           img1etoile.setImageResource(R.mipmap.etoile);
-            img2etoile.setImageResource(R.mipmap.etoile);
-            img3etoile.setImageResource(R.mipmap.etoile);
-            txtviewlayoutvic.setText("T'es le boss enfaite");
+                    txtviewlayoutvic.setText("T'es le boss enfaite");
+                }
+            };
+            handler.postDelayed(runnable, 600);
         }
-
         if (nombreFautes==2 || nombreFautes==3){
-            img1etoile.setImageResource(R.mipmap.etoile);
-            img2etoile.setImageResource(R.mipmap.etoile);
+            etoile1.playAnimation();
+            etoile2.playAnimation();
             txtviewlayoutvic.setText("T'es moyen enfaite");
             }
 
          if (nombreFautes>3){
-             img1etoile.setImageResource(R.mipmap.etoile);
+             etoile1.playAnimation();
              txtviewlayoutvic.setText("T'es naze enfaite");
             }
         }
     private void disableLayout(boolean lay){// permet de "désactiver" ou non la possibilité d'utiliser le layout de jeu
 
-        if (lay==true){
+        if (lay){
             for (int i = 0; i < layout.getChildCount(); i++) {
                 View child = layout.getChildAt(i);
                 child.setEnabled(false);}}
