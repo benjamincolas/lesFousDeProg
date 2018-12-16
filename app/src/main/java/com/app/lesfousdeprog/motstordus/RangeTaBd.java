@@ -720,12 +720,13 @@ public class RangeTaBd extends AppCompatActivity {
                     Runnable runnable = new Runnable() {
                         public void run() {
                             layoutvic.setVisibility(View.VISIBLE);
-
+                            confetti.playAnimation();
+                            confetti.loop(true);
 
 
                         }
                     };
-                    handler.postDelayed(runnable, 500);
+                    handler.postDelayed(runnable, 1000);
                     disableLayout(true);
 
 
@@ -779,8 +780,7 @@ public class RangeTaBd extends AppCompatActivity {
                     layoutdef.setVisibility(View.VISIBLE);
                     Animation animation=AnimationUtils.loadAnimation(layoutdef.getContext(),R.anim.fadein);
                     layoutdef.startAnimation(animation);
-                    //trophe.playAnimation();
-                    confetti.playAnimation();
+
 
                 }
             };
@@ -795,20 +795,27 @@ public class RangeTaBd extends AppCompatActivity {
                     etoile1.playAnimation();
                     etoile2.playAnimation();
                     etoile3.playAnimation();
-
+                    trophe.playAnimation();
+                    trophe.loop(true);
                     txtviewlayoutvic.setText("T'es le boss enfaite");
                 }
             };
-            handler.postDelayed(runnable, 600);
+            handler.postDelayed(runnable, 1000);
         }
         if (nombreFautes==2 || nombreFautes==3){
+            Runnable runnable = new Runnable() {
+                public void run() {
             etoile1.playAnimation();
             etoile2.playAnimation();
-            txtviewlayoutvic.setText("T'es moyen enfaite");
+            txtviewlayoutvic.setText("T'es moyen enfaite");}};
+            handler.postDelayed(runnable, 1000);
             }
 
          if (nombreFautes>3){
-             etoile1.playAnimation();
+             Runnable runnable = new Runnable() {
+                 public void run() {
+             etoile1.playAnimation();}};
+             handler.postDelayed(runnable, 1000);
              txtviewlayoutvic.setText("T'es naze enfaite");
             }
         }
