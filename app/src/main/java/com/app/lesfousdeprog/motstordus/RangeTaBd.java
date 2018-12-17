@@ -89,7 +89,6 @@ public class RangeTaBd extends AppCompatActivity {
         etoile2 = (LottieAnimationView) findViewById(R.id.etoile2);
         etoile3 = (LottieAnimationView) findViewById(R.id.etoile3);
         trophe = (LottieAnimationView) findViewById(R.id.trophy);
-
         confetti = (LottieAnimationView) findViewById(R.id.confetti);
         rect1 = (LinearLayout) findViewById(R.id.rect1);
         rect2 = (LinearLayout) findViewById(R.id.rect2);
@@ -719,14 +718,13 @@ public class RangeTaBd extends AppCompatActivity {
                 }
                 if(listNum==6){
                     suivant.setVisibility(View.INVISIBLE);
-                    nbEtoile();
+
                     Runnable runnable = new Runnable() {
                         public void run() {
                             layoutvic.setVisibility(View.VISIBLE);
                             confetti.playAnimation();
                             confetti.loop(true);
-
-
+                            nbEtoile();
                         }
                     };
                     handler.postDelayed(runnable, 1000);
@@ -752,16 +750,14 @@ public class RangeTaBd extends AppCompatActivity {
         }
     };
     //endregion
+//region clicRecommencer quand on a perdu
     View.OnClickListener relancerApp = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             startActivity(new Intent(RangeTaBd.this, RangeTaBd.class));
         }};
 
-
-
-
-
+//endregion
     public void ajouterNumListe(){
         listNum=listNum+1;
 
@@ -793,26 +789,43 @@ public class RangeTaBd extends AppCompatActivity {
         }}
     public void nbEtoile(){
         if (nombreFautes<=1) {
-            Runnable runnable = new Runnable() {
+            Runnable apresAfficheFenetre = new Runnable() {
                 public void run() {
-                    etoile1.playAnimation();
-                    etoile2.playAnimation();
-                    etoile3.playAnimation();
-
-                    trophe.playAnimation();
-                    trophe.loop(true);
                     txtviewlayoutvic.setText("T'es le boss enfaite");
                 }
             };
-            handler.postDelayed(runnable, 1500);
+            handler.postDelayed(apresAfficheFenetre, 1500);
+            Runnable apconfetti = new Runnable() {
+                public void run() {
+                    etoile1.playAnimation();
+                }};
+            handler.postDelayed(apconfetti, confetti.getDuration()+1500);
+
+            Runnable apetoile1 = new Runnable() {
+                public void run() {
+                    etoile2.playAnimation();
+                }};
+            handler.postDelayed(apetoile1, etoile1.getDuration()+confetti.getDuration()+1500);
+            Runnable apetoile2 = new Runnable() {
+                public void run() {
+                    etoile3.playAnimation();
+                }};
+            handler.postDelayed(apetoile2, etoile2.getDuration()+etoile1.getDuration()+confetti.getDuration()+1500);
         }
+
         if (nombreFautes==2 || nombreFautes==3){
-            Runnable runnable = new Runnable() {
+            Runnable apresAfficheFenetre = new Runnable() {
                 public void run() {
             etoile1.playAnimation();
-            etoile2.playAnimation();
+
             txtviewlayoutvic.setText("T'es moyen enfaite");}};
-            handler.postDelayed(runnable, 1500);
+            handler.postDelayed(apresAfficheFenetre, 1500);
+
+            Runnable apetoile1 = new Runnable() {
+                public void run() {
+                    etoile2.playAnimation();
+                }};
+            handler.postDelayed(apetoile1, etoile1.getDuration());
             }
 
          if (nombreFautes>3){
