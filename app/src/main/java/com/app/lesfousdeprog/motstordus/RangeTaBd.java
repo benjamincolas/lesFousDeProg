@@ -795,6 +795,7 @@ public class RangeTaBd extends AppCompatActivity {
                     etoile1.playAnimation();
                     etoile2.playAnimation();
                     etoile3.playAnimation();
+                    etoile1.loop(true);etoile2.loop(true);etoile3.loop(true);
                     trophe.playAnimation();
                     trophe.loop(true);
                     txtviewlayoutvic.setText("T'es le boss enfaite");
