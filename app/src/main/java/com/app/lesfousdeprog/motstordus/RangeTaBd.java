@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.content.pm.ActivityInfo;
+import android.util.Log;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -39,7 +40,7 @@ public class RangeTaBd extends AppCompatActivity {
     Button valider, lancer,suivant,btn_layoutvic,btn_layoutdef,btnlayoutdefrecommencer;
     LinearLayout rect1, rect2, rect3, rect4;
     TextView txtviewlayoutvic,txtviewlayoutdef;
-    RelativeLayout layoutdef,layoutvic;
+    RelativeLayout layoutdef,layoutvic,layoutLancer;
 
     private int vie=2;
 
@@ -76,6 +77,7 @@ public class RangeTaBd extends AppCompatActivity {
         img2 = (ImageView) findViewById(R.id.img2);
         img3 = (ImageView) findViewById(R.id.img3);
         img4 = (ImageView) findViewById(R.id.img4);
+        layoutLancer = (RelativeLayout) findViewById(R.id.layoutLancer);
         imglayoutdef = (ImageView) findViewById(R.id.imglayoutdef);
         imglayoutvic = (ImageView) findViewById(R.id.imglayoutvic);
         txtviewlayoutvic= (TextView) findViewById(R.id.txtviewlayoutvic);
@@ -115,8 +117,8 @@ public class RangeTaBd extends AppCompatActivity {
         img3.setOnDragListener(listenerimg3);
         img4.setOnDragListener(listenerimg4);
         suivant.setVisibility(View.INVISIBLE);
-        disableLayout(false);
-
+        disableLayout(true); // disable la possibilité de bouger les images
+        layoutLancer.setEnabled(true); // permet d'activer la possibilité de cliquer sur le bouton
     }
 
 //region onclicklistener
@@ -571,6 +573,7 @@ public class RangeTaBd extends AppCompatActivity {
     View.OnClickListener lancerApp = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            disableLayout(false);
             valider.setVisibility(View.VISIBLE);
             lancer.setVisibility(View.INVISIBLE);
             suivant.setVisibility(View.INVISIBLE);
@@ -795,13 +798,13 @@ public class RangeTaBd extends AppCompatActivity {
                     etoile1.playAnimation();
                     etoile2.playAnimation();
                     etoile3.playAnimation();
-                    etoile1.loop(true);etoile2.loop(true);etoile3.loop(true);
+
                     trophe.playAnimation();
                     trophe.loop(true);
                     txtviewlayoutvic.setText("T'es le boss enfaite");
                 }
             };
-            handler.postDelayed(runnable, 1000);
+            handler.postDelayed(runnable, 1500);
         }
         if (nombreFautes==2 || nombreFautes==3){
             Runnable runnable = new Runnable() {
@@ -809,14 +812,14 @@ public class RangeTaBd extends AppCompatActivity {
             etoile1.playAnimation();
             etoile2.playAnimation();
             txtviewlayoutvic.setText("T'es moyen enfaite");}};
-            handler.postDelayed(runnable, 1000);
+            handler.postDelayed(runnable, 1500);
             }
 
          if (nombreFautes>3){
              Runnable runnable = new Runnable() {
                  public void run() {
              etoile1.playAnimation();}};
-             handler.postDelayed(runnable, 1000);
+             handler.postDelayed(runnable, 1500);
              txtviewlayoutvic.setText("T'es naze enfaite");
             }
         }

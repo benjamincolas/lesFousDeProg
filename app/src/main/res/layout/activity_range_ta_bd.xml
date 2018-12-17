@@ -180,21 +180,34 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/btn_lancer"
-        android:layout_width="225dp"
-        android:layout_height="66dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/bouton_arrondie"
-        android:text="LANCER"
-        android:textSize="45sp"
-        android:visibility="visible"
+    <RelativeLayout
+        android:id="@+id/layoutLancer"
+        android:layout_width="236dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="520dp"
+        android:layout_marginTop="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/layoutvic">
 
+        <Button
+            android:id="@+id/btn_lancer"
+            android:layout_width="225dp"
+            android:layout_height="66dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/bouton_arrondie"
+            android:text="LANCER"
+            android:textSize="45sp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
+    </RelativeLayout>
     <Button
         android:id="@+id/btn_suivant"
         android:layout_width="225dp"
@@ -250,15 +263,23 @@
         android:layout_marginBottom="26dp"
         android:background="@drawable/back"
         android:visibility="invisible"
-        android:src="@mipmap/imglose"
         app:layout_constraintBottom_toTopOf="@+id/btn_valider"
         app:layout_constraintEnd_toStartOf="@+id/imgbulle"
         app:layout_constraintHorizontal_bias="0.539"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtViewTitre"
         app:layout_constraintVertical_bias="0.982"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        >
 
+
+        <ImageView
+            android:layout_width="707dp"
+            android:layout_height="578dp"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/imglose"
+            />
         <Button
             android:id="@+id/btnlayoutdef"
             android:layout_width="148dp"
@@ -314,12 +335,12 @@
     <RelativeLayout
         android:id="@+id/layoutvic"
         android:layout_width="711dp"
-        android:layout_height="646dp"
+        android:layout_height="582dp"
         android:layout_marginStart="512dp"
         android:layout_marginTop="29dp"
         android:layout_marginEnd="61dp"
         android:layout_marginBottom="26dp"
-        android:background="@mipmap/imgvic"
+        android:background="@drawable/back"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/btn_valider"
         app:layout_constraintEnd_toStartOf="@+id/imgbulle"
@@ -329,6 +350,13 @@
         app:layout_constraintVertical_bias="0.745"
         tools:ignore="MissingConstraints">
 
+        <ImageView
+            android:layout_width="707dp"
+            android:layout_height="578dp"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/imgvic"
+            />
         <Button
             android:id="@+id/btnlayoutvic"
             android:layout_width="148dp"
@@ -349,19 +377,19 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="217dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="11dp"
             android:layout_marginEnd="189dp"
             android:background="@mipmap/grizoul"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/txtviewlayoutvic"
-            android:layout_width="489dp"
-            android:layout_height="151dp"
+            android:layout_width="474dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="150dp"
-            android:layout_marginBottom="102dp"
+            android:layout_marginStart="142dp"
+            android:layout_marginBottom="109dp"
             android:text="T ARCHI FORT"
             android:textColor="@color/vert"
             android:textSize="60dp"
@@ -415,7 +443,8 @@
             android:layout_alignEnd="@+id/imglayoutvic"
             android:layout_alignBottom="@+id/btnlayoutvic"
             android:layout_marginTop="269dp"
-            android:layout_marginBottom="239dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="178dp"
             app:lottie_fileName="stars.json" />
 
         <com.airbnb.lottie.LottieAnimationView
