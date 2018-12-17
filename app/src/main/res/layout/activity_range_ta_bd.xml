@@ -26,7 +26,19 @@
         app:layout_constraintVertical_bias="0.724"
         app:srcCompat="@color/blancgris"
         tools:ignore="MissingConstraints" />
-
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="321dp"
+        android:layout_height="124dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/bouton_arrondie"
+        android:src="@mipmap/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="3dp"
+        tools:srcCompat="@tools:sample/avatars"
+        tools:ignore="MissingConstraints" />
     <ImageView
         android:id="@+id/imgbulle"
         android:layout_width="378dp"
@@ -91,8 +103,6 @@
         app:layout_constraintTop_toTopOf="@+id/img1"
         tools:ignore="MissingConstraints"></LinearLayout>
 
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
     <ImageView
         android:id="@+id/img1"
         android:layout_width="510dp"
@@ -148,16 +158,15 @@
 
     <TextView
         android:id="@+id/txtViewTitre"
-        android:layout_width="wrap_content"
+        android:layout_width="411dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="448dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="33dp"
-        android:background="@color/blancgris"
+
         android:fontFamily="@font/adventure"
-        android:text="  Range ta BD !  "
-        android:textColor="@color/noir"
-        android:textSize="60sp"
+
+
 
         app:layout_constraintBottom_toTopOf="@+id/imgfondblancgris"
         app:layout_constraintStart_toStartOf="parent"
@@ -172,6 +181,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/bouton_arrondie"
+        android:fontFamily="@font/adventure"
         android:text="VALIDER"
         android:textSize="45sp"
         android:visibility="visible"
@@ -200,6 +210,7 @@
             android:layout_marginEnd="0dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/bouton_arrondie"
+            android:fontFamily="@font/adventure"
             android:text="LANCER"
             android:textSize="45sp"
             android:visibility="visible"
@@ -217,6 +228,7 @@
         android:background="@drawable/bouton_arrondie"
         android:text="SUIVANT"
         android:textSize="45sp"
+        android:fontFamily="@font/adventure"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -459,5 +471,7 @@
             app:lottie_fileName="stars.json" />
 
     </RelativeLayout>
+
+
 
 </android.support.constraint.ConstraintLayout>
