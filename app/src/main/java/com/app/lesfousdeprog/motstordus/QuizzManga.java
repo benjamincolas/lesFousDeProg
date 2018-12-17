@@ -76,11 +76,12 @@ public class QuizzManga extends AppCompatActivity {
                     suivant.setVisibility(View.VISIBLE);
                     desactivebouton();
 
-                    Toast.makeText(QuizzManga.this, "Correct", Toast.LENGTH_SHORT).show();
+
                 }else {
-                    Toast.makeText(QuizzManga.this, "Faux", Toast.LENGTH_SHORT).show();
+
                     nButtonChoice1.setBackgroundColor(Color.RED);
                     suivant.setVisibility(View.VISIBLE);
+                    updateScore(nscore);
                     desactivebouton();
                     reponsebonne();
                 }
@@ -98,11 +99,12 @@ public class QuizzManga extends AppCompatActivity {
                     suivant.setVisibility(View.VISIBLE);
                     desactivebouton();
 
-                    Toast.makeText(QuizzManga.this, "Correct", Toast.LENGTH_SHORT).show();
+
                 }else {
-                    Toast.makeText(QuizzManga.this, "Faux", Toast.LENGTH_SHORT).show();
+
                     nButtonChoice2.setBackgroundColor(Color.RED);
                     suivant.setVisibility(View.VISIBLE);
+                    updateScore(nscore);
                     desactivebouton();
                     reponsebonne();
                 }
@@ -120,11 +122,12 @@ public class QuizzManga extends AppCompatActivity {
                     suivant.setVisibility(View.VISIBLE);
                     desactivebouton();
 
-                    Toast.makeText(QuizzManga.this, "Correct", Toast.LENGTH_SHORT).show();
+
                 }else {
-                    Toast.makeText(QuizzManga.this, "Faux", Toast.LENGTH_SHORT).show();
+
                     nButtonChoice3.setBackgroundColor(Color.RED);
                     suivant.setVisibility(View.VISIBLE);
+                    updateScore(nscore);
                     desactivebouton();
                     reponsebonne();
                 }
@@ -142,14 +145,23 @@ public class QuizzManga extends AppCompatActivity {
                     suivant.setVisibility(View.VISIBLE);
                     desactivebouton();
 
-                    Toast.makeText(QuizzManga.this, "Correct", Toast.LENGTH_SHORT).show();
+
                 }else {
-                    Toast.makeText(QuizzManga.this, "Faux", Toast.LENGTH_SHORT).show();
+
                     nButtonChoice4.setBackgroundColor(Color.RED);
                     suivant.setVisibility(View.VISIBLE);
+                    updateScore(nscore);
                     desactivebouton();
                     reponsebonne();
                 }
+            }
+        });
+
+
+        suivant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateQuestion();
             }
         });
     }
@@ -189,7 +201,7 @@ public class QuizzManga extends AppCompatActivity {
     }
 
     private  void updateScore(int a){
-        nScoreView.setText("" + nscore);
+        nScoreView.setText("Score de "+ nscore + " sur " + nQuestionNumber);
     }
 
 

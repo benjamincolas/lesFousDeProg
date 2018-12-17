@@ -27,6 +27,6 @@ public class Deblocage extends AppCompatActivity {
         imgrtbd=(ImageView)findViewById(R.id.imgrtbd);
 
         String scoreRecup = this.getIntent().getExtras().getString("score");
-        bravo.setText("Grâce à ton score de " + scoreRecup + " sur 10, tu as débloqué ceci :");
+        bravo.setText("Grâce à ton " + scoreRecup + ", tu as débloqué ceci :");
     }
 }

@@ -140,9 +140,9 @@ public class Quizz extends AppCompatActivity {
 
 
         private String bdquestions[] = {
-                "Dans la bande dessinée BOULE ET BILL, qui est Boule ?",
+                "Dans la bande dessinée Boule et Bill, qui est Boule ?",
                 "Dans quel album Tintin fait-il la connaissance du Capitaine Haddock ?",
-                "Peyo est connu pour Les Schtroumpfs, mails il est aussi le créateur de...",
+                "Peyo est connu pour Les Schtroumpfs, mais il est aussi le créateur de...",
                 "Quel est le prénom du druide dans les albums Astérix ?",
                 "Quel personnage de bande dessinée aime particulièrement les lasagnes ?",
                 "Gaston Lagaffe est un fervent défenseur de la cause animale. Qui sont ses 2 plus fidèles compagnons ?",

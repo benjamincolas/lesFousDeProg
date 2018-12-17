@@ -169,11 +169,12 @@ public class QuizzBD extends AppCompatActivity{
                     suivant.setVisibility(View.VISIBLE);
                     desactivebouton();
 
-                    Toast.makeText(QuizzBD.this, "Correct", Toast.LENGTH_SHORT).show();
+
                 }else {
-                    Toast.makeText(QuizzBD.this, "Faux", Toast.LENGTH_SHORT).show();
+
                     nButtonChoice1.setBackgroundColor(Color.RED);
                     suivant.setVisibility(View.VISIBLE);
+                    updateScore(nscore);
                     desactivebouton();
                     reponsebonne();
                 }
@@ -191,11 +192,12 @@ public class QuizzBD extends AppCompatActivity{
                     suivant.setVisibility(View.VISIBLE);
                     desactivebouton();
 
-                    Toast.makeText(QuizzBD.this, "Correct", Toast.LENGTH_SHORT).show();
+
                 }else {
-                    Toast.makeText(QuizzBD.this, "Faux", Toast.LENGTH_SHORT).show();
+
                     nButtonChoice2.setBackgroundColor(Color.RED);
                     suivant.setVisibility(View.VISIBLE);
+                    updateScore(nscore);
                     desactivebouton();
                     reponsebonne();
                 }
@@ -214,11 +216,11 @@ public class QuizzBD extends AppCompatActivity{
                     desactivebouton();
 
 
-                    Toast.makeText(QuizzBD.this, "Correct", Toast.LENGTH_SHORT).show();
                 }else {
-                    Toast.makeText(QuizzBD.this, "Faux", Toast.LENGTH_SHORT).show();
+
                     nButtonChoice3.setBackgroundColor(Color.RED);
                     suivant.setVisibility(View.VISIBLE);
+                    updateScore(nscore);
                     desactivebouton();
                     reponsebonne();
                 }
@@ -236,11 +238,12 @@ public class QuizzBD extends AppCompatActivity{
                     suivant.setVisibility(View.VISIBLE);
                     desactivebouton();
 
-                    Toast.makeText(QuizzBD.this, "Correct", Toast.LENGTH_SHORT).show();
+
                 }else {
-                    Toast.makeText(QuizzBD.this, "Faux", Toast.LENGTH_SHORT).show();
+
                     nButtonChoice4.setBackgroundColor(Color.RED);
                     suivant.setVisibility(View.VISIBLE);
+                    updateScore(nscore);
                     desactivebouton();
                     reponsebonne();
                 }
@@ -296,7 +299,7 @@ private void updateQuestion(){
 
 
 private  void updateScore(int a){
-        nScoreView.setText(""+ nscore);
+        nScoreView.setText("Score de "+ nscore + " sur " + nQuestionNumber);
 }
 
 private void reponsebonne() {
