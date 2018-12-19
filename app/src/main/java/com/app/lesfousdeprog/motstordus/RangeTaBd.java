@@ -119,8 +119,7 @@ public class RangeTaBd extends AppCompatActivity {
         suivant.setVisibility(View.INVISIBLE);
         disableLayout(true); // disable la possibilité de bouger les images
         layoutLancer.setEnabled(true); // permet d'activer la possibilité de cliquer sur le bouton
-        coeurgauche.playAnimation();
-        coeurgauche.loop(true);
+
     }
 
 //region onclicklistener
@@ -579,6 +578,8 @@ public class RangeTaBd extends AppCompatActivity {
             valider.setVisibility(View.VISIBLE);
             lancer.setVisibility(View.INVISIBLE);
             suivant.setVisibility(View.INVISIBLE);
+            coeurgauche.playAnimation();
+            coeurgauche.loop(true);
             xImg1 = img1.getX();
             yImg1 = img1.getY();//prend position de l'image 1 à temps =0
             xImg2 = img2.getX();
