@@ -49,7 +49,7 @@ public class RangeTaBd extends AppCompatActivity {
     private boolean boolImg3 = false;
     private boolean boolImg4 = false;
     ConstraintLayout layout;
-    LottieAnimationView etoile1,etoile2,etoile3,trophe,confetti;
+    LottieAnimationView etoile1,etoile2,etoile3,trophe,confetti,coeurgauche;
     Animator.AnimatorListener animEtoile1,animEtoile2,animEtoile3;
     Handler handler = new Handler();
 
@@ -90,6 +90,7 @@ public class RangeTaBd extends AppCompatActivity {
         etoile3 = (LottieAnimationView) findViewById(R.id.etoile3);
         trophe = (LottieAnimationView) findViewById(R.id.trophy);
         confetti = (LottieAnimationView) findViewById(R.id.confetti);
+        coeurgauche = (LottieAnimationView) findViewById(R.id.coeurgauche);
         rect1 = (LinearLayout) findViewById(R.id.rect1);
         rect2 = (LinearLayout) findViewById(R.id.rect2);
         rect3 = (LinearLayout) findViewById(R.id.rect3);
@@ -118,6 +119,8 @@ public class RangeTaBd extends AppCompatActivity {
         suivant.setVisibility(View.INVISIBLE);
         disableLayout(true); // disable la possibilité de bouger les images
         layoutLancer.setEnabled(true); // permet d'activer la possibilité de cliquer sur le bouton
+        coeurgauche.playAnimation();
+        coeurgauche.loop(true);
     }
 
 //region onclicklistener
@@ -766,9 +769,12 @@ public class RangeTaBd extends AppCompatActivity {
         if (vie==2){
             imgCoeurDroite.setImageResource(R.mipmap.coeur);
             imgCoeurGauche.setImageResource(R.mipmap.coeur);
+
+
         }
         if(vie==1) {
         imgCoeurDroite.setImageResource(R.mipmap.coeurvide);
+
         }
         if(vie==0) {
             txtviewlayoutdef.setText("Tocard");
