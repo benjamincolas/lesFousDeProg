@@ -7,5 +7,6 @@
     <color name="blanc">#FFFFFF</color>
     <color name="blancgris">#f2f1f1</color>
     <color name="rouge">#ee0707</color>
+    <color name="orange">#ff9933</color>
     <color name="vert">#005000</color>
 </resources>

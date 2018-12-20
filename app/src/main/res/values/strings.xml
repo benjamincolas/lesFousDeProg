@@ -20,6 +20,7 @@
     <string name="btn_comics">COMICS</string>
     <string name="memorigolo">Mémo-Rigolo</string>
     <string name="btn_valider">Valider</string>
+    <string name="Règles0">Valider</string>
     <string name="txt_rtbdexpl">Remets les vignettes de tes bandes dessinées préférées dans le bon ordre !</string>
     <string name="txt_mrexpl">Retrouve les paires des différents personnages de bande dessinées !</string>
 </resources>

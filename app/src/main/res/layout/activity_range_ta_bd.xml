@@ -5,36 +5,115 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RangeTaBd"
+    android:id="@+id/layoutid"
     android:background="@mipmap/background">
+
 
     <ImageView
         android:id="@+id/imgfondblancgris"
-        android:layout_width="1250dp"
-        android:layout_height="592dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="14dp"
-        android:layout_marginBottom="20dp"
+        android:layout_width="1114dp"
+        android:layout_height="614dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="15dp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.724"
         app:srcCompat="@color/blancgris"
         tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="221dp"
+        android:layout_height="124dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/bouton_arrondie"
+        android:src="@mipmap/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="3dp"
+        tools:srcCompat="@tools:sample/avatars" />
+    <ImageView
+        android:id="@+id/imgbulle"
+        android:layout_width="378dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="80dp"
+        android:background="@mipmap/bullepensive"
+        app:layout_constraintStart_toEndOf="@+id/txtViewTitre"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="0dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <LinearLayout
+        android:id="@+id/rect3"
+        android:layout_width="545dp"
+        android:layout_height="285dp"
+        android:background="@color/vert"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        android:animateLayoutChanges="true"
+        app:layout_constraintBottom_toBottomOf="@+id/img3"
+        app:layout_constraintEnd_toEndOf="@+id/img3"
+        app:layout_constraintStart_toStartOf="@+id/img3"
+        app:layout_constraintTop_toTopOf="@+id/img3"
+        tools:ignore="MissingConstraints"></LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rect4"
+        android:layout_width="545dp"
+        android:layout_height="285dp"
+        android:background="@color/vert"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/img4"
+        app:layout_constraintEnd_toEndOf="@+id/img4"
+        app:layout_constraintStart_toStartOf="@+id/img4"
+        app:layout_constraintTop_toTopOf="@+id/img4"
+        tools:ignore="MissingConstraints"></LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rect2"
+        android:layout_width="545dp"
+        android:layout_height="285dp"
+        android:background="@color/vert"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/img2"
+        app:layout_constraintEnd_toEndOf="@+id/img2"
+        app:layout_constraintStart_toStartOf="@+id/img2"
+        app:layout_constraintTop_toTopOf="@+id/img2"
+        tools:ignore="MissingConstraints"></LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rect1"
+        android:layout_width="545dp"
+        android:layout_height="285dp"
+        android:background="@color/vert"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/img1"
+        app:layout_constraintEnd_toEndOf="@+id/img1"
+        app:layout_constraintStart_toStartOf="@+id/img1"
+        app:layout_constraintTop_toTopOf="@+id/img1"
+        tools:ignore="MissingConstraints"></LinearLayout>
 
     <ImageView
         android:id="@+id/img1"
         android:layout_width="510dp"
         android:layout_height="255dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="132dp"
         android:layout_marginEnd="8dp"
-        android:background="@mipmap/mg1"
+        android:background="@color/blanc"
         android:scaleType="fitCenter"
         android:visibility="visible"
         app:layout_constraintEnd_toStartOf="@+id/img2"
-        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintHorizontal_bias="0.551"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
@@ -43,9 +122,9 @@
         android:id="@+id/img2"
         android:layout_width="510dp"
         android:layout_height="255dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="132dp"
         android:layout_marginEnd="88dp"
-        android:background="@mipmap/mg2"
+        android:background="@color/blanc"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -54,10 +133,10 @@
     <ImageView
         android:id="@+id/img4"
         android:layout_width="510dp"
-        android:layout_height="255dp"
+        android:layout_height="256dp"
         android:layout_marginEnd="88dp"
-        android:layout_marginBottom="80dp"
-        android:background="@mipmap/mg4"
+        android:layout_marginBottom="68dp"
+        android:background="@color/blanc"
         android:visibility="visible"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -67,29 +146,27 @@
     <ImageView
         android:id="@+id/img3"
         android:layout_width="510dp"
-        android:layout_height="254dp"
-        android:layout_marginStart="-20dp"
+        android:layout_height="255dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="80dp"
-        android:background="@mipmap/mg3"
+        android:layout_marginBottom="68dp"
+        android:background="@color/blanc"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/img4"
-        app:layout_constraintHorizontal_bias="0.562"
+        app:layout_constraintHorizontal_bias="0.524"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/txtViewTitre"
-        android:layout_width="wrap_content"
+        android:layout_width="411dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="448dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="33dp"
-        android:background="@color/blancgris"
+
         android:fontFamily="@font/adventure"
-        android:text="  Range ta BD !  "
-        android:textColor="@color/noir"
-        android:textSize="60sp"
+
+
 
         app:layout_constraintBottom_toTopOf="@+id/imgfondblancgris"
         app:layout_constraintStart_toStartOf="parent"
@@ -99,12 +176,12 @@
 
     <Button
         android:id="@+id/btn_valider"
-        android:layout_width="225dp"
-        android:layout_height="66dp"
+        android:layout_width="210dp"
+        android:layout_height="58dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:background="@drawable/bouton_arrondie"
+        android:fontFamily="@font/adventure"
         android:text="VALIDER"
         android:textSize="45sp"
         android:visibility="visible"
@@ -113,129 +190,336 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/testtxtview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <RelativeLayout
+        android:id="@+id/layoutLancer"
+        android:layout_width="1232dp"
+        android:layout_height="711dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutvic"
+        app:layout_constraintVertical_bias="1.0">
+
+        <Button
+            android:id="@+id/btn_lancer"
+            android:layout_width="225dp"
+            android:layout_height="66dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="255dp"
+            android:layout_marginBottom="0dp"
+            android:background="@drawable/bouton_arrondie"
+            android:fontFamily="@font/adventure"
+            android:text="LANCER"
+            android:textSize="45sp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/btn_regles"
+            android:layout_width="224dp"
+            android:layout_height="63dp"
+            android:visibility="visible"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="240dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/bouton_arrondie"
+            android:fontFamily="@font/adventure"
+            android:textSize="45sp"
+            android:text="RÉGLES" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_suivant"
+        android:layout_width="225dp"
+        android:layout_height="66dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="TextView"
-        android:textColor="@color/noir"
-        android:background="@color/blanc"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/bouton_arrondie"
+        android:fontFamily="@font/adventure"
+        android:text="SUIVANT"
         android:textSize="45sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/txtView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="600dp"
-        android:layout_marginTop="300dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="TextView"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.839"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/txtView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="300dp"
-        android:layout_marginEnd="600dp"
-        android:layout_marginBottom="8dp"
-        android:text="TextView"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/txtView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="600dp"
+    <RelativeLayout
+        android:id="@+id/layoutdef"
+        android:layout_width="711dp"
+        android:layout_height="582dp"
+        android:layout_marginStart="512dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="61dp"
+        android:layout_marginBottom="26dp"
+        android:background="@drawable/back"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/btn_valider"
+        app:layout_constraintEnd_toStartOf="@+id/imgbulle"
+        app:layout_constraintHorizontal_bias="0.539"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewTitre"
+        app:layout_constraintVertical_bias="0.982"
+        tools:ignore="MissingConstraints"
+        >
+
+
+        <ImageView
+            android:layout_width="707dp"
+            android:layout_height="578dp"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/imglose"
+            />
+        <Button
+            android:id="@+id/btnlayoutdef"
+            android:layout_width="148dp"
+            android:layout_height="72dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="90dp"
+            android:layout_marginEnd="471dp"
+            android:layout_marginBottom="19dp"
+            android:text="RETOUR" />
+
+        <Button
+            android:id="@+id/btnlayoutdefrecommencer"
+            android:layout_width="148dp"
+            android:layout_height="72dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="448dp"
+            android:layout_marginEnd="113dp"
+            android:layout_marginBottom="20dp"
+            android:text="RECOMMENCER" />
+
+        <ImageView
+            android:id="@+id/imglayoutdef"
+            android:layout_width="303dp"
+            android:layout_height="270dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="217dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="189dp"
+            android:background="@mipmap/grizoul"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/txtviewlayoutdef"
+            android:layout_width="489dp"
+            android:layout_height="151dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="150dp"
+            android:layout_marginBottom="120dp"
+            android:text="T ARCHI NAZE"
+            android:textColor="@color/rouge"
+            android:textSize="60dp"
+
+            tools:text="T ARCHI NAZE" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutvic"
+        android:layout_width="711dp"
+        android:layout_height="582dp"
+        android:layout_marginStart="512dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="61dp"
+        android:layout_marginBottom="26dp"
+        android:background="@drawable/back"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/btn_valider"
+        app:layout_constraintEnd_toStartOf="@+id/imgbulle"
+        app:layout_constraintHorizontal_bias="0.61"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewTitre"
+        app:layout_constraintVertical_bias="0.745"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:layout_width="707dp"
+            android:layout_height="578dp"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/imgvic"
+            />
+        <Button
+            android:id="@+id/btnlayoutvic"
+            android:layout_width="148dp"
+            android:layout_height="72dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="283dp"
+            android:layout_marginEnd="278dp"
+            android:layout_marginBottom="21dp"
+            android:text="RETOUR" />
+
+        <ImageView
+            android:id="@+id/imglayoutvic"
+            android:layout_width="303dp"
+            android:layout_height="270dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="217dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="189dp"
+            android:background="@mipmap/grizoul"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/txtviewlayoutvic"
+            android:layout_width="474dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="142dp"
+            android:layout_marginBottom="109dp"
+            android:text="T ARCHI FORT"
+            android:textColor="@color/vert"
+            android:textSize="60dp"
+
+            tools:text="T ARCHI NAZE" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/confetti"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:lottie_fileName="confetti.json"
+
+
+            />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/trophy"
+            android:layout_width="152dp"
+            android:layout_height="167dp"
+            android:layout_alignTop="@+id/imglayoutvic"
+            android:layout_alignEnd="@+id/txtviewlayoutvic"
+            android:layout_alignBottom="@+id/btnlayoutvic"
+            android:layout_marginTop="223dp"
+            android:layout_marginEnd="-49dp"
+            android:layout_marginBottom="200dp"
+            app:lottie_fileName="trophy.json" />
+
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/etoile1"
+            android:layout_width="75dp"
+            android:layout_height="85dp"
+            android:layout_alignTop="@+id/imglayoutvic"
+            android:layout_alignBottom="@+id/imglayoutvic"
+            android:layout_alignParentStart="true"
+
+            android:layout_marginStart="217dp"
+            android:layout_marginTop="269dp"
+            android:layout_marginBottom="-80dp"
+            app:lottie_fileName="stars.json" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/etoile3"
+            android:layout_width="75dp"
+            android:layout_height="85dp"
+            android:layout_below="@+id/imglayoutvic"
+            android:layout_alignEnd="@+id/confetti"
+
+            android:layout_marginStart="217dp"
+            android:layout_marginTop="-1dp"
+            android:layout_marginEnd="183dp"
+            android:layout_marginBottom="-80dp"
+            app:lottie_fileName="stars.json" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/etoile2"
+            android:layout_width="75dp"
+            android:layout_height="85dp"
+            android:layout_marginBottom="-80dp"
+
+            android:layout_alignTop="@+id/imglayoutvic"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="269dp"
+            android:layout_marginEnd="-179dp"
+            android:layout_toStartOf="@+id/etoile3"
+            android:layout_toEndOf="@+id/etoile1"
+            app:lottie_fileName="stars.json" />
+
+
+    </RelativeLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/coeur2"
+        android:layout_width="420dp"
+        android:layout_height="385dp"
+        android:layout_marginStart="936dp"
+        android:layout_marginBottom="546dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:lottie_autoPlay="false"
+
+        app:lottie_fileName="explocoeur.json" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/coeur"
+        android:layout_width="420dp"
+        android:layout_height="385dp"
+        android:layout_marginStart="9dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="250dp"
-        android:text="TextView"
-        android:visibility="visible"
+        android:layout_marginBottom="546dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.99"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:lottie_autoPlay="false"
 
-    <TextView
-        android:id="@+id/txtView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="600dp"
-        android:layout_marginBottom="250dp"
-        android:text="TextView"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:lottie_fileName="explocoeur.json" />
+
+    <RelativeLayout
+        android:id="@+id/regleLayout"
+        android:layout_width="509dp"
+        android:layout_height="327dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="550dp"
+        android:layout_marginBottom="600dp"
+        android:background="@mipmap/bubblecomic"
+        app:layout_constraintBottom_toTopOf="@+id/img4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintHorizontal_bias="0.811"
+        app:layout_constraintStart_toEndOf="@+id/img2"
+        app:layout_constraintTop_toBottomOf="@+id/imgfondblancgris"
+        app:layout_constraintVertical_bias="0.386"
+        tools:ignore="MissingConstraints">
 
-    <ImageView
-        android:id="@+id/imgpos1"
-        android:layout_width="510dp"
-        android:layout_height="255dp"
-        android:layout_marginTop="108dp"
-        android:layout_marginEnd="8dp"
-        android:visibility="visible"
 
-        app:layout_constraintEnd_toStartOf="@+id/img2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        <TextView
+            android:id="@+id/txtregle"
+            android:layout_width="218dp"
+            android:layout_height="105dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="142dp"
+            android:layout_marginTop="162dp"
+            android:layout_marginEnd="105dp"
+            android:layout_marginBottom="68dp"
+            android:fontFamily="@font/adventure"
+            android:text="TextView" />
+    </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/imgpos2"
-        android:layout_width="508dp"
-        android:layout_height="255dp"
-        android:layout_marginTop="108dp"
-        android:layout_marginEnd="88dp"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-      />
-
-    <ImageView
-        android:id="@+id/imgpos3"
-        android:layout_width="508dp"
-        android:layout_height="252dp"
-        android:layout_marginStart="-19dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="80dp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/img4"
-        app:layout_constraintHorizontal_bias="0.554"
-        app:layout_constraintStart_toStartOf="parent"
-        />
-
-    <ImageView
-        android:id="@+id/imgpos4"
-        android:layout_width="513dp"
-        android:layout_height="254dp"
-        android:layout_marginEnd="88dp"
-        android:layout_marginBottom="80dp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
 
 </android.support.constraint.ConstraintLayout>
