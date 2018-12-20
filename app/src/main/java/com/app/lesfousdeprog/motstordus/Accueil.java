@@ -19,7 +19,7 @@ public class Accueil extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
-        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
 
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -27,7 +27,7 @@ public class Accueil extends AppCompatActivity {
         btn_jouer.setOnClickListener(new View.OnClickListener() {
             //@Override
             public void onClick(View view) {
-                Intent unIntent = new Intent(Accueil.this,RangeTaBd.class);
+                Intent unIntent = new Intent(Accueil.this,Quizz.class);
                 Accueil.this.startActivityForResult(unIntent, code_fenetre);
             }
         });

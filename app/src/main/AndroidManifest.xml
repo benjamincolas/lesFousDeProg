@@ -24,7 +24,8 @@
         <activity android:name=".RangeTaBd" />
         <activity android:name=".QuizzBD" />
         <activity android:name=".QuizzComics" />
-        <activity android:name=".QuizzManga"></activity>
+        <activity android:name=".QuizzManga" />
+        <activity android:name=".Deblocage"></activity>
     </application>
 
 </manifest>
