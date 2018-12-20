@@ -1,6 +1,7 @@
 package com.app.lesfousdeprog.motstordus;
 
 import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ClipData;
@@ -36,12 +37,12 @@ import java.util.Random;
 
 public class RangeTaBd extends AppCompatActivity {
 
-    ImageView img1, img2, img3, img4, imgFond, imgCoeurGauche,imgCoeurDroite,imglayoutdef,imglayoutvic;
+    ImageView img1, img2, img3, img4, imgFond,imglayoutdef,imglayoutvic;
     Button valider, lancer,suivant,btn_layoutvic,btn_layoutdef,btnlayoutdefrecommencer;
     LinearLayout rect1, rect2, rect3, rect4;
     TextView txtviewlayoutvic,txtviewlayoutdef;
     RelativeLayout layoutdef,layoutvic,layoutLancer;
-
+    ObjectAnimator  ObjectAnimator,ObjectAnimator2,ObjectAnimator3,ObjectAnimator4,ObjectAnimator5;
     private int vie=2;
 
     private boolean boolImg1 = false;
@@ -49,8 +50,7 @@ public class RangeTaBd extends AppCompatActivity {
     private boolean boolImg3 = false;
     private boolean boolImg4 = false;
     ConstraintLayout layout;
-    LottieAnimationView etoile1,etoile2,etoile3,trophe,confetti,coeurgauche;
-    Animator.AnimatorListener animEtoile1,animEtoile2,animEtoile3;
+    LottieAnimationView etoile1,etoile2,etoile3,trophe,confetti,coeurgauche,coeurdroit;
     Handler handler = new Handler();
 
     private int nombreFautes=0;
@@ -63,7 +63,7 @@ public class RangeTaBd extends AppCompatActivity {
     private List<Integer> spiderman;
     private List<List<Integer>> listImg;
     public int listNum=0;
-
+    private boolean erreurPrecedent;
     @SuppressLint("ClickableViewAccessibility")
     @Override
 
@@ -82,15 +82,14 @@ public class RangeTaBd extends AppCompatActivity {
         imglayoutvic = (ImageView) findViewById(R.id.imglayoutvic);
         txtviewlayoutvic= (TextView) findViewById(R.id.txtviewlayoutvic);
         txtviewlayoutdef= (TextView) findViewById(R.id.txtviewlayoutdef);
-        imgCoeurGauche = (ImageView) findViewById(R.id.imgcoeurgauche);
-        imgCoeurDroite = (ImageView) findViewById(R.id.imgcoeurdroit);
         imgFond = (ImageView) findViewById(R.id.imgfondblancgris);
         etoile1 = (LottieAnimationView) findViewById(R.id.etoile1);
         etoile2 = (LottieAnimationView) findViewById(R.id.etoile2);
         etoile3 = (LottieAnimationView) findViewById(R.id.etoile3);
         trophe = (LottieAnimationView) findViewById(R.id.trophy);
         confetti = (LottieAnimationView) findViewById(R.id.confetti);
-        coeurgauche = (LottieAnimationView) findViewById(R.id.coeurgauche);
+        coeurgauche = (LottieAnimationView) findViewById(R.id.coeur);
+        coeurdroit = (LottieAnimationView) findViewById(R.id.coeur2);
         rect1 = (LinearLayout) findViewById(R.id.rect1);
         rect2 = (LinearLayout) findViewById(R.id.rect2);
         rect3 = (LinearLayout) findViewById(R.id.rect3);
@@ -119,7 +118,12 @@ public class RangeTaBd extends AppCompatActivity {
         suivant.setVisibility(View.INVISIBLE);
         disableLayout(true); // disable la possibilité de bouger les images
         layoutLancer.setEnabled(true); // permet d'activer la possibilité de cliquer sur le bouton
-
+        ObjectAnimator = ObjectAnimator.ofFloat(layout,"x",-50);
+        ObjectAnimator2 = ObjectAnimator2.ofFloat(layout,"x",+176);//+126 pour rev
+        ObjectAnimator3 = ObjectAnimator3.ofFloat(layout,"x",-50);
+        ObjectAnimator4 = ObjectAnimator4.ofFloat(layout,"x",+176);
+        ObjectAnimator5 = ObjectAnimator5.ofFloat(layout,"x",-0);//+128
+        erreurPrecedent = false;
     }
 
 //region onclicklistener
@@ -578,8 +582,8 @@ public class RangeTaBd extends AppCompatActivity {
             valider.setVisibility(View.VISIBLE);
             lancer.setVisibility(View.INVISIBLE);
             suivant.setVisibility(View.INVISIBLE);
-            coeurgauche.playAnimation();
-            coeurgauche.loop(true);
+            //coeurgauche.playAnimation();
+          // coeurgauche.loop(true);
             xImg1 = img1.getX();
             yImg1 = img1.getY();//prend position de l'image 1 à temps =0
             xImg2 = img2.getX();
@@ -768,18 +772,53 @@ public class RangeTaBd extends AppCompatActivity {
     }
     public void vie(){
         if (vie==2){
-            imgCoeurDroite.setImageResource(R.mipmap.coeur);
-            imgCoeurGauche.setImageResource(R.mipmap.coeur);
-
-
+if (erreurPrecedent==true) {
+    coeurgauche.resumeReverseAnimation(); // inverse l'animation
+    erreurPrecedent=false;
+}
         }
         if(vie==1) {
-        imgCoeurDroite.setImageResource(R.mipmap.coeurvide);
+            erreurPrecedent=true;
+    coeurgauche.playAnimation();
+    ObjectAnimator.setDuration(150);
+    ObjectAnimator2.setDuration(150);
+    ObjectAnimator3.setDuration(150);
+    ObjectAnimator4.setDuration(150);
+    ObjectAnimator5.setDuration(150);
+    ObjectAnimator.start();
+
+    Runnable lol = new Runnable() {
+    public void run() {
+    ObjectAnimator2.start();}
+
+                };
+            handler.postDelayed(lol, 150);
+
+            Runnable lol2 = new Runnable() {
+                public void run() {
+                    ObjectAnimator3.start();}
+
+            };
+            handler.postDelayed(lol2, 300);
+            Runnable lol3 = new Runnable() {
+                public void run() {
+                    ObjectAnimator4.start();}
+
+            };
+            handler.postDelayed(lol3, 450);
+            Runnable lol4 = new Runnable() {
+                public void run() {
+                 ObjectAnimator5.start();
+                }
+
+            };
+            handler.postDelayed(lol4, 600);
 
         }
         if(vie==0) {
+
             txtviewlayoutdef.setText("Tocard");
-            imgCoeurGauche.setImageResource(R.mipmap.coeurvide);
+            coeurdroit.playAnimation();
             Runnable runnable = new Runnable() {
                 public void run() {
 
@@ -818,6 +857,11 @@ public class RangeTaBd extends AppCompatActivity {
                     etoile3.playAnimation();
                 }};
             handler.postDelayed(apetoile2, etoile2.getDuration()+etoile1.getDuration()+confetti.getDuration()+1500);
+            Runnable apetoile3 = new Runnable() {
+                public void run() {
+                    trophe.playAnimation();
+                }};
+            handler.postDelayed(apetoile3, etoile2.getDuration()+etoile1.getDuration()+confetti.getDuration()+1500+etoile3.getDuration());
         }
 
         if (nombreFautes==2 || nombreFautes==3){
@@ -832,7 +876,7 @@ public class RangeTaBd extends AppCompatActivity {
                 public void run() {
                     etoile2.playAnimation();
                 }};
-            handler.postDelayed(apetoile1, etoile1.getDuration());
+            handler.postDelayed(apetoile1, etoile1.getDuration()+1500);
             }
 
          if (nombreFautes>3){

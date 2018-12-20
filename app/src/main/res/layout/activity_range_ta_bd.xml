@@ -9,11 +9,10 @@
     android:background="@mipmap/background">
 
 
-
     <ImageView
         android:id="@+id/imgfondblancgris"
-        android:layout_width="1108dp"
-        android:layout_height="566dp"
+        android:layout_width="1114dp"
+        android:layout_height="614dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -209,7 +208,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="0dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="0dp"
             android:background="@drawable/bouton_arrondie"
             android:fontFamily="@font/adventure"
             android:text="LANCER"
@@ -237,51 +236,6 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
-
-    <ImageView
-        android:id="@+id/imgcoeurgauche"
-        android:layout_width="73dp"
-        android:layout_height="67dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:src="@mipmap/coeur"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.438"
-        app:layout_constraintStart_toEndOf="@+id/txtViewTitre"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/coeurgauche"
-
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.734"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:lottie_fileName="coeur.json" />
-
-    <ImageView
-        android:id="@+id/imgcoeurdroit"
-        android:layout_width="69dp"
-        android:layout_height="67dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:src="@mipmap/coeur"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.141"
-        app:layout_constraintStart_toEndOf="@+id/imgcoeurgauche"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
 
     <RelativeLayout
         android:id="@+id/layoutdef"
@@ -458,7 +412,7 @@
 
             android:layout_marginStart="217dp"
             android:layout_marginTop="269dp"
-            android:layout_marginBottom="-82dp"
+            android:layout_marginBottom="-80dp"
             app:lottie_fileName="stars.json" />
 
         <com.airbnb.lottie.LottieAnimationView
@@ -471,25 +425,51 @@
             android:layout_marginStart="217dp"
             android:layout_marginTop="-1dp"
             android:layout_marginEnd="183dp"
-            android:layout_marginBottom="-79dp"
+            android:layout_marginBottom="-80dp"
             app:lottie_fileName="stars.json" />
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/etoile2"
             android:layout_width="75dp"
             android:layout_height="85dp"
-
+            android:layout_marginBottom="-80dp"
 
             android:layout_alignTop="@+id/imglayoutvic"
             android:layout_marginStart="48dp"
-            android:layout_marginTop="278dp"
+            android:layout_marginTop="269dp"
             android:layout_marginEnd="-179dp"
             android:layout_toStartOf="@+id/etoile3"
             android:layout_toEndOf="@+id/etoile1"
             app:lottie_fileName="stars.json" />
 
+
     </RelativeLayout>
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/coeur2"
+        android:layout_width="420dp"
+        android:layout_height="385dp"
+        android:layout_marginStart="936dp"
+        android:layout_marginBottom="546dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:lottie_autoPlay="false"
 
+        app:lottie_fileName="explocoeur.json" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/coeur"
+        android:layout_width="420dp"
+        android:layout_height="385dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="546dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.99"
+        app:layout_constraintStart_toStartOf="parent"
+        app:lottie_autoPlay="false"
+
+        app:lottie_fileName="explocoeur.json" />
 
 </android.support.constraint.ConstraintLayout>
