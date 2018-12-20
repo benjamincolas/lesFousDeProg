@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ClipData;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Handler;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -37,11 +38,11 @@ import java.util.Random;
 
 public class RangeTaBd extends AppCompatActivity {
 
-    ImageView img1, img2, img3, img4, imgFond,imglayoutdef,imglayoutvic;
-    Button valider, lancer,suivant,btn_layoutvic,btn_layoutdef,btnlayoutdefrecommencer;
+    ImageView img1, img2, img3, img4, imgFond,imglayoutdef,imglayoutvic,imgRegle;
+    Button valider, lancer,suivant,btn_layoutvic,btn_layoutdef,btnlayoutdefrecommencer,btn_regles;
     LinearLayout rect1, rect2, rect3, rect4;
-    TextView txtviewlayoutvic,txtviewlayoutdef;
-    RelativeLayout layoutdef,layoutvic,layoutLancer;
+    TextView txtviewlayoutvic,txtviewlayoutdef,txtRegles;
+    RelativeLayout layoutdef,layoutvic,layoutLancer,layoutRegles;
     ObjectAnimator  ObjectAnimator,ObjectAnimator2,ObjectAnimator3,ObjectAnimator4,ObjectAnimator5;
     private int vie=2;
 
@@ -77,11 +78,14 @@ public class RangeTaBd extends AppCompatActivity {
         img2 = (ImageView) findViewById(R.id.img2);
         img3 = (ImageView) findViewById(R.id.img3);
         img4 = (ImageView) findViewById(R.id.img4);
+        imgRegle = (ImageView) findViewById(R.id.imgbulle);
         layoutLancer = (RelativeLayout) findViewById(R.id.layoutLancer);
+        layoutRegles = (RelativeLayout) findViewById(R.id.regleLayout);
         imglayoutdef = (ImageView) findViewById(R.id.imglayoutdef);
         imglayoutvic = (ImageView) findViewById(R.id.imglayoutvic);
         txtviewlayoutvic= (TextView) findViewById(R.id.txtviewlayoutvic);
         txtviewlayoutdef= (TextView) findViewById(R.id.txtviewlayoutdef);
+        txtRegles= (TextView) findViewById(R.id.txtregle);
         imgFond = (ImageView) findViewById(R.id.imgfondblancgris);
         etoile1 = (LottieAnimationView) findViewById(R.id.etoile1);
         etoile2 = (LottieAnimationView) findViewById(R.id.etoile2);
@@ -101,7 +105,9 @@ public class RangeTaBd extends AppCompatActivity {
         suivant = (Button) findViewById(R.id.btn_suivant);
         btn_layoutvic = (Button) findViewById(R.id.btnlayoutvic);
         btn_layoutdef = (Button) findViewById(R.id.btnlayoutdef);
+        btn_regles = (Button) findViewById(R.id.btn_regles);
         btnlayoutdefrecommencer = (Button) findViewById(R.id.btnlayoutdefrecommencer);
+        btn_regles = (Button) findViewById(R.id.btn_regles);
         img1.setOnTouchListener(onTouchListener);
         img2.setOnTouchListener(onTouchListener);
         img3.setOnTouchListener(onTouchListener);
@@ -109,6 +115,7 @@ public class RangeTaBd extends AppCompatActivity {
         lancer.setOnClickListener(lancerApp);
         valider.setOnClickListener(clickListenerValider);
         suivant.setOnClickListener(lancerApp);
+        btn_regles.setOnClickListener(regles);
         btnlayoutdefrecommencer.setOnClickListener(relancerApp);
         valider.setVisibility(View.INVISIBLE);
         img1.setOnDragListener(listenerimg1);
@@ -582,8 +589,8 @@ public class RangeTaBd extends AppCompatActivity {
             valider.setVisibility(View.VISIBLE);
             lancer.setVisibility(View.INVISIBLE);
             suivant.setVisibility(View.INVISIBLE);
-            //coeurgauche.playAnimation();
-          // coeurgauche.loop(true);
+            btn_regles.setVisibility(View.INVISIBLE);
+
             xImg1 = img1.getX();
             yImg1 = img1.getY();//prend position de l'image 1 à temps =0
             xImg2 = img2.getX();
@@ -898,6 +905,25 @@ if (erreurPrecedent==true) {
             child.setEnabled(true);}}
 
         }
+//region régles
+        View.OnClickListener regles = new View.OnClickListener() {
+
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onClick(View v) {
+            rect1.setBackgroundColor(Color.parseColor("#ff9933"));
+            rect2.setBackgroundColor(Color.parseColor("#ff9933"));
+            rect3.setBackgroundColor(Color.parseColor("#ff9933"));
+            rect4.setBackgroundColor(Color.parseColor("#ff9933"));
+            rect1.setVisibility(View.VISIBLE);
+            txtRegles.setText("");
+            }
+
+    };
+
+    //endregion
+
+
 
 
     }

@@ -192,13 +192,14 @@
 
     <RelativeLayout
         android:id="@+id/layoutLancer"
-        android:layout_width="236dp"
-        android:layout_height="72dp"
-        android:layout_marginStart="520dp"
+        android:layout_width="1232dp"
+        android:layout_height="711dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutvic">
+        app:layout_constraintTop_toBottomOf="@+id/layoutvic"
+        app:layout_constraintVertical_bias="1.0">
 
         <Button
             android:id="@+id/btn_lancer"
@@ -207,7 +208,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="0dp"
+            android:layout_marginEnd="255dp"
             android:layout_marginBottom="0dp"
             android:background="@drawable/bouton_arrondie"
             android:fontFamily="@font/adventure"
@@ -218,7 +219,22 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/btn_regles"
+            android:layout_width="224dp"
+            android:layout_height="63dp"
+            android:visibility="visible"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="240dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/bouton_arrondie"
+            android:fontFamily="@font/adventure"
+            android:textSize="45sp"
+            android:text="RÉGLES" />
     </RelativeLayout>
+
     <Button
         android:id="@+id/btn_suivant"
         android:layout_width="225dp"
@@ -226,13 +242,13 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/bouton_arrondie"
+        android:fontFamily="@font/adventure"
         android:text="SUIVANT"
         android:textSize="45sp"
-        android:fontFamily="@font/adventure"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.884"
+        app:layout_constraintHorizontal_bias="0.839"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
@@ -471,5 +487,39 @@
         app:lottie_autoPlay="false"
 
         app:lottie_fileName="explocoeur.json" />
+
+    <RelativeLayout
+        android:id="@+id/regleLayout"
+        android:layout_width="509dp"
+        android:layout_height="327dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="550dp"
+        android:layout_marginBottom="600dp"
+        android:background="@mipmap/bubblecomic"
+        app:layout_constraintBottom_toTopOf="@+id/img4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.811"
+        app:layout_constraintStart_toEndOf="@+id/img2"
+        app:layout_constraintTop_toBottomOf="@+id/imgfondblancgris"
+        app:layout_constraintVertical_bias="0.386"
+        tools:ignore="MissingConstraints">
+
+
+        <TextView
+            android:id="@+id/txtregle"
+            android:layout_width="218dp"
+            android:layout_height="105dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="142dp"
+            android:layout_marginTop="162dp"
+            android:layout_marginEnd="105dp"
+            android:layout_marginBottom="68dp"
+            android:fontFamily="@font/adventure"
+            android:text="TextView" />
+    </RelativeLayout>
+
 
 </android.support.constraint.ConstraintLayout>
