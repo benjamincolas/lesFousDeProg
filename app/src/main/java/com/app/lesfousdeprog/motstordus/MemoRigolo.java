@@ -10,7 +10,6 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -18,14 +17,19 @@ public class MemoRigolo extends AppCompatActivity {
 
     private int click = 0;
     private ArrayList<ImageView> imageViews;
-    private ImageView choiceImage1;
-    private ImageView choiceImage2;
+    private int choiceImage1;
+    private View view1;
+    private int position1;
+    private int choiceImage2;
+    private View view2;
+    private  int position2;
     private Handler handler = new Handler();
     private int difficulte;
     private GridView gridImage;
     private ArrayList<Integer> idImageView;
     private int tempDifficulte;
     private TextView memorigolo;
+    private int score;
 
 
     @Override
@@ -48,21 +52,10 @@ public class MemoRigolo extends AppCompatActivity {
         setImage();
     }
 
-
-    public void testImage(){
-        handler.postDelayed(new Runnable() {
-            public void run() {
-                if(choiceImage1.getTag() != choiceImage2.getTag()){
-                    choiceImage1.setVisibility(View.INVISIBLE);
-                    choiceImage2.setVisibility(View.INVISIBLE);
-                }
-                click = 0;
-            }}, 700);
-    }
-
     public void setImage(){
         ArrayList<Integer> nbAlea = new ArrayList<>();
         tempDifficulte-=1;
+
         final Integer[] listImage = new Integer[]{
                 R.mipmap.batman,
                 R.mipmap.captain_america,
@@ -84,19 +77,15 @@ public class MemoRigolo extends AppCompatActivity {
             dataGrid.setColumnWidth(325);
             dataGrid.requestLayout();
         }
-        /*else if(difficulte == 16){
-            GridView dataGrid = findViewById(R.id.gridView);
-            dataGrid.setColumnWidth(250);
-            dataGrid.setNumColumns(5);
-            dataGrid.requestLayout();
-        }*/
 
         while(tempDifficulte > -1){
             nbAlea.add(tempDifficulte);
             nbAlea.add(tempDifficulte);
             tempDifficulte --;
         }
+
         difficulte-=1;
+
         while (difficulte > -1){
             int alea = (int) (nbAlea.size() * Math.random());
             ImageView iv = new ImageView(this);
@@ -114,35 +103,37 @@ public class MemoRigolo extends AppCompatActivity {
         gridImage.setAdapter(adapter);
         gridImage.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(MemoRigolo.this, "id image" + imageViews.get(position).getId(), Toast.LENGTH_SHORT).show();
+            public void onItemClick(final AdapterView<?> parent, final View view, final int position, long id) {
                 view.setBackgroundResource(idImageView.get(position));
-                //testClick();
+                click ++;
+
+                if(click ==1){
+                    choiceImage1 = idImageView.get(position);
+                    view1 = view;
+                    position1 = position;
+                }else if(click == 2){
+                    choiceImage2 = idImageView.get(position);
+                    view2 = view;
+                    position2 = position;
+                }
+
+                if(click == 2){
+                    handler.postDelayed(new Runnable() {
+                        public void run() {
+                            if(choiceImage1 != choiceImage2){
+                                gridImage.getAdapter().getView(position1, view1, parent).setBackgroundResource(R.mipmap.pow);
+                                gridImage.getAdapter().getView(position2, view2, parent).setBackgroundResource(R.mipmap.pow);
+                            }
+                            else{
+                                score++;
+                                if(score == (score*2)/2){
+                                    MemoRigolo.this.findViewById(R.id.gagner).setVisibility(View.VISIBLE);
+                                }
+                            }
+                            click = 0;
+                        }}, 700);
+                }
             }
         });
-
-        /*for (Integer uneImage : idImageView) {
-
-            this.findViewById(uneImage).setOnClickListener(new View.OnClickListener() {
-                public void onClick(View view) {
-                    ImageView temp1 = imageViews.get(0);
-                    testClick(temp1);
-                }
-            });
-        }*/
-    }
-
-    public void testClick(ImageView iv1){
-        click ++;
-        if(click == 1){
-            choiceImage1 = iv1;
-            choiceImage1.setVisibility(View.VISIBLE);
-        }
-        else if(click == 2){
-            choiceImage2 = iv1;
-            choiceImage2.setVisibility(View.VISIBLE);
-
-            testImage();
-        }
     }
 }
