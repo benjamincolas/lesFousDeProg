@@ -5,236 +5,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/backgroundrtbd"
+    android:layout_gravity="center"
     tools:context=".MemoRigolo">
 
     <TextView
         android:id="@+id/memorigolo"
-        android:layout_width="350dp"
+        android:layout_width="500dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bouton_arrondie"
         android:fontFamily="@font/adventure"
         android:text="@string/memorigolo"
         android:textAlignment="center"
         android:textColor="@color/noir"
-        android:textSize="45sp"
+        android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="100dp"
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:background="@mipmap/pow"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/imageView5"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toEndOf="@id/imageView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="10dp"
-        android:background="@mipmap/pow"
-        app:layout_constraintBottom_toTopOf="@+id/imageView5"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toEndOf="@id/imageView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="10dp"
-        android:background="@mipmap/pow"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/imageView6"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
-        app:layout_constraintStart_toEndOf="@id/imageView"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="10dp"
-        android:background="@mipmap/pow"
-        app:layout_constraintBottom_toTopOf="@+id/imageView6"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
-        app:layout_constraintStart_toEndOf="@id/imageView"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="250dp"
-        android:layout_height="249dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="10dp"
-        android:background="@mipmap/pow"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/imageView7"
-        app:layout_constraintEnd_toStartOf="@id/imageView4"
-        app:layout_constraintStart_toEndOf="@id/imageView2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView12"
-        android:layout_width="250dp"
-        android:layout_height="249dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="10dp"
-        android:background="@mipmap/pow"
-        app:layout_constraintBottom_toTopOf="@+id/imageView7"
-        app:layout_constraintEnd_toStartOf="@id/imageView4"
-        app:layout_constraintStart_toEndOf="@id/imageView2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="10dp"
-        android:background="@mipmap/pow"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/imageView8"
+        android:gravity="center"
+        android:horizontalSpacing="20dp"
+        android:numColumns="4"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio=""
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView13"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="10dp"
-        android:background="@mipmap/pow"
-        app:layout_constraintBottom_toTopOf="@+id/imageView8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="40dp"
-        android:background="@mipmap/pow"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView6"
-        app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="40dp"
-        android:background="@mipmap/pow"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView6"
-        app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="40dp"
-        android:background="@mipmap/pow"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView7"
-        app:layout_constraintStart_toEndOf="@id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-    <ImageView
-        android:id="@+id/imageView15"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="40dp"
-        android:background="@mipmap/pow"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView7"
-        app:layout_constraintStart_toEndOf="@id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="40dp"
-        android:background="@mipmap/pow"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/imageView8"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-    <ImageView
-        android:id="@+id/imageView16"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="40dp"
-        android:background="@mipmap/pow"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/imageView8"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="40dp"
-        android:background="@mipmap/pow"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView7"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
-
-    <ImageView
-        android:id="@+id/imageView17"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="40dp"
-        android:background="@mipmap/pow"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView7"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintTop_toBottomOf="@+id/memorigolo" />
 
 </android.support.constraint.ConstraintLayout>
