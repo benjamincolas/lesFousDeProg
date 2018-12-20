@@ -1,10 +1,12 @@
 package com.app.lesfousdeprog.motstordus;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -52,6 +54,8 @@ public class QuizzManga extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quizz_bd);
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         nScoreView = (TextView)findViewById(R.id.score);
         nQuestionView =(TextView)findViewById(R.id.txt_qu);
@@ -162,6 +166,8 @@ public class QuizzManga extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 updateQuestion();
+                if (nQuestionNumber==10){
+                    suivant.setText("Fin du Quizz");                }
             }
         });
     }
