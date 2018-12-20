@@ -16,6 +16,7 @@ public class Quizz extends AppCompatActivity {
    private Button btn_manga;
     private Button btn_bd;
     private Button btn_comics;
+    private Button btn_retour;
     private int num;
     private final int code_fenetre = 20;
 
@@ -52,14 +53,14 @@ public class Quizz extends AppCompatActivity {
             }
         });
 
-        /*btn_retour = (Button) this.findViewById(R.id.btn_retour);
+        btn_retour = (Button) this.findViewById(R.id.btn_retour2);
         btn_retour.setOnClickListener(new View.OnClickListener() {
             //@Override
             public void onClick(View view) {
                 Intent unIntent = new Intent(Quizz.this, Accueil.class);
                 Quizz.this.startActivityForResult(unIntent, code_fenetre);
             }
-        }); */
+        });
 
 
     }

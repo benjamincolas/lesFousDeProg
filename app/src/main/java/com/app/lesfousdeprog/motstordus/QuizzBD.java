@@ -254,6 +254,8 @@ public class QuizzBD extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 updateQuestion();
+                if (nQuestionNumber==10){
+                    suivant.setText("Fin du Quiz");                }
             }
         });
 
@@ -268,6 +270,7 @@ private void updateQuestion(){
         unIntent.putExtra("score", lescore);
         unIntent.putExtra("nbscore", nscore);
         QuizzBD.this.startActivityForResult(unIntent, code_fenetre);}
+
         else {
         nQuestionView.setText(nQuizz.getQuestionsbd(nQuestionNumber));
         nButtonChoice1.setText(nQuizz.getChoicesbd(nQuestionNumber));

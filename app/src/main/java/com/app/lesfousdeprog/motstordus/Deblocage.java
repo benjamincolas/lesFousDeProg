@@ -1,6 +1,7 @@
 package com.app.lesfousdeprog.motstordus;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -55,7 +56,8 @@ public class Deblocage extends AppCompatActivity {
 
             jouermr.setText("Bloqué");
             jouermr.setClickable(false);
-
+            jouermr.setBackgroundColor(Color.GRAY);
+            jouermr.requestLayout();
 
 
         }
