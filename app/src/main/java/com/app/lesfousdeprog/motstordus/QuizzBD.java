@@ -144,6 +144,8 @@ public class QuizzBD extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quizz_bd);
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         nScoreView = (TextView)findViewById(R.id.score);
         nQuestionView =(TextView)findViewById(R.id.txt_qu);
@@ -255,7 +257,7 @@ public class QuizzBD extends AppCompatActivity{
             public void onClick(View v) {
                 updateQuestion();
                 if (nQuestionNumber==10){
-                    suivant.setText("Fin du Quiz");                }
+                    suivant.setText("Fin du Quizz");                }
             }
         });
 
