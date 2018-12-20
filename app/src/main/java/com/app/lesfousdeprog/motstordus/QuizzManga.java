@@ -171,6 +171,7 @@ public class QuizzManga extends AppCompatActivity {
             lescore=nScoreView.getText().toString();
             Intent unIntent = new Intent(QuizzManga.this,Deblocage.class);
             unIntent.putExtra("score", lescore);
+            unIntent.putExtra("nbscore", nscore);
             QuizzManga.this.startActivityForResult(unIntent, code_fenetre);}
         else {
             nQuestionView.setText(nQuizz.getQuestionsm(nQuestionNumber));

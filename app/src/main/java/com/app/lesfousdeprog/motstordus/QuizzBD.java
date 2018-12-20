@@ -266,6 +266,7 @@ private void updateQuestion(){
         lescore=nScoreView.getText().toString();
         Intent unIntent = new Intent(QuizzBD.this,Deblocage.class);
         unIntent.putExtra("score", lescore);
+        unIntent.putExtra("nbscore", nscore);
         QuizzBD.this.startActivityForResult(unIntent, code_fenetre);}
         else {
         nQuestionView.setText(nQuizz.getQuestionsbd(nQuestionNumber));

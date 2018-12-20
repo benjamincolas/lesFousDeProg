@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
@@ -15,7 +16,6 @@ public class Quizz extends AppCompatActivity {
    private Button btn_manga;
     private Button btn_bd;
     private Button btn_comics;
-    private Button btn_retour;
     private int num;
     private final int code_fenetre = 20;
 
