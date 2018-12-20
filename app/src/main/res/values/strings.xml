@@ -20,5 +20,60 @@
     <string name="btn_comics">COMICS</string>
     <string name="memorigolo">Mémo-Rigolo</string>
     <string name="btn_valider">Valider</string>
-    <string name="Règles0">Valider</string>
+    <string name="Règles0">BIENVENUE DANS "RANGE TA BD"
+        \n LE PRINCIPE EST SIMPLE, TU AURAS
+        \n PLUSISEURS VIGNETTES DE BD
+        \n QU IL FAUDRA RANGER
+        \n DANS LE BON ORDRE.
+    </string>
+    <string name="Règles1">PLACE LA VIGNETTE 1
+        \n DANS CETTE CASE.
+
+    </string>
+    <string name="Règles2">PLACE LA VIGNETTE 2
+        \n DANS CETTE CASE.
+
+    </string>
+    <string name="Règles3">PLACE LA VIGNETTE 3
+        \n DANS CETTE CASE.
+
+    </string>
+    <string name="Règles4">PLACE LA VIGNETTE 4
+        \n DANS CETTE CASE.
+
+    </string>
+    <string name="Règles5">QUAND TU PENSES AVOIR
+        \n TOUT BON CLIC SUR LE
+        \n BOUTON VALIDER
+
+    </string>
+    <string name="Règles6">TU AS 2 VIE PAR ROUND
+
+
+    </string>I
+    <string name="Règles7">
+         SI LE PLACEMENT N EST PAS
+        \n TOTALEMENT BON TU PERD UNE VIE
+
+    </string>
+    <string name="Règles9">SI IL Y A DES
+        \n VIGNETTES A LA BONNE PLACE
+        \n ILS VONT S AFFICHER EN VERT
+
+    </string>
+    <string name="Règles8">SI TU PERD UNE VIE
+        \n LA TABLETTE TREMBLERA
+
+
+    </string>
+    <string name="Règles10">QUAND TU AS BON TU PEUX PASSER
+        \n AU ROUND SUIVANT
+
+
+    </string>
+    <string name="Règles11"> PLACE AU JEU MAINTENANT !!
+        \n
+
+
+    </string>
 </resources>
