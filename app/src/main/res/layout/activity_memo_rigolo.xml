@@ -43,4 +43,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/memorigolo" />
 
+    <TextView
+        android:id="@+id/gagner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Salut t'as gagner"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="123dp"
+        tools:layout_editor_absoluteY="16dp" />
+
 </android.support.constraint.ConstraintLayout>
