@@ -1,3 +1,4 @@
+
 package com.app.lesfousdeprog.motstordus;
 
 import android.content.Intent;
@@ -24,10 +25,10 @@ public class Deblocage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_deblocage);
+        //setContentView(R.layout.activity_deblocage);
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
+/*
         bravo = (TextView)findViewById(R.id.txt_bravo);
         jouermr=(Button)findViewById(R.id.jouermr);
         jouerrtbd=(Button)findViewById(R.id.jouerrtbd);
@@ -66,6 +67,7 @@ public class Deblocage extends AppCompatActivity {
         }
 
 
-
+*/
     }
+
 }

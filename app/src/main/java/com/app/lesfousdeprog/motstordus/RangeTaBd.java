@@ -45,7 +45,7 @@ public class RangeTaBd extends AppCompatActivity {
     LinearLayout rect1, rect2, rect3, rect4;
     TextView txtviewlayoutvic,txtviewlayoutdef,txtRegles;
     RelativeLayout layoutdef,layoutvic,layoutLancer,layoutRegles;
-    ObjectAnimator  ObjectAnimator,ObjectAnimator2,ObjectAnimator3,ObjectAnimator4,ObjectAnimator5,AnimatorRegle1,AnimatorRegle2,AnimatorRegle3,AnimatorRegle4,AnimatorRegle5;
+    ObjectAnimator  ObjectAnimator,ObjectAnimator2,ObjectAnimator3,ObjectAnimator4,ObjectAnimator5,AnimatorRegle1,AnimatorRegle2;
     private int vie=2;
     private int clicsurregles =1;
     private boolean boolImg1 = false;
@@ -53,7 +53,7 @@ public class RangeTaBd extends AppCompatActivity {
     private boolean boolImg3 = false;
     private boolean boolImg4 = false;
     ConstraintLayout layout;
-    LottieAnimationView etoile1,etoile2,etoile3,trophe,confetti,coeurgauche,coeurdroit;
+    LottieAnimationView etoile1,etoile2,etoile3,trophe,confetti,coeurgauche,coeurdroit,tropheeWin;
     Handler handler = new Handler();
 
     private int nombreFautes=0;
@@ -96,6 +96,7 @@ public class RangeTaBd extends AppCompatActivity {
         confetti = (LottieAnimationView) findViewById(R.id.confetti);
         coeurgauche = (LottieAnimationView) findViewById(R.id.coeur);
         coeurdroit = (LottieAnimationView) findViewById(R.id.coeur2);
+        tropheeWin = (LottieAnimationView) findViewById(R.id.tropheWin);
         rect1 = (LinearLayout) findViewById(R.id.rect1);
         rect2 = (LinearLayout) findViewById(R.id.rect2);
         rect3 = (LinearLayout) findViewById(R.id.rect3);
@@ -594,6 +595,8 @@ public class RangeTaBd extends AppCompatActivity {
             suivant.setClickable(true);
             rect1.setBackgroundColor(Color.parseColor("#008000"));
             rect3.setBackgroundColor(Color.parseColor("#008000"));
+            rect2.setBackgroundColor(Color.parseColor("#008000"));
+            rect4.setBackgroundColor(Color.parseColor("#008000"));
             layoutRegles.setVisibility(View.INVISIBLE);
             valider.setClickable(true);
             disableLayout(false);
@@ -744,7 +747,7 @@ public class RangeTaBd extends AppCompatActivity {
                 }
                 if(listNum==6){
                     suivant.setVisibility(View.INVISIBLE);
-
+                    tropheeWin.playAnimation();
                     Runnable runnable = new Runnable() {
                         public void run() {
                             layoutvic.setVisibility(View.VISIBLE);
@@ -892,6 +895,7 @@ if (erreurPrecedent==true) {
                 layoutRegles.setVisibility(View.VISIBLE);
                 lancer.setVisibility(View.INVISIBLE);
                 btn_regles.setText("RÉGLE SUIVANTE");
+                btn_regles.setTextSize(28);
                     if(clicsurregles==0) {
                         txtRegles.setText(R.string.Règles0);
                         btn_regles.setTextSize(25);
