@@ -289,6 +289,9 @@
             android:layout_alignParentBottom="true"
             android:layout_marginStart="90dp"
             android:layout_marginEnd="471dp"
+            android:background="@drawable/bouton_arrondie"
+            android:fontFamily="@font/adventure"
+            android:textSize="18dp"
             android:layout_marginBottom="19dp"
             android:text="RETOUR" />
 
@@ -302,6 +305,9 @@
             android:layout_marginStart="448dp"
             android:layout_marginEnd="113dp"
             android:layout_marginBottom="20dp"
+            android:textSize="18dp"
+            android:background="@drawable/bouton_arrondie"
+            android:fontFamily="@font/adventure"
             android:text="RECOMMENCER" />
 
         <ImageView
@@ -325,9 +331,9 @@
             android:layout_alignParentBottom="true"
             android:layout_marginStart="150dp"
             android:layout_marginBottom="120dp"
-            android:text="T ARCHI NAZE"
-            android:textColor="@color/rouge"
-            android:textSize="60dp"
+            android:text="Dommage"
+            android:textColor="@color/blanc"
+            android:textSize="32dp"
 
             tools:text="T ARCHI NAZE" />
     </RelativeLayout>
@@ -366,14 +372,17 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+            android:background="@drawable/bouton_arrondie"
+            android:fontFamily="@font/adventure"
+            android:textSize="18dp"
             android:layout_marginEnd="277dp"
             android:layout_marginBottom="35dp"
             android:text="RETOUR" />
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/tropheWin"
-            android:layout_width="218dp"
-            android:layout_height="208dp"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
 
 
             android:layout_alignEnd="@+id/confetti"
@@ -394,9 +403,9 @@
             android:layout_alignParentBottom="true"
             android:layout_marginStart="126dp"
             android:layout_marginBottom="78dp"
-            android:text="T ARCHI FORT"
-            android:textColor="@color/vert"
-            android:textSize="60dp"
+            android:text="Bravo !"
+            android:textColor="@color/blanc"
+            android:textSize="32dp"
 
             tools:text="T ARCHI NAZE" />
 
