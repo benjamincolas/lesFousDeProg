@@ -41,7 +41,7 @@ public class RangeTaBd extends AppCompatActivity {
     private boolean boolImg3 = false;
     private boolean boolImg4 = false;
     ConstraintLayout layout;
-    LottieAnimationView etoile1,etoile2,etoile3,trophe,confetti,coeurgauche,coeurdroit,tropheeWin; // initlaise toutes les animations
+    LottieAnimationView etoile1,etoile2,etoile3,trophe,confetti,coeurgauche,coeurdroit; // initlaise toutes les animations
     Handler handler = new Handler();
     private int nombreFautes=0;
     float y;
@@ -82,7 +82,7 @@ public class RangeTaBd extends AppCompatActivity {
         confetti = (LottieAnimationView) findViewById(R.id.confetti);
         coeurgauche = (LottieAnimationView) findViewById(R.id.coeur);
         coeurdroit = (LottieAnimationView) findViewById(R.id.coeur2);
-        tropheeWin = (LottieAnimationView) findViewById(R.id.tropheWin);
+
         rect1 = (LinearLayout) findViewById(R.id.rect1);
         rect2 = (LinearLayout) findViewById(R.id.rect2);
         rect3 = (LinearLayout) findViewById(R.id.rect3);
@@ -704,7 +704,7 @@ public class RangeTaBd extends AppCompatActivity {
                 }
                 if(listNum==6){ // si c'est la dernière bd
                     suivant.setVisibility(View.INVISIBLE);//on affiche pas le bouton suivant
-                    tropheeWin.playAnimation();
+
                     Runnable runnable = new Runnable() { //initialisation du timer
                         public void run() {
                             layoutvic.setVisibility(View.VISIBLE);

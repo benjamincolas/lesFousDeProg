@@ -312,7 +312,7 @@
 
         <ImageView
             android:id="@+id/imglayoutdef"
-            android:layout_width="303dp"
+            android:layout_width="313dp"
             android:layout_height="270dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
@@ -320,7 +320,7 @@
             android:layout_marginStart="217dp"
             android:layout_marginTop="35dp"
             android:layout_marginEnd="189dp"
-            android:background="@mipmap/poucenoir"
+            android:background="@mipmap/poucebas"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
@@ -379,21 +379,17 @@
             android:layout_marginBottom="35dp"
             android:text="RETOUR" />
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/tropheWin"
-            android:layout_width="100dp"
-            android:layout_height="60dp"
-
-
-            android:layout_alignEnd="@+id/confetti"
+        <ImageView
+            android:id="@+id/poucehaut"
+            android:layout_width="380dp"
+            android:layout_height="270dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="256dp"
-            android:layout_marginTop="57dp"
-            android:layout_marginEnd="237dp"
-            android:layout_marginBottom="317dp"
-            app:lottie_fileName="trophyWin.json" />
+            android:layout_marginStart="196dp"
+            android:layout_marginTop="54dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/poucehautbd" />
+
 
         <TextView
             android:id="@+id/txtviewlayoutvic"
