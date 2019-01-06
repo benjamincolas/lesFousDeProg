@@ -1,6 +1,7 @@
 package com.app.lesfousdeprog.motstordus;
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.ClipData;
 import android.content.Intent;
 import android.graphics.Color;
@@ -29,7 +30,7 @@ import java.util.Random;
 public class RangeTaBd extends AppCompatActivity {
 
     ImageView img1, img2, img3, img4, imgFond,imglayoutdef,imglayoutvic,imgRegle;
-    Button valider, lancer,suivant,btn_layoutvic,btn_layoutdef,btnlayoutdefrecommencer,btn_regles;
+    Button valider, lancer,suivant,btn_layoutvic,btn_layoutdef,btnlayoutdefrecommencer,btn_regles,btn_retour;
     LinearLayout rect1, rect2, rect3, rect4;
     TextView txtviewlayoutvic,txtviewlayoutdef,txtRegles;
     RelativeLayout layoutdef,layoutvic,layoutLancer,layoutRegles;
@@ -103,6 +104,8 @@ public class RangeTaBd extends AppCompatActivity {
         img4.setOnTouchListener(onTouchListener);
         lancer.setOnClickListener(lancerApp);
         valider.setOnClickListener(clickListenerValider);
+        btn_layoutdef.setOnClickListener(btnRetour);
+        btn_layoutvic.setOnClickListener(btnRetour);
         suivant.setOnClickListener(lancerApp);
         btn_regles.setOnClickListener(regles);
         btnlayoutdefrecommencer.setOnClickListener(relancerApp);
@@ -733,6 +736,16 @@ public class RangeTaBd extends AppCompatActivity {
         }};
 
 //endregion
+
+
+    View.OnClickListener btnRetour = new View.OnClickListener() {
+        @Override
+
+        public void onClick(View v) {
+            RangeTaBd.this.finish(); //ferme la page actuelle pour revenir au menu
+        }};
+
+
     public void ajouterNumListe(){
         listNum=listNum+1; //incrémente la variable
 
