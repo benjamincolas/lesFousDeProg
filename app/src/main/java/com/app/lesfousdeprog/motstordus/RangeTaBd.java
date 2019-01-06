@@ -657,6 +657,7 @@ public class RangeTaBd extends AppCompatActivity {
         //}
 
     };
+    
     //endregion
 //region clic sur le bouton valider
     View.OnClickListener clickListenerValider = new View.OnClickListener() {
@@ -700,6 +701,7 @@ public class RangeTaBd extends AppCompatActivity {
                 // si les 4 images sont bien placées
                 valider.setClickable(false); // on empeche la possibilité de cliquer sur le bouton valider
                 suivant.setVisibility(View.VISIBLE); // on affiche le bouton suivant
+
                 vie=2;// on remet les vies à 2
                 vie();
                 if (listNum<6) { // si ce n'est pas la dernière bd affiché
@@ -732,6 +734,7 @@ public class RangeTaBd extends AppCompatActivity {
     View.OnClickListener relancerApp = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            RangeTaBd.this.finish();
             startActivity(new Intent(RangeTaBd.this, RangeTaBd.class)); //recrée une page
         }};
 
