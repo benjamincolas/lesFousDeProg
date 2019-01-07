@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ClipData;
 import android.content.Intent;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Handler;
 import android.support.constraint.ConstraintLayout;
@@ -26,9 +27,7 @@ import com.airbnb.lottie.LottieAnimationView;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
 public class RangeTaBd extends AppCompatActivity {
-
     ImageView img1, img2, img3, img4, imgFond,imglayoutdef,imglayoutvic,imgRegle;
     Button valider, lancer,suivant,btn_layoutvic,btn_layoutdef,btnlayoutdefrecommencer,btn_regles,btn_retour;
     LinearLayout rect1, rect2, rect3, rect4;
@@ -83,7 +82,6 @@ public class RangeTaBd extends AppCompatActivity {
         confetti = (LottieAnimationView) findViewById(R.id.confetti);
         coeurgauche = (LottieAnimationView) findViewById(R.id.coeur);
         coeurdroit = (LottieAnimationView) findViewById(R.id.coeur2);
-
         rect1 = (LinearLayout) findViewById(R.id.rect1);
         rect2 = (LinearLayout) findViewById(R.id.rect2);
         rect3 = (LinearLayout) findViewById(R.id.rect3);
@@ -98,10 +96,10 @@ public class RangeTaBd extends AppCompatActivity {
         btn_regles = (Button) findViewById(R.id.btn_regles);
         btnlayoutdefrecommencer = (Button) findViewById(R.id.btnlayoutdefrecommencer);
         btn_regles = (Button) findViewById(R.id.btn_regles);
-        img1.setOnTouchListener(onTouchListener);
-        img2.setOnTouchListener(onTouchListener);
-        img3.setOnTouchListener(onTouchListener);
-        img4.setOnTouchListener(onTouchListener);
+        img1.setOnTouchListener(onTouchListener1);
+        img2.setOnTouchListener(onTouchListener2);
+        img3.setOnTouchListener(onTouchListener3);
+        img4.setOnTouchListener(onTouchListener4);
         lancer.setOnClickListener(lancerApp);
         valider.setOnClickListener(clickListenerValider);
         btn_layoutdef.setOnClickListener(btnRetour);
@@ -126,19 +124,56 @@ public class RangeTaBd extends AppCompatActivity {
         layoutRegles.setVisibility(View.VISIBLE);
         txtRegles.setText(R.string.Règles0);
     }
+//region Apparition de l'ombre de l'image
+View.OnTouchListener onTouchListener1 = new View.OnTouchListener(){
 
-//region onclicklistener
+    @Override
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (boolImg1== false) { // si l'image 1 n'est pas validé
+            ClipData data = ClipData.newPlainText("", "");
+            View.DragShadowBuilder myShadow = new View.DragShadowBuilder(view);
+            view.startDragAndDrop(data, myShadow, view, 0); // crée l'ombre de l'image quand clic
+        }
+        return true;
+    }
+};
+    View.OnTouchListener onTouchListener2 = new View.OnTouchListener(){
 
-  View.OnTouchListener onTouchListener = new View.OnTouchListener(){
+        @Override
+        public boolean onTouch(View view, MotionEvent motionEvent) {
+            if (boolImg2 == false) { // si l'image 2 n'est pas validé
+                ClipData data = ClipData.newPlainText("", "");
+                View.DragShadowBuilder myShadow = new View.DragShadowBuilder(view);
+                view.startDragAndDrop(data, myShadow, view, 0); // crée l'ombre de l'image quand clic
+            }
+            return true;
+        }
+    };
+    View.OnTouchListener onTouchListener3 = new View.OnTouchListener(){
 
-      @Override
-      public boolean onTouch(View view, MotionEvent motionEvent) {
-          ClipData data = ClipData.newPlainText("", "");
-          View.DragShadowBuilder myShadow = new View.DragShadowBuilder(view);
-          view.startDragAndDrop(data, myShadow, view, 0); // crée l'ombre de l'image quand click
-          return true;
-      }
-  };
+        @Override
+        public boolean onTouch(View view, MotionEvent motionEvent) {
+            if (boolImg3 == false) { // si l'image 3 n'est pas validé
+            ClipData data = ClipData.newPlainText("", "");
+            View.DragShadowBuilder myShadow = new View.DragShadowBuilder(view);
+            view.startDragAndDrop(data, myShadow, view, 0); // crée l'ombre de l'image quand clic
+                 }
+            return true;
+        }
+    };
+    View.OnTouchListener onTouchListener4 = new View.OnTouchListener(){
+
+        @Override
+        public boolean onTouch(View view, MotionEvent motionEvent) {
+            if (boolImg4 == false) { // si l'image 4 n'est pas validé
+                ClipData data = ClipData.newPlainText("", "");
+                View.DragShadowBuilder myShadow = new View.DragShadowBuilder(view);
+                view.startDragAndDrop(data, myShadow, view, 0); // crée l'ombre de l'image quand clic
+
+            }
+            return true;}
+
+    };
     //endregion
 //region dragListener
     View.OnDragListener dragListener = new View.OnDragListener() {
@@ -271,6 +306,7 @@ public class RangeTaBd extends AppCompatActivity {
                             vData.setY(img2.getY());
                             img2.setX(x);
                             img2.setY(y);}
+
 
 
                         } else if (vData.getId() == R.id.img3) {
@@ -621,10 +657,7 @@ public class RangeTaBd extends AppCompatActivity {
                 i3 = rand3.nextInt(4);
                 i4 = rand4.nextInt(4);
             }
-            i1b = i1;
-            i2b = i2;
-            i3b = i3;
-            i4b = i4;
+
             img1.setY(listPosY.get(i1));
             img1.setX(listPosX.get(i1));//récupére une coordonnée x et y dans la liste de coordonnées
             img2.setY(listPosY.get(i2));
@@ -647,14 +680,9 @@ public class RangeTaBd extends AppCompatActivity {
             boolImg2 = false;
             boolImg3 = false;
             boolImg4 = false;
-         //   img1.setFocusable(true);
-         //   img2.setClickable(false);
-            //img3.setClickable(true);
-            //img4.setClickable(true);
 
 
         }
-        //}
 
     };
     
@@ -739,16 +767,15 @@ public class RangeTaBd extends AppCompatActivity {
         }};
 
 //endregion
-
-
+//region Bouton retour
     View.OnClickListener btnRetour = new View.OnClickListener() {
         @Override
 
         public void onClick(View v) {
             RangeTaBd.this.finish(); //ferme la page actuelle pour revenir au menu
+
         }};
-
-
+//endregion
     public void ajouterNumListe(){
         listNum=listNum+1; //incrémente la variable
 
