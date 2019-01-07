@@ -34,10 +34,10 @@ public class Deblocage extends AppCompatActivity {
         imgmr=(ImageView)findViewById(R.id.img_quest);
         imgrtbd=(ImageView)findViewById(R.id.imgrtbd);
 
-        String lescoreRecup = this.getIntent().getExtras().getString("score");
-        bravo.setText("Grâce à ton " + lescoreRecup + ", tu as débloqué ceci :");
-
         int scoreRecup = this.getIntent().getExtras().getInt("nbscore");
+        bravo.setText("Avec ton score de " + scoreRecup + " sur 10, tu as débloqué ceci :");
+
+
 
         jouerrtbd.setOnClickListener(new View.OnClickListener() {
             //@Override

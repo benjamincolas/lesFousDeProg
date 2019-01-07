@@ -20,9 +20,9 @@ public class Accueil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
-
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        //gestion du bouton JOUER
         btn_jouer = (Button) this.findViewById(R.id.btn_jouer);
         btn_jouer.setOnClickListener(new View.OnClickListener() {
             //@Override
@@ -32,7 +32,7 @@ public class Accueil extends AppCompatActivity {
             }
         });
 
-
+        //gestion du bouton REGLES
         btn_regles = (Button) this.findViewById(R.id.btn_regles);
         btn_regles.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

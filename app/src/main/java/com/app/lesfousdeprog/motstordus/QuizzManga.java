@@ -167,7 +167,7 @@ public class QuizzManga extends AppCompatActivity {
             public void onClick(View v) {
                 updateQuestion();
                 if (nQuestionNumber==10){
-                    suivant.setText("Fin du Quizz");                }
+                    suivant.setText("Fin du Quiz");                }
             }
         });
     }
@@ -208,7 +208,7 @@ public class QuizzManga extends AppCompatActivity {
     }
 
     private  void updateScore(int a){
-        nScoreView.setText("Score de "+ nscore + " sur " + nQuestionNumber);
+        nScoreView.setText("Score : "+ nscore + " / " + nQuestionNumber);
     }
 
 
