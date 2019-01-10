@@ -11,15 +11,21 @@ import android.widget.Button;
 
 public class Accueil extends AppCompatActivity {
 
+    //region propriétés
+    //déclarations des propriétés
     private Button btn_regles;
     private Button btn_jouer;
     private final int code_fenetre = 20;
+
+    //endregion
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);//permet de bloquer l'orientation de la tablette en mode paysage
+
+        //permet de mettre l'application en plein écran pour ne pas avoir de bandeau en haut de l'écran de tablette
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         //gestion du bouton JOUER

@@ -3,14 +3,14 @@
     <string name="btn_jouer">Jouer</string>
     <string name="btn_regles">Règles</string>
     <string name="txt_titreregles">Les Règles du Jeu</string>
-    <string name="txt_regles">IL FAUT BIEN REPONDRE AU QUIZZ POUR DÉBLOQUER LA SUITE
+    <string name="txt_regles">IL FAUT BIEN REPONDRE AU QUIZ POUR DÉBLOQUER LA SUITE
 \n
 \n
 
-\n SI TU AS ENTRE 0/10 ET 4/10 : DEBLOQUE LE JEU "RANGE TA BD !"
+\n SI TU AS ENTRE 0/10 ET 4/10 : DÉBLOQUE LE JEU "RANGE TA BD !"
 \n
         \n
-\n SI TU AS ENTRE 5/10 ET 10/10 : DEBLOQUE LE JEU "MÉMO-RIGOLO" \n ET "RANGE TA BD !"
+\n SI TU AS ENTRE 5/10 ET 10/10 : DÉBLOQUE LES JEUX "MÉMO-RIGOLO" \n ET "RANGE TA BD !"
 \n
 
 					\n BONNE CHANCE !</string>
@@ -23,4 +23,5 @@
     <string name="Règles0">Valider</string>
     <string name="txt_rtbdexpl">Remets les vignettes de tes bandes dessinées préférées dans le bon ordre !</string>
     <string name="txt_mrexpl">Retrouve les paires des différents personnages de bande dessinées !</string>
+    <string name="recommencer">RECOMMENCER LE QUIZ</string>
 </resources>
