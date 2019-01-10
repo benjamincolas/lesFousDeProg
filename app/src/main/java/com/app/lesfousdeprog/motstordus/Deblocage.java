@@ -47,6 +47,7 @@ public class Deblocage extends AppCompatActivity {
             //@Override
             public void onClick(View view) {
                 Intent unIntent = new Intent(Deblocage.this, MemoRigolo.class);
+                unIntent.putExtra("dif", 8);
                 Deblocage.this.startActivityForResult(unIntent, code_fenetre);
             }
         });
