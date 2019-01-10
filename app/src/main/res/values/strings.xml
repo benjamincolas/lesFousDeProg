@@ -26,52 +26,57 @@
         \n QU IL FAUDRA RANGER
         \n DANS LE BON ORDRE.
     </string>
-    <string name="Règles1">PLACE LA VIGNETTE 1
-        \n DANS CETTE CASE.
+    <string name="Règles1">\n PLACE LA VIGNETTE UN
+        \n DANS CETTE CASE EN LA GLISSANT
+        \n A L AIDE DE TON DOIGT.
 
     </string>
-    <string name="Règles2">PLACE LA VIGNETTE 2
-        \n DANS CETTE CASE.
+    <string name="Règles2">\n  PLACE LA VIGNETTE DEUX
+        \n DANS CETTE CASE EN LA GLISSANT
+        \n A L AIDE DE TON DOIGT.
 
     </string>
-    <string name="Règles3">PLACE LA VIGNETTE 3
-        \n DANS CETTE CASE.
+    <string name="Règles3">\n  PLACE LA VIGNETTE TROIS
+        \n DANS CETTE CASE EN LA GLISSANT
+        \n A L AIDE DE TON DOIGT.
 
     </string>
-    <string name="Règles4">PLACE LA VIGNETTE 4
-        \n DANS CETTE CASE.
+    <string name="Règles4">\n PLACE LA VIGNETTE QUATRES
+        \n DANS CETTE CASE EN LA GLISSANT
+        \n A L AIDE DE TON DOIGT.
 
     </string>
-    <string name="Règles5">QUAND TU PENSES AVOIR
-        \n TOUT BON CLIC SUR LE
-        \n BOUTON VALIDER
+    <string name="Règles5">\n QUAND TU PENSES AVOIR
+        \n TOUTES LES IMAGES SUR LES
+        \n BONS EMPLACEMENTS CLIC SUR
+        \n LE BOUTON VALIDER
 
     </string>
-    <string name="Règles6">TU AS 2 VIE PAR ROUND
+    <string name="Règles6">\n \n TU AS DEUX VIES PAR NIVEAU
 
-
-    </string>I
-    <string name="Règles7">
-         SI LE PLACEMENT N EST PAS
-        \n TOTALEMENT BON TU PERD UNE VIE
 
     </string>
-    <string name="Règles9">SI IL Y A DES
+    <string name="Règles7">\n
+         SI LES PLACEMENTS NE SONT PAS
+        \n TOTALEMENT BONS TU PERDS UNE VIE
+
+    </string>
+    <string name="Règles9">S IL Y A DES
         \n VIGNETTES A LA BONNE PLACE
-        \n ILS VONT S AFFICHER EN VERT
+        \n ELLES VONT S AFFICHER EN VERT
 
     </string>
-    <string name="Règles8">SI TU PERD UNE VIE
+    <string name="Règles8">\n SI TU PERDS UNE VIE
         \n LA TABLETTE TREMBLERA
 
 
     </string>
-    <string name="Règles10">QUAND TU AS BON TU PEUX PASSER
-        \n AU ROUND SUIVANT
+    <string name="Règles10">\n QUAND TU AS BON TU PEUX PASSER
+        \n AU NIVEAU SUIVANT
 
 
     </string>
-    <string name="Règles11"> PLACE AU JEU MAINTENANT !!
+    <string name="Règles11"> \n \n PLACE AU JEU MAINTENANT !!
         \n
 
 

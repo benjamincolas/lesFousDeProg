@@ -1,10 +1,8 @@
 package com.app.lesfousdeprog.motstordus;
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.ClipData;
 import android.content.Intent;
-import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Handler;
 import android.support.constraint.ConstraintLayout;
@@ -48,9 +46,6 @@ public class RangeTaBd extends AppCompatActivity {
     float x;
     private float xImg1, xImg2, xImg3, xImg4;
     private float yImg1, yImg2, yImg3, yImg4;
-    private List<Float> listPosX;
-    private List<Float> listPosY;
-    private List<Integer> spiderman;
     private List<List<Integer>> listImg;
     public int listNum=0;
     private boolean erreurPrecedent;
@@ -60,12 +55,12 @@ public class RangeTaBd extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_range_ta_bd);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);//mode horizontale
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN); //met en fullscreen l'app
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN); //met en plein écran l'application
         layout = (ConstraintLayout) findViewById(R.id.layoutid);
         img1 = (ImageView) findViewById(R.id.img1); // initialise une variable img1 de type imageview et dont l'id dans le fichier xml est img1
-        img2 = (ImageView) findViewById(R.id.img2);
-        img3 = (ImageView) findViewById(R.id.img3);
-        img4 = (ImageView) findViewById(R.id.img4);
+        img2 = (ImageView) findViewById(R.id.img2);// initialise une variable img2 de type imageview et dont l'id dans le fichier xml est img2
+        img3 = (ImageView) findViewById(R.id.img3);// initialise une variable img3 de type imageview et dont l'id dans le fichier xml est img3
+        img4 = (ImageView) findViewById(R.id.img4);// initialise une variable img4 de type imageview et dont l'id dans le fichier xml est img4
         imgRegle = (ImageView) findViewById(R.id.imgbulle);
         layoutLancer = (RelativeLayout) findViewById(R.id.layoutLancer);
         layoutRegles = (RelativeLayout) findViewById(R.id.regleLayout);
@@ -113,7 +108,7 @@ public class RangeTaBd extends AppCompatActivity {
         img3.setOnDragListener(listenerimg3);
         img4.setOnDragListener(listenerimg4);
         suivant.setVisibility(View.INVISIBLE);
-        disableLayout(true); // disable la possibilité de bouger les images
+        disableLayout(true); // enleve la possibilité de bouger les images
         layoutLancer.setEnabled(true); // permet d'activer la possibilité de cliquer sur le bouton
         ObjectAnimator = ObjectAnimator.ofFloat(layout,"x",-50);
         ObjectAnimator2 = ObjectAnimator2.ofFloat(layout,"x",+176);//+126 pour rev
@@ -129,7 +124,7 @@ View.OnTouchListener onTouchListener1 = new View.OnTouchListener(){
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (boolImg1== false) { // si l'image 1 n'est pas validé
+        if (boolImg1== false) { // si l'image 1 n'est pas validé (c'est a dire si elle est a la bonne place lors du clic sur le bouton valider)
             ClipData data = ClipData.newPlainText("", "");
             View.DragShadowBuilder myShadow = new View.DragShadowBuilder(view);
             view.startDragAndDrop(data, myShadow, view, 0); // crée l'ombre de l'image quand clic
@@ -637,7 +632,7 @@ View.OnTouchListener onTouchListener1 = new View.OnTouchListener(){
             dbz.add(R.mipmap.dbz1);dbz.add(R.mipmap.dbz2);dbz.add(R.mipmap.dbz3);dbz.add(R.mipmap.dbz4);
             luckyluke.add(R.mipmap.luckyluke1);luckyluke.add(R.mipmap.luckyluke2);luckyluke.add(R.mipmap.luckyluke3);luckyluke.add(R.mipmap.luckyluke4);
             listImg = new ArrayList<List<Integer>>();//fait une liste de liste des bd
-            listImg.add(spiderman);listImg.add(tintin);listImg.add(overwatch);listImg.add(onepiece);listImg.add(dbz);listImg.add(luckyluke);
+            listImg.add(spiderman);listImg.add(tintin);listImg.add(overwatch);listImg.add(onepiece);listImg.add(dbz);listImg.add(luckyluke); // fait une liste de toutes les listes des vignettes de BD
             Random r = new Random();// <Initialise 3 numéros aléatoire entre 0 et 4
             int i1 = r.nextInt(4);
             Random rand2 = new Random();
@@ -803,7 +798,7 @@ if (erreurPrecedent==true) { // si il a fait une erreur
                 }
             };
             handler.postDelayed(runnable, 0);
-            disableLayout(true);
+            disableLayout(true); //
 
         }}
     public void nbEtoile(){
@@ -926,8 +921,7 @@ if (erreurPrecedent==true) { // si il a fait une erreur
                         AnimatorRegle1.start();
                        AnimatorRegle2.start();
                        valider.setVisibility(View.VISIBLE);
-                       valider.setEnabled(true);
-                       valider.setClickable(false);
+                       valider.setEnabled(true);   // désactive le bouton valider
                         blinkAnim(valider);
 
 
@@ -956,16 +950,16 @@ if (erreurPrecedent==true) { // si il a fait une erreur
                     txtRegles.setText(R.string.Règles9);
                     AnimatorRegle1 = AnimatorRegle1.ofFloat(layoutRegles,"x",-0);
                     AnimatorRegle1.start();
-                    rect2.setBackgroundColor(Color.parseColor("#008000"));
+                    rect2.setBackgroundColor(Color.parseColor("#008000")); // change la couleur des rectangles en le mettant en vert
                     rect4.setBackgroundColor(Color.parseColor("#008000"));
-                    rect2.setVisibility(View.VISIBLE);
-                    rect4.setVisibility(View.VISIBLE);
+                    rect2.setVisibility(View.VISIBLE); // rend visible le relative layout rect2
+                    rect4.setVisibility(View.VISIBLE);// rend visible le relative layout rect4
 
                 }
                 if(clicsurregles==10){
                     txtRegles.setText(R.string.Règles10);
-                    AnimatorRegle1 = AnimatorRegle1.ofFloat(layoutRegles,"x",+500);
-                    AnimatorRegle2 = AnimatorRegle2.ofFloat(layoutRegles,"y",+300);
+                    AnimatorRegle1 = AnimatorRegle1.ofFloat(layoutRegles,"x",+500); //Déplace le layout règle de 500 pixels en x
+                    AnimatorRegle2 = AnimatorRegle2.ofFloat(layoutRegles,"y",+300);//Déplace le layout règle de 300 pixels en y
                     AnimatorRegle1.start();
                     AnimatorRegle2.start();
                     rect2.setVisibility(View.INVISIBLE);
@@ -973,12 +967,12 @@ if (erreurPrecedent==true) { // si il a fait une erreur
                     suivant.setVisibility(View.VISIBLE);
                     suivant.setEnabled(true);
                     suivant.setClickable(false);
-                    blinkAnim(suivant);
+                    blinkAnim(suivant); // fait clignoter le bouton suivant
                     valider.setVisibility(View.INVISIBLE);
                 }
                 if(clicsurregles>=11){
                     txtRegles.setText(R.string.Règles11);
-                  suivant.clearAnimation();
+                  suivant.clearAnimation(); // arrête l'animation sur le bouton suivant (le clignotement)
                   suivant.setVisibility(View.INVISIBLE);
                   btn_regles.setVisibility(View.INVISIBLE);
                   lancer.setText("JOUER");
@@ -994,11 +988,11 @@ if (erreurPrecedent==true) { // si il a fait une erreur
             };
     private void blinkAnim(View element){ // permet de faire clignoter un élément de la page toutes les 400 m.s
         Animation anim = new AlphaAnimation(0.0f, 1.0f);
-        anim.setDuration(400); //You can manage the time of the blink with this parameter
+        anim.setDuration(400);
         anim.setStartOffset(20);
         anim.setRepeatMode(Animation.REVERSE);
         anim.setRepeatCount(Animation.INFINITE);
-        element.startAnimation(anim);
+        element.startAnimation(anim); // lance l'animation
     }
 private void mauvaiserep(){ // permet de faire bouger l'écran
    //region mauvaise rep
@@ -1014,27 +1008,27 @@ private void mauvaiserep(){ // permet de faire bouger l'écran
             ObjectAnimator2.start();}
 
     };
-    handler.postDelayed(lol, 150);
+    handler.postDelayed(lol, 150); // lance ObjectAnimator2.start() après 150 ms
 
     Runnable lol2 = new Runnable() {
         public void run() {
             ObjectAnimator3.start();}
 
     };
-    handler.postDelayed(lol2, 300);
+    handler.postDelayed(lol2, 300);// lance ObjectAnimator2.start() après 300 ms
     Runnable lol3 = new Runnable() {
         public void run() {
             ObjectAnimator4.start();}
 
     };
-    handler.postDelayed(lol3, 450);
+    handler.postDelayed(lol3, 450);// lance ObjectAnimator2.start() après 400 ms
     Runnable lol4 = new Runnable() {
         public void run() {
             ObjectAnimator5.start();
         }
 
     };
-    handler.postDelayed(lol4, 600);
+    handler.postDelayed(lol4, 600);// lance ObjectAnimator2.start() après 600 ms
 
 }
 //endregion
