@@ -8,6 +8,7 @@ import android.content.ClipData;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
+import android.support.annotation.StringRes;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -43,9 +45,9 @@ public class RangeTaBd extends AppCompatActivity {
     LinearLayout rect1, rect2, rect3, rect4;
     TextView txtviewlayoutvic,txtviewlayoutdef,txtRegles;
     RelativeLayout layoutdef,layoutvic,layoutLancer,layoutRegles;
-    ObjectAnimator  ObjectAnimator,ObjectAnimator2,ObjectAnimator3,ObjectAnimator4,ObjectAnimator5;
+    ObjectAnimator  ObjectAnimator,ObjectAnimator2,ObjectAnimator3,ObjectAnimator4,ObjectAnimator5,AnimatorRegle1,AnimatorRegle2,AnimatorRegle3,AnimatorRegle4,AnimatorRegle5;
     private int vie=2;
-
+    private int clicsurregles =1;
     private boolean boolImg1 = false;
     private boolean boolImg2 = false;
     private boolean boolImg3 = false;
@@ -131,6 +133,7 @@ public class RangeTaBd extends AppCompatActivity {
         ObjectAnimator4 = ObjectAnimator4.ofFloat(layout,"x",+176);
         ObjectAnimator5 = ObjectAnimator5.ofFloat(layout,"x",-0);//+128
         erreurPrecedent = false;
+        txtRegles.setText(R.string.Règles0);
     }
 
 //region onclicklistener
@@ -585,6 +588,14 @@ public class RangeTaBd extends AppCompatActivity {
     View.OnClickListener lancerApp = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            vie=2;
+            vie();
+
+            suivant.setClickable(true);
+            rect1.setBackgroundColor(Color.parseColor("#008000"));
+            rect3.setBackgroundColor(Color.parseColor("#008000"));
+            layoutRegles.setVisibility(View.INVISIBLE);
+            valider.setClickable(true);
             disableLayout(false);
             valider.setVisibility(View.VISIBLE);
             lancer.setVisibility(View.INVISIBLE);
@@ -787,40 +798,7 @@ if (erreurPrecedent==true) {
         if(vie==1) {
             erreurPrecedent=true;
     coeurgauche.playAnimation();
-    ObjectAnimator.setDuration(150);
-    ObjectAnimator2.setDuration(150);
-    ObjectAnimator3.setDuration(150);
-    ObjectAnimator4.setDuration(150);
-    ObjectAnimator5.setDuration(150);
-    ObjectAnimator.start();
-
-    Runnable lol = new Runnable() {
-    public void run() {
-    ObjectAnimator2.start();}
-
-                };
-            handler.postDelayed(lol, 150);
-
-            Runnable lol2 = new Runnable() {
-                public void run() {
-                    ObjectAnimator3.start();}
-
-            };
-            handler.postDelayed(lol2, 300);
-            Runnable lol3 = new Runnable() {
-                public void run() {
-                    ObjectAnimator4.start();}
-
-            };
-            handler.postDelayed(lol3, 450);
-            Runnable lol4 = new Runnable() {
-                public void run() {
-                 ObjectAnimator5.start();
-                }
-
-            };
-            handler.postDelayed(lol4, 600);
-
+   mauvaiserep();
         }
         if(vie==0) {
 
@@ -911,25 +889,168 @@ if (erreurPrecedent==true) {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
-            rect1.setBackgroundColor(Color.parseColor("#ff9933"));
-            rect2.setBackgroundColor(Color.parseColor("#ff9933"));
-            rect3.setBackgroundColor(Color.parseColor("#ff9933"));
-            rect4.setBackgroundColor(Color.parseColor("#ff9933"));
-            rect1.setVisibility(View.VISIBLE);
-            txtRegles.setText("");
-            }
+                layoutRegles.setVisibility(View.VISIBLE);
+                lancer.setVisibility(View.INVISIBLE);
+                btn_regles.setText("RÉGLE SUIVANTE");
+                    if(clicsurregles==0) {
+                        txtRegles.setText(R.string.Règles0);
+                        btn_regles.setTextSize(25);
+
+                    }
+                    if (clicsurregles==1){
+                        txtRegles.setText(R.string.Règles1);
+                        AnimatorRegle1 = AnimatorRegle1.ofFloat(layoutRegles,"x",+rect1.getWidth());
+                        AnimatorRegle1.setDuration(500);
+                        rect1.setBackgroundColor(Color.parseColor("#ff9933"));
+                        rect1.setVisibility(View.VISIBLE);
+                        AnimatorRegle1.start();
+                    }
+                    if (clicsurregles==2){
+                        txtRegles.setText(R.string.Règles2);
+                        AnimatorRegle1 = AnimatorRegle1.ofFloat(layoutRegles,"x",-0);
+                        AnimatorRegle2 = AnimatorRegle2.ofFloat(layoutRegles,"y",+150);
+                        AnimatorRegle1.setDuration(500);
+                        rect2.setBackgroundColor(Color.parseColor("#ff9933"));
+                        rect2.setVisibility(View.VISIBLE);
+                        rect1.setVisibility(View.INVISIBLE);
+                        AnimatorRegle1.start();
+                        AnimatorRegle2.start();
+                    }
+                    if (clicsurregles==3){
+                        txtRegles.setText(R.string.Règles3);
+                        AnimatorRegle1 = AnimatorRegle1.ofFloat(layoutRegles,"x",+800);
+                        rect2.setVisibility(View.INVISIBLE);
+                        rect3.setBackgroundColor(Color.parseColor("#ff9933"));
+                        rect3.setVisibility(View.VISIBLE);
+                        AnimatorRegle1.start();
+                    }
+                    if (clicsurregles==4){
+                        txtRegles.setText(R.string.Règles4);
+                        AnimatorRegle1 = AnimatorRegle1.ofFloat(layoutRegles,"x",-0);
+                        rect3.setVisibility(View.INVISIBLE);
+                        rect4.setBackgroundColor(Color.parseColor("#ff9933"));
+                        rect4.setVisibility(View.VISIBLE);
+                        AnimatorRegle1.start();
+                    }
+                    if(clicsurregles==5){
+                        txtRegles.setText(R.string.Règles5);
+                        rect4.setVisibility(View.INVISIBLE);
+                        AnimatorRegle1 = AnimatorRegle1.ofFloat(layoutRegles,"x",+500);
+                        AnimatorRegle2 = AnimatorRegle2.ofFloat(layoutRegles,"y",+300);
+                        AnimatorRegle1.start();
+                       AnimatorRegle2.start();
+                       valider.setVisibility(View.VISIBLE);
+                       valider.setEnabled(true);
+                       valider.setClickable(false);
+                        blinkAnim(valider);
+
+
+                    }
+                if(clicsurregles==6){
+                    txtRegles.setText(R.string.Règles6);
+            valider.clearAnimation();
+             blinkAnim(coeurgauche);
+             blinkAnim(coeurdroit);
+
+
+                }
+                if(clicsurregles==7){
+                    txtRegles.setText(R.string.Règles7);
+                   coeurgauche.playAnimation();
+
+                }
+                if(clicsurregles==9){
+                    txtRegles.setText(R.string.Règles8);
+                    coeurdroit.clearAnimation();
+                    coeurgauche.clearAnimation();
+                   mauvaiserep();
+
+                }
+                if(clicsurregles==8){
+                    txtRegles.setText(R.string.Règles9);
+                    AnimatorRegle1 = AnimatorRegle1.ofFloat(layoutRegles,"x",-0);
+                    AnimatorRegle1.start();
+                    rect2.setBackgroundColor(Color.parseColor("#008000"));
+                    rect4.setBackgroundColor(Color.parseColor("#008000"));
+                    rect2.setVisibility(View.VISIBLE);
+                    rect4.setVisibility(View.VISIBLE);
+
+                }
+                if(clicsurregles==10){
+                    txtRegles.setText(R.string.Règles10);
+                    AnimatorRegle1 = AnimatorRegle1.ofFloat(layoutRegles,"x",+500);
+                    AnimatorRegle2 = AnimatorRegle2.ofFloat(layoutRegles,"y",+300);
+                    AnimatorRegle1.start();
+                    AnimatorRegle2.start();
+                    rect2.setVisibility(View.INVISIBLE);
+                    rect4.setVisibility(View.INVISIBLE);
+                    suivant.setVisibility(View.VISIBLE);
+                    suivant.setEnabled(true);
+                    suivant.setClickable(false);
+                    blinkAnim(suivant);
+                    valider.setVisibility(View.INVISIBLE);
+                }
+                if(clicsurregles>=11){
+                    txtRegles.setText(R.string.Règles11);
+                  suivant.clearAnimation();
+                  suivant.setVisibility(View.INVISIBLE);
+                  btn_regles.setVisibility(View.INVISIBLE);
+                  lancer.setText("JOUER");
+                  lancer.setVisibility(View.VISIBLE);
+                    coeurgauche.reverseAnimation();
+                    coeurdroit.reverseAnimation();
+
+                }
+                    clicsurregles=clicsurregles+1;
+                }
+//endregion
+
+            };
+    private void blinkAnim(View element){
+        Animation anim = new AlphaAnimation(0.0f, 1.0f);
+        anim.setDuration(400); //You can manage the time of the blink with this parameter
+        anim.setStartOffset(20);
+        anim.setRepeatMode(Animation.REVERSE);
+        anim.setRepeatCount(Animation.INFINITE);
+        element.startAnimation(anim);
+    }
+private void mauvaiserep(){
+    ObjectAnimator.setDuration(150);
+    ObjectAnimator2.setDuration(150);
+    ObjectAnimator3.setDuration(150);
+    ObjectAnimator4.setDuration(150);
+    ObjectAnimator5.setDuration(150);
+    ObjectAnimator.start();
+
+    Runnable lol = new Runnable() {
+        public void run() {
+            ObjectAnimator2.start();}
 
     };
+    handler.postDelayed(lol, 150);
 
-    //endregion
+    Runnable lol2 = new Runnable() {
+        public void run() {
+            ObjectAnimator3.start();}
 
+    };
+    handler.postDelayed(lol2, 300);
+    Runnable lol3 = new Runnable() {
+        public void run() {
+            ObjectAnimator4.start();}
 
+    };
+    handler.postDelayed(lol3, 450);
+    Runnable lol4 = new Runnable() {
+        public void run() {
+            ObjectAnimator5.start();
+        }
 
+    };
+    handler.postDelayed(lol4, 600);
 
+}
     }
-
-
-
 
 
 
