@@ -7,6 +7,25 @@
     android:background="@drawable/fond"
     tools:context=".Deblocage">
 
+    <Button
+        android:id="@+id/recommencer"
+        android:layout_width="198dp"
+        android:layout_height="106dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bouton_arrondie"
+        android:fontFamily="@font/adventure"
+        android:text="@string/recommencer"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.007"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.012" />
+
     <TextView
         android:id="@+id/txt_mrexpl"
         android:layout_width="557dp"
@@ -16,6 +35,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/adventure"
+
         android:text="@string/txt_mrexpl"
         android:textColor="@android:color/black"
         android:textSize="30sp"
@@ -123,6 +143,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/adventure"
+
         android:text="@string/txt_rtbdexpl"
         android:textColor="@android:color/black"
         android:textSize="30sp"
