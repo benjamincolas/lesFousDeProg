@@ -13,21 +13,28 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class Quizz extends AppCompatActivity {
+
+    //region propriétés
+    //déclarations des propriétés
    private Button btn_manga;
     private Button btn_bd;
     private Button btn_comics;
     private Button btn_retour;
-    private int num;
     private final int code_fenetre = 20;
+
+    //endregion
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quizz);
-        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);//permet de bloquer l'orientation de la tablette en mode paysage
+
+        //permet de mettre l'application en plein écran pour ne pas avoir de bandeau en haut de l'écran de tablette
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 
+        //le bouton btn_manga permet de lancer le quiz de manga
         btn_manga = (Button) this.findViewById(R.id.btn_manga);
         btn_manga.setOnClickListener(new View.OnClickListener() {
             //@Override
@@ -37,6 +44,7 @@ public class Quizz extends AppCompatActivity {
             }
         });
 
+        //le bouton btn_comics permet de lancer le quiz de comics
         btn_comics = (Button) this.findViewById(R.id.btn_comics);
         btn_comics.setOnClickListener(new View.OnClickListener() {
             //@Override
@@ -46,6 +54,7 @@ public class Quizz extends AppCompatActivity {
             }
         });
 
+        //le bouton btn_bd permet de lancer le quiz de bande dessinée
         btn_bd = (Button) this.findViewById(R.id.btn_bd);
         btn_bd.setOnClickListener(new View.OnClickListener() {
             //@Override
@@ -55,6 +64,7 @@ public class Quizz extends AppCompatActivity {
             }
         });
 
+        //le bouton btn_retour permet de revenir à la page d'accueil
         btn_retour = (Button) this.findViewById(R.id.btn_retour2);
         btn_retour.setOnClickListener(new View.OnClickListener() {
             //@Override
@@ -69,79 +79,8 @@ public class Quizz extends AppCompatActivity {
 
 
 
-    /*    this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
-        btn_bd = (Button) this.findViewById(R.id.btn_bd);
-        btn_bd.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent unIntent = new Intent(Quizz.this, QuizzBD.class);
-                Quizz.this.startActivityForResult(unIntent, code_fenetre);
-            }
-        });
-
-        btn_comics = (Button) this.findViewById(R.id.btn_comics);
-        btn_comics.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent unIntent = new Intent(Quizz.this, QuizzComics.class);
-                Quizz.this.startActivityForResult(unIntent, code_fenetre);
-            }
-        });
-
-        btn_manga = (Button) this.findViewById(R.id.btn_manga);
-        btn_manga.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent unIntent = new Intent(Quizz.this, QuizzManga.class);
-                Quizz.this.startActivityForResult(unIntent, code_fenetre);
-            }
-        });
-
-
-        btn_retour = (Button) this.findViewById(R.id.btn_retour2);
-        btn_retour.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent unIntent = new Intent(Quizz.this, Accueil.class);
-                Quizz.this.startActivityForResult(unIntent, code_fenetre);
-            }
-        });
-    }
-
-    private void jouerBD(int unNumQ){
-        Intent unIntent = new Intent(this, QuizzBD.class);
-        unIntent.putExtra("Numero", unNumQ);
-        this.startActivityForResult(unIntent,code_fenetre); }
-
-    private void jouerComics(int unNumQ){
-        Intent unIntent = new Intent(this, QuizzComics.class);
-        unIntent.putExtra("Numero", unNumQ);
-        this.startActivityForResult(unIntent,code_fenetre); }
-
-    private void jouerManga(int unNumQ){
-        Intent unIntent = new Intent(this, QuizzManga.class);
-        unIntent.putExtra("Numero", unNumQ);
-        this.startActivityForResult(unIntent,code_fenetre); }
-
-
-
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {     //super.onActivityResult(requestCode, resultCode, data);     //on gère l’activité concernée
-        if(requestCode==code_fenetre){
-            //si l’activité a retourner ok
-            if(resultCode==RESULT_OK){
-                //on vérifie la présence d’un ‘numéro’ (celui de la question traitée)
-                if(data.hasExtra(("Numero"))){
-                    //récupère e numéro de la dernière question
-                    num = data.getExtras().getInt("Numero");
-                    //incrémente pour lancer la question suivante
-                    num++;
-                    jouerBD(num);
-                }
-            }
-            else{
-                Toast.makeText(this, "Fin du jeu", Toast.LENGTH_SHORT);
-                num = 0;         }     } }*/
-
-
+    //stocke les questions du quiz de bande dessinée
         private String bdquestions[] = {
                 "Dans la bande dessinée Boule et Bill, qui est Boule ?",
                 "Dans quel album Tintin fait-il la connaissance du Capitaine Haddock ?",
@@ -156,6 +95,8 @@ public class Quizz extends AppCompatActivity {
 
         };
 
+
+    //stocke les questions du quiz de manga
     private String mquestions[] = {
             "Dans quel manga les personnages sont coincés sur une île ?",
             "Comment s'appelle le personnage principal de Fairy Tail ?",
@@ -170,6 +111,8 @@ public class Quizz extends AppCompatActivity {
 
     };
 
+
+    //stocke les questions du quiz de comics
     private String cquestions[] = {
             "Par quoi a été mordu Spiderman ?",
             "Quel est le vrai nom de Superman ?",
@@ -187,6 +130,7 @@ public class Quizz extends AppCompatActivity {
 
 
 
+    //stocke les réponses du quiz de bande dessinée
         private String bdChoices[][] = {
                 {"Le gamin", "Le chien", "Le père", "La tortue"},
                 {"Le Secret de la licorne", "Le Crabe aux pinces d'or", "Le Trésor de Rackham le Rouge", "Le Sceptre d'Ottokar"},
@@ -201,6 +145,7 @@ public class Quizz extends AppCompatActivity {
 
         };
 
+    //stocke les réponses du quiz de manga
     private String mChoices[][] = {
             {"Naruto", "One Piece", "Dragon Ball", "Fairy Tail"},
             {"Lucy", "Cana", "Natsu", "Grey"},
@@ -215,6 +160,7 @@ public class Quizz extends AppCompatActivity {
 
     };
 
+    //stocke les réponses du quiz de comics
     private String cChoices[][] = {
             {"Un castor", "Un cheval", "Un chien", "Une araignée"},
             {"Clark Kent", "Klark Cent", "Klarc Kainte", "Clarque Kent"},
@@ -229,13 +175,17 @@ public class Quizz extends AppCompatActivity {
 
     };
 
+    //stocke les bonnes réponses du quiz de bande dessinée
         private String bdCorrectAnswers[] = {"Le gamin", "Le Crabe aux pinces d'or", "Johan et Pirlouit", "Panoramix", "Garfield", "Une mouette et un chat", "Nadia", "Le chien", "Astérix et la Transitalique", "Un instrument de musique"};
 
+    //stocke les bonnes réponses du quiz de manga
         private String mCorrectAnswers[] = {"Fairy Tail", "Natsu", "Pikachu", "7", "Luffy", "Naruto", "Une Pokéball", "Le Football", "Les pirates", "Son Goku"};
 
+    //stocke les bonnes réponses du quiz de comics
         private String cCorrectAnswers[] = {"Une araignée", "Clark Kent", "Gotham City", "Robin", "Un bouclier", "Il court très vite", "Dans l'eau", "Venom", "Asgard", "Vert"};
 
 
+        //region accesseurs
         public String getQuestionsbd ( int a){
             String question = bdquestions[a];
             return question;
@@ -326,6 +276,7 @@ public class Quizz extends AppCompatActivity {
         String answer = cCorrectAnswers[a];
         return answer;
     }
+    //endregion
 
 
 }
