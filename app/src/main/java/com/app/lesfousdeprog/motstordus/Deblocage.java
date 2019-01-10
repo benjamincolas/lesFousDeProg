@@ -1,3 +1,4 @@
+
 package com.app.lesfousdeprog.motstordus;
 
 import android.content.Intent;
@@ -34,7 +35,7 @@ public class Deblocage extends AppCompatActivity {
 
         //permet de mettre l'application en plein écran pour ne pas avoir de bandeau en haut de l'écran de tablette
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
+/*
         bravo = (TextView)findViewById(R.id.txt_bravo);
         jouermr=(Button)findViewById(R.id.jouermr);
         jouerrtbd=(Button)findViewById(R.id.jouerrtbd);
@@ -90,10 +91,8 @@ public class Deblocage extends AppCompatActivity {
         }
 
 
-
+*/
     }
-
-
     //permet de ne pas pouvoir cliquer sur le bouton retour de la tablette
     @Override
     public void onBackPressed() {
