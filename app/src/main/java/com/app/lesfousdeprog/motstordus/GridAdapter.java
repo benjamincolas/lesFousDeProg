@@ -56,11 +56,6 @@ public class GridAdapter extends BaseAdapter {
             image.getLayoutParams().height = 325;
             image.requestLayout();
         }
-        /*else if(getCount() == 16){
-            image.getLayoutParams().width = 200;
-            image.getLayoutParams().height = 200;
-            image.requestLayout();
-        }*/
 
         gridView.setBackgroundResource(R.mipmap.pow);
 
