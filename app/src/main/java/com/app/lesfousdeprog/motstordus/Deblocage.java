@@ -1,3 +1,4 @@
+
 package com.app.lesfousdeprog.motstordus;
 
 import android.content.Intent;
@@ -62,6 +63,7 @@ public class Deblocage extends AppCompatActivity {
             //@Override
             public void onClick(View view) {
                 Intent unIntent = new Intent(Deblocage.this, MemoRigolo.class);
+                unIntent.putExtra("dif", 8);
                 Deblocage.this.startActivityForResult(unIntent, code_fenetre);
             }
         });
@@ -91,8 +93,6 @@ public class Deblocage extends AppCompatActivity {
 
 
     }
-
-
     //permet de ne pas pouvoir cliquer sur le bouton retour de la tablette
     @Override
     public void onBackPressed() {

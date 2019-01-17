@@ -43,13 +43,72 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/memorigolo" />
 
+    <ImageView
+        android:id="@+id/finpartie"
+        android:layout_width="900dp"
+        android:layout_height="700dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/win" />
+
     <TextView
-        android:id="@+id/gagner"
+        android:id="@+id/txtfinpartie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Salut t'as gagner"
+        android:fontFamily="@font/adventure"
+        android:textColor="@color/noir"
+        android:textSize="40sp"
         android:visibility="invisible"
-        tools:layout_editor_absoluteX="123dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/finpartie"
+        app:layout_constraintEnd_toEndOf="@+id/finpartie"
+        app:layout_constraintStart_toStartOf="@+id/finpartie"
+        app:layout_constraintTop_toTopOf="@+id/finpartie"
+        app:layout_constraintVertical_bias="0.4" />
+
+    <Button
+        android:id="@+id/btn_acc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bouton_arrondie"
+        android:fontFamily="@font/adventure"
+        android:text="Acceuil"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/finpartie"
+        app:layout_constraintEnd_toEndOf="@+id/finpartie"
+        app:layout_constraintStart_toEndOf="@+id/btn_suiv"
+        app:layout_constraintTop_toBottomOf="@+id/txtfinpartie"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <Button
+        android:id="@+id/btn_suiv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bouton_arrondie"
+        android:fontFamily="@font/adventure"
+        android:text="  Niveau suivant  "
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/finpartie"
+        app:layout_constraintEnd_toStartOf="@+id/btn_acc"
+        app:layout_constraintStart_toStartOf="@+id/finpartie"
+        app:layout_constraintTop_toBottomOf="@+id/txtfinpartie"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/stars"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/finpartie"
+        app:layout_constraintEnd_toStartOf="@+id/btn_acc"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_suiv"
+        app:layout_constraintTop_toBottomOf="@+id/txtfinpartie"
+        app:layout_constraintVertical_bias="1.0"
+        app:lottie_autoPlay="false"
+        app:lottie_fileName="trophy.json" />
 
 </android.support.constraint.ConstraintLayout>
