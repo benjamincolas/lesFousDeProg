@@ -232,7 +232,7 @@
             android:background="@drawable/bouton_arrondie"
             android:fontFamily="@font/adventure"
             android:textSize="45sp"
-            android:text="RÉGLES" />
+            android:text="RÈGLES" />
     </RelativeLayout>
 
     <Button
@@ -289,6 +289,9 @@
             android:layout_alignParentBottom="true"
             android:layout_marginStart="90dp"
             android:layout_marginEnd="471dp"
+            android:background="@drawable/bouton_arrondie"
+            android:fontFamily="@font/adventure"
+            android:textSize="18dp"
             android:layout_marginBottom="19dp"
             android:text="RETOUR" />
 
@@ -302,11 +305,14 @@
             android:layout_marginStart="448dp"
             android:layout_marginEnd="113dp"
             android:layout_marginBottom="20dp"
+            android:textSize="18dp"
+            android:background="@drawable/bouton_arrondie"
+            android:fontFamily="@font/adventure"
             android:text="RECOMMENCER" />
 
         <ImageView
             android:id="@+id/imglayoutdef"
-            android:layout_width="303dp"
+            android:layout_width="313dp"
             android:layout_height="270dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
@@ -314,7 +320,7 @@
             android:layout_marginStart="217dp"
             android:layout_marginTop="35dp"
             android:layout_marginEnd="189dp"
-            android:background="@mipmap/grizoul"
+            android:background="@mipmap/poucebas"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
@@ -325,11 +331,11 @@
             android:layout_alignParentBottom="true"
             android:layout_marginStart="150dp"
             android:layout_marginBottom="120dp"
-            android:text="T ARCHI NAZE"
-            android:textColor="@color/rouge"
-            android:textSize="60dp"
+            android:text="Dommage"
+            android:textColor="@color/blanc"
+            android:textSize="32dp"
 
-            tools:text="T ARCHI NAZE" />
+            />
     </RelativeLayout>
 
     <RelativeLayout
@@ -342,6 +348,7 @@
         android:layout_marginBottom="26dp"
         android:background="@drawable/back"
         android:visibility="invisible"
+
         app:layout_constraintBottom_toTopOf="@+id/btn_valider"
         app:layout_constraintEnd_toStartOf="@+id/imgbulle"
         app:layout_constraintHorizontal_bias="0.61"
@@ -351,36 +358,38 @@
         tools:ignore="MissingConstraints">
 
         <ImageView
-            android:layout_width="707dp"
-            android:layout_height="578dp"
+            android:id="@+id/imglayoutvic"
+            android:layout_width="709dp"
+            android:layout_height="580dp"
             android:layout_centerInParent="true"
             android:scaleType="centerCrop"
-            android:src="@mipmap/imgvic"
-            />
+            android:src="@mipmap/imgvic" />
+
+
         <Button
             android:id="@+id/btnlayoutvic"
-            android:layout_width="148dp"
-            android:layout_height="72dp"
-            android:layout_alignParentStart="true"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="283dp"
-            android:layout_marginEnd="278dp"
-            android:layout_marginBottom="21dp"
+            android:background="@drawable/bouton_arrondie"
+            android:fontFamily="@font/adventure"
+            android:textSize="18dp"
+            android:layout_marginEnd="277dp"
+            android:layout_marginBottom="35dp"
             android:text="RETOUR" />
 
         <ImageView
-            android:id="@+id/imglayoutvic"
-            android:layout_width="303dp"
+            android:id="@+id/poucehaut"
+            android:layout_width="380dp"
             android:layout_height="270dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="217dp"
-            android:layout_marginTop="11dp"
-            android:layout_marginEnd="189dp"
-            android:background="@mipmap/grizoul"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:layout_marginStart="196dp"
+            android:layout_marginTop="54dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/poucehautbd" />
+
 
         <TextView
             android:id="@+id/txtviewlayoutvic"
@@ -388,22 +397,17 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="142dp"
-            android:layout_marginBottom="109dp"
-            android:text="T ARCHI FORT"
-            android:textColor="@color/vert"
-            android:textSize="60dp"
-
-            tools:text="T ARCHI NAZE" />
+            android:layout_marginStart="128dp"
+            android:layout_marginBottom="110dp"
+            android:text="Bravo !"
+            android:textColor="@color/blanc"
+            android:textSize="32dp" />
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/confetti"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:lottie_fileName="confetti.json"
-
-
-            />
+            app:lottie_fileName="confetti.json" />
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/trophy"
@@ -412,50 +416,42 @@
             android:layout_alignTop="@+id/imglayoutvic"
             android:layout_alignEnd="@+id/txtviewlayoutvic"
             android:layout_alignBottom="@+id/btnlayoutvic"
-            android:layout_marginTop="223dp"
-            android:layout_marginEnd="-49dp"
-            android:layout_marginBottom="200dp"
+            android:layout_marginTop="296dp"
+            android:layout_marginEnd="-111dp"
+            android:layout_marginBottom="127dp"
             app:lottie_fileName="trophy.json" />
 
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/etoile1"
-            android:layout_width="75dp"
-            android:layout_height="85dp"
-            android:layout_alignTop="@+id/imglayoutvic"
-            android:layout_alignBottom="@+id/imglayoutvic"
-            android:layout_alignParentStart="true"
+            android:layout_width="90dp"
+            android:layout_height="98dp"
 
-            android:layout_marginStart="217dp"
-            android:layout_marginTop="269dp"
-            android:layout_marginBottom="-80dp"
+            android:layout_alignBottom="@+id/trophy"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="194dp"
+            android:layout_marginBottom="-3dp"
             app:lottie_fileName="stars.json" />
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/etoile3"
-            android:layout_width="75dp"
-            android:layout_height="85dp"
-            android:layout_below="@+id/imglayoutvic"
-            android:layout_alignEnd="@+id/confetti"
+            android:layout_width="90dp"
+            android:layout_height="98dp"
 
-            android:layout_marginStart="217dp"
-            android:layout_marginTop="-1dp"
-            android:layout_marginEnd="183dp"
-            android:layout_marginBottom="-80dp"
+            android:layout_alignTop="@+id/etoile2"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="168dp"
             app:lottie_fileName="stars.json" />
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/etoile2"
-            android:layout_width="75dp"
-            android:layout_height="85dp"
-            android:layout_marginBottom="-80dp"
+            android:layout_width="90dp"
+            android:layout_height="98dp"
 
-            android:layout_alignTop="@+id/imglayoutvic"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="269dp"
-            android:layout_marginEnd="-179dp"
-            android:layout_toStartOf="@+id/etoile3"
-            android:layout_toEndOf="@+id/etoile1"
+            android:layout_alignBottom="@+id/trophy"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="289dp"
+            android:layout_marginBottom="0dp"
             app:lottie_fileName="stars.json" />
 
 
@@ -466,7 +462,7 @@
         android:layout_width="420dp"
         android:layout_height="385dp"
         android:layout_marginStart="936dp"
-        android:layout_marginBottom="546dp"
+        android:layout_marginBottom="540dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:lottie_autoPlay="false"
@@ -479,7 +475,7 @@
         android:layout_height="385dp"
         android:layout_marginStart="9dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="546dp"
+        android:layout_marginBottom="540dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.99"
@@ -495,7 +491,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="550dp"
         android:layout_marginBottom="600dp"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:background="@mipmap/bubblecomic"
         app:layout_constraintBottom_toTopOf="@+id/img4"
         app:layout_constraintEnd_toEndOf="parent"
