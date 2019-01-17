@@ -45,7 +45,7 @@ public class Deblocage extends AppCompatActivity {
 
         //affiche la phrase ci-dessous en fonction du score du joueur dans le textview bravo
         int scoreRecup = this.getIntent().getExtras().getInt("nbscore"); //récupère le score du joueur réalisé dans le quiz
-        bravo.setText("Avec ton score de " + scoreRecup + " sur 10, tu as débloqué ceci :");
+        bravo.setText("Bravo !! Avec ton score de " + scoreRecup + " sur 10, tu as débloqué ceci :");
 
 
         //le bouton jouerrtbd permet de lancer le jeu Range ta BD
@@ -87,6 +87,7 @@ public class Deblocage extends AppCompatActivity {
             jouermr.setClickable(false);//le bouton jouermr devient incliquable
             jouermr.setBackgroundColor(Color.GRAY);// le bouton jouermr devient gris
             jouermr.requestLayout();
+            bravo.setText("Dommage ! Avec ton score de " + scoreRecup + " sur 10, tu as débloqué ceci :");
 
         }
 
