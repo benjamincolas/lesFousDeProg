@@ -2,15 +2,15 @@
     <string name="app_name">MotsTordus</string>
     <string name="btn_jouer">Jouer</string>
     <string name="btn_regles">Règles</string>
-    <string name="txt_titreregles">LES REGLES DU JEU</string>
+    <string name="txt_titreregles">LES RÈGLES DU JEU</string>
     <string name="txt_regles">IL FAUT BIEN REPONDRE AU QUIZ POUR DÉBLOQUER LA SUITE
 \n
 \n
 
-\n SI TU AS ENTRE 0/10 ET 4/10 : DÉBLOQUE LE JEU "RANGE TA BD !"
+\n SI TU AS ENTRE 0/10 ET 4/10 : DÉBLOQUE LE JEU : "RANGE TA BD !"
 \n
         \n
-\n SI TU AS ENTRE 5/10 ET 10/10 : DÉBLOQUE LES JEUX "MÉMO-RIGOLO" \n ET "RANGE TA BD !"
+\n SI TU AS ENTRE 5/10 ET 10/10 : DÉBLOQUE LES JEUX : "MÉMO-RIGOLO" \n ET "RANGE TA BD !"
 \n
 
 					\n BONNE CHANCE !</string>

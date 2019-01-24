@@ -21,6 +21,7 @@ public class Deblocage extends AppCompatActivity {
     private Button jouerrtbd;
     private Button jouermr;
     private Button recommencer;
+    private Button accueil;
     private TextView bravo;
     private final int code_fenetre = 20;
 
@@ -39,6 +40,7 @@ public class Deblocage extends AppCompatActivity {
         bravo = (TextView)findViewById(R.id.txt_bravo);
         jouermr=(Button)findViewById(R.id.jouermr);
         jouerrtbd=(Button)findViewById(R.id.jouerrtbd);
+        accueil=(Button)findViewById(R.id.accueildeb);
         recommencer=(Button)findViewById(R.id.recommencer);
 
 
@@ -77,6 +79,15 @@ public class Deblocage extends AppCompatActivity {
                 Deblocage.this.startActivityForResult(unIntent, code_fenetre);
             }
         });
+
+        accueil.setOnClickListener(new View.OnClickListener() {
+            //@Override
+            public void onClick(View view) {
+                Intent unIntent = new Intent(Deblocage.this, Accueil.class);
+                Deblocage.this.startActivityForResult(unIntent, code_fenetre);
+            }
+        });
+
 
 
         //permet de ne pas débloquer le jeu Memo-Rigolo si le score du joueur dans le quiz est inférieur à 5

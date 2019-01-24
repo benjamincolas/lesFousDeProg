@@ -42,8 +42,8 @@
 
     <TextView
         android:id="@+id/score"
-        android:layout_width="225dp"
-        android:layout_height="84dp"
+        android:layout_width="228dp"
+        android:layout_height="61dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -51,7 +51,7 @@
         android:fontFamily="@font/adventure"
         android:text="Score : 0 / 0"
         android:textColor="@android:color/black"
-        android:textSize="25sp"
+        android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.044"
@@ -150,6 +150,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.957" />
+
+    <ImageView
+        android:id="@+id/imgmemo"
+        android:layout_width="192dp"
+        android:layout_height="207dp"
+        app:srcCompat="@drawable/memorigolo"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="236dp" />
+
+    <TextView
+        android:id="@+id/txtmemo"
+        android:layout_width="228dp"
+        android:layout_height="133dp"
+        android:fontFamily="@font/adventure"
+        android:text="PLUS QUE 4 BONNES RÉPONSES POUR DÉBLOQUER : MEMO-RIGOLO"
+        android:textColor="@color/noir"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="108dp" />
 
 </android.support.constraint.ConstraintLayout>
 
