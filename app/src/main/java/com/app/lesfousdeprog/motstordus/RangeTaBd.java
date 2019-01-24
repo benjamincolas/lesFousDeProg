@@ -802,7 +802,7 @@ if (erreurPrecedent==true) { // si il a fait une erreur
 
         }}
     public void nbEtoile(){
-        if (nombreFautes<=1) { // si son nombre de faute est de 0 ou 1
+        if (nombreFautes<=3) { // si son nombre de faute est de 0 ou 1
             Runnable apresAfficheFenetre = new Runnable() { //initialise un timer
                 public void run() {
                     txtviewlayoutvic.setText("Victoire parfaite !");
@@ -831,7 +831,7 @@ if (erreurPrecedent==true) { // si il a fait une erreur
                 }};
             handler.postDelayed(apetoile3, etoile2.getDuration()+etoile1.getDuration()+confetti.getDuration()+1500+etoile3.getDuration());// aprés les apparitions des animations précédentes
         }
-        if (nombreFautes==2 || nombreFautes==3){ // si son nombre de faute est de 2 ou 3
+        if ((nombreFautes<3) && (nombreFautes>=5)){ // si son nombre de faute est de 2 ou 3
             Runnable apresAfficheFenetre = new Runnable() { //initialise un timer
                 public void run() {
             etoile1.playAnimation(); //lance l'animation
@@ -843,7 +843,7 @@ if (erreurPrecedent==true) { // si il a fait une erreur
                 }};
             handler.postDelayed(apetoile1, etoile1.getDuration()+1500);// aprés les apparitions des animations précédentes
             }
-         if (nombreFautes>3){ // si son nombre de fautes est strictement supérieur a 3
+         if (nombreFautes>5){ // si son nombre de fautes est strictement supérieur a 3
              Runnable runnable = new Runnable() {
                  public void run() {
              etoile1.playAnimation();}}; // lance l'animation
@@ -986,7 +986,7 @@ if (erreurPrecedent==true) { // si il a fait une erreur
 //endregion
 
             };
-    private void blinkAnim(View element){ // permet de faire clignoter un élément de la page toutes les 400 m.s
+private void blinkAnim(View element){ // permet de faire clignoter un élément de la page toutes les 400 m.s
         Animation anim = new AlphaAnimation(0.0f, 1.0f);
         anim.setDuration(400);
         anim.setStartOffset(20);
@@ -1031,7 +1031,7 @@ private void mauvaiserep(){ // permet de faire bouger l'écran
     handler.postDelayed(lol4, 600);// lance ObjectAnimator2.start() après 600 ms
 
 }
-//endregion
+     //endregion
     }
 
 

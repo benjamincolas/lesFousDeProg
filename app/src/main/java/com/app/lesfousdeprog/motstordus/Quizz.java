@@ -1,16 +1,21 @@
 package com.app.lesfousdeprog.motstordus;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Layout;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.util.PriorityQueue;
 
 public class Quizz extends AppCompatActivity {
 
@@ -22,10 +27,16 @@ public class Quizz extends AppCompatActivity {
     private Button btn_retour;
     private final int code_fenetre = 20;
 
+    //private UtilisateurBdd m;
+    UtilisateurBdd m = new UtilisateurBdd(this);
+
     //endregion
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quizz);
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);//permet de bloquer l'orientation de la tablette en mode paysage
@@ -36,6 +47,7 @@ public class Quizz extends AppCompatActivity {
 
         //le bouton btn_manga permet de lancer le quiz de manga
         btn_manga = (Button) this.findViewById(R.id.btn_manga);
+
         btn_manga.setOnClickListener(new View.OnClickListener() {
             //@Override
             public void onClick(View view) {
