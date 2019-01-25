@@ -89,6 +89,15 @@ idUser = unid;
         pseudo = unPseudo;
 
     }
+    public Utilisateur(int unScoreQuizComics,String unPseudo,int unScoreMemo,int unScoreRange,int unScoreQuizManga, int unScoreBd,int unid){
+        idUser = unid;
+        pseudo = unPseudo;
+        scoreMemo = unScoreMemo;
+        scorequizbd = unScoreBd;
+        scorequizmanga = unScoreQuizManga;
+        ScoreRange=unScoreRange;
+        scorequizcomics=unScoreQuizComics;
+    }
 
 
 

@@ -3,6 +3,10 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class UtilisateurBdd {
 
     private static final String TABLE_NAME = "utilisateur";
@@ -12,6 +16,7 @@ public class UtilisateurBdd {
     public static final String SCOREMEMO="scoreMemo";
     public static final String SCOREQUIZ="scoreQuiz";
     public static final String SCORERANGE="scoreRange";
+    private Utilisateur user;
     public static final String CREATE_TABLE_ANIMAL = "CREATE TABLE "+TABLE_NAME+
             " (" +
             " "+IDUSER+" INTEGER primary key," +
@@ -50,6 +55,27 @@ public class UtilisateurBdd {
         // sélection de tous les enregistrements de la table
         return db.rawQuery("SELECT * FROM "+TABLE_NAME, null);
     }
+    public ArrayList<Utilisateur> getAllClients() {
+        ArrayList<Utilisateur> ref = new ArrayList<Utilisateur>();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM "+TABLE_NAME, null);
+
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+          cursorToClient(cursor);
+            ref.add(user);
+            cursor.moveToNext();
+        }
+        // make sure to close the cursor
+        cursor.close();
+        return ref;
+    }
+    private Utilisateur cursorToClient(Cursor cursor) {
+         user = new Utilisateur(cursor.getInt(3),cursor.getString(1),cursor.getInt(6),cursor.getInt(5),cursor.getInt(2),cursor.getInt(0),cursor.getInt(4));
+
+        return user;
+    }
+
     public int modAnimal(Utilisateur utilisateur) {
         // modification d'un enregistrement
         // valeur de retour : (int) nombre de lignes affectées par la requête

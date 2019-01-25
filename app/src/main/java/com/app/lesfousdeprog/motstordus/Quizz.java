@@ -28,14 +28,29 @@ public class Quizz extends AppCompatActivity {
     private final int code_fenetre = 20;
 
     //private UtilisateurBdd m;
-    UtilisateurBdd m = new UtilisateurBdd(this);
-
+   private  UtilisateurBdd m = new UtilisateurBdd(this);
+private Utilisateur salut;
     //endregion
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        m.open();
 
+
+        Cursor c = m.getAnimaux();
+        if (c.moveToFirst())
+        {
+            do {
+                Log.d("okjiunhdnchbcyunejd",
+                        c.getInt(c.getColumnIndex(UtilisateurBdd.IDUSER)) + "," +
+                                c.getString(c.getColumnIndex(UtilisateurBdd.NOMUTIL))
+                );
+            }
+            while (c.moveToNext());
+        }
+        c.close();
+        m.close();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quizz);
