@@ -60,10 +60,10 @@
         android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.908"
+        app:layout_constraintHorizontal_bias="0.942"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.767" />
+        app:layout_constraintVertical_bias="0.741" />
 
     <ImageView
         android:id="@+id/imgmr"
@@ -126,7 +126,7 @@
         android:background="@drawable/bouton_arrondie"
         android:fontFamily="@font/adventure"
         android:text="JOUER"
-        android:textSize="25sp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.742"
@@ -137,7 +137,7 @@
     <Button
         android:id="@+id/jouermr"
         android:layout_width="196dp"
-        android:layout_height="102dp"
+        android:layout_height="100dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -145,13 +145,13 @@
         android:background="@drawable/bouton_arrondie"
         android:fontFamily="@font/adventure"
         android:text="JOUER"
-        android:textSize="25sp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.742"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.945" />
+        app:layout_constraintVertical_bias="0.939" />
 
     <TextView
         android:id="@+id/txt_rtbdexpl"
