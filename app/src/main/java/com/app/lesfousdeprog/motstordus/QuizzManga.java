@@ -10,7 +10,9 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+
+import com.airbnb.lottie.LottieAnimationView;
 
 public class QuizzManga extends AppCompatActivity {
 
@@ -21,7 +23,10 @@ public class QuizzManga extends AppCompatActivity {
 
     private TextView nScoreView;
     private TextView nQuestionView;
+    private TextView ndeblocage;
     private Button suivant;
+    private LottieAnimationView bon;
+    private LottieAnimationView faux;
     private Button nButtonChoice1;
     private Button nButtonChoice2;
     private Button nButtonChoice3;
@@ -65,12 +70,15 @@ public class QuizzManga extends AppCompatActivity {
 
         nScoreView = (TextView)findViewById(R.id.score);
         nQuestionView =(TextView)findViewById(R.id.txt_qu);
+        ndeblocage=(TextView)findViewById(R.id.txtmemo);
         suivant=(Button)findViewById(R.id.suivant);
         nButtonChoice1=(Button)findViewById(R.id.choix1);
         nButtonChoice2=(Button)findViewById(R.id.choix2);
         nButtonChoice3=(Button)findViewById(R.id.choix3);
         nButtonChoice4=(Button)findViewById(R.id.choix4);
         imgquest=(ImageView)findViewById(R.id.img_quest) ;
+        bon=(LottieAnimationView)findViewById(R.id.bon);
+        faux=(LottieAnimationView)findViewById(R.id.faux);
 
         updateQuestion();//appel de la méthode updateQuestion
 
@@ -84,8 +92,11 @@ public class QuizzManga extends AppCompatActivity {
                 // et affiche le bouton suivant pour passer à la question suivante
                 if (nButtonChoice1.getText() == nAnswer){
                     nscore = nscore +1;
+                    bon.setVisibility(View.VISIBLE);
+                    bon.playAnimation();
+                    bon.loop(true);
                     updateScore(nscore);
-                    nButtonChoice1.setBackgroundColor(Color.GREEN);
+                    nButtonChoice1.setBackgroundColor(Color.rgb(50 ,205 ,50));
                     suivant.setVisibility(View.VISIBLE);
                     desactivebouton();
 
@@ -94,9 +105,13 @@ public class QuizzManga extends AppCompatActivity {
                     //si la réponse est fausse : met le bouton de la réponse du joueur en rouge, recharge le score, désactive les boutons de réponse, affiche le bouton suivant
                     // et met le bouton de la bonne réponse en vert
 
-                    nButtonChoice1.setBackgroundColor(Color.RED);
+                    nButtonChoice1.setBackgroundColor(Color.rgb(187, 11, 11));
+                    faux.setVisibility(View.VISIBLE);
+                    faux.playAnimation();
+                    faux.loop(true);
                     suivant.setVisibility(View.VISIBLE);
                     updateScore(nscore);
+                    nButtonChoice1.setTextColor(Color.WHITE);
                     desactivebouton();
                     reponsebonne();
                 }
@@ -112,8 +127,11 @@ public class QuizzManga extends AppCompatActivity {
                 // et affiche le bouton suivant pour passer à la question suivante
                 if (nButtonChoice2.getText() == nAnswer){
                     nscore = nscore +1;
+                    bon.setVisibility(View.VISIBLE);
+                    bon.playAnimation();
+                    bon.loop(true);
                     updateScore(nscore);
-                    nButtonChoice2.setBackgroundColor(Color.GREEN);
+                    nButtonChoice2.setBackgroundColor(Color.rgb(50 ,205 ,50));
                     suivant.setVisibility(View.VISIBLE);
                     desactivebouton();
 
@@ -122,8 +140,12 @@ public class QuizzManga extends AppCompatActivity {
                     //si la réponse est fausse : met le bouton de la réponse du joueur en rouge, recharge le score, désactive les boutons de réponse, affiche le bouton suivant
                     // et met le bouton de la bonne réponse en vert
 
-                    nButtonChoice2.setBackgroundColor(Color.RED);
+                    nButtonChoice2.setBackgroundColor(Color.rgb(187, 11, 11));
                     suivant.setVisibility(View.VISIBLE);
+                    faux.setVisibility(View.VISIBLE);
+                    faux.playAnimation();
+                    faux.loop(true);
+                    nButtonChoice2.setTextColor(Color.WHITE);
                     updateScore(nscore);
                     desactivebouton();
                     reponsebonne();
@@ -140,8 +162,11 @@ public class QuizzManga extends AppCompatActivity {
                 // et affiche le bouton suivant pour passer à la question suivante
                 if (nButtonChoice3.getText() == nAnswer){
                     nscore = nscore +1;
+                    bon.setVisibility(View.VISIBLE);
+                    bon.playAnimation();
+                    bon.loop(true);
                     updateScore(nscore);
-                    nButtonChoice3.setBackgroundColor(Color.GREEN);
+                    nButtonChoice3.setBackgroundColor(Color.rgb(50 ,205 ,50));
                     suivant.setVisibility(View.VISIBLE);
                     desactivebouton();
 
@@ -150,9 +175,13 @@ public class QuizzManga extends AppCompatActivity {
                     //si la réponse est fausse : met le bouton de la réponse du joueur en rouge, recharge le score, désactive les boutons de réponse, affiche le bouton suivant
                     // et met le bouton de la bonne réponse en vert
 
-                    nButtonChoice3.setBackgroundColor(Color.RED);
+                    nButtonChoice3.setBackgroundColor(Color.rgb(187, 11, 11));
                     suivant.setVisibility(View.VISIBLE);
                     updateScore(nscore);
+                    faux.setVisibility(View.VISIBLE);
+                    nButtonChoice3.setTextColor(Color.WHITE);
+                    faux.playAnimation();
+                    faux.loop(true);
                     desactivebouton();
                     reponsebonne();
                 }
@@ -168,8 +197,11 @@ public class QuizzManga extends AppCompatActivity {
                 // et affiche le bouton suivant pour passer à la question suivante
                 if (nButtonChoice4.getText() == nAnswer){
                     nscore = nscore +1;
+                    bon.setVisibility(View.VISIBLE);
+                    bon.playAnimation();
+                    bon.loop(true);
                     updateScore(nscore);
-                    nButtonChoice4.setBackgroundColor(Color.GREEN);
+                    nButtonChoice4.setBackgroundColor(Color.rgb(50 ,205 ,50));
                     suivant.setVisibility(View.VISIBLE);
                     desactivebouton();
 
@@ -178,8 +210,12 @@ public class QuizzManga extends AppCompatActivity {
                     //si la réponse est fausse : met le bouton de la réponse du joueur en rouge, recharge le score, désactive les boutons de réponse, affiche le bouton suivant
                     // et met le bouton de la bonne réponse en vert
 
-                    nButtonChoice4.setBackgroundColor(Color.RED);
+                    nButtonChoice4.setBackgroundColor(Color.rgb(187, 11, 11));
                     suivant.setVisibility(View.VISIBLE);
+                    faux.setVisibility(View.VISIBLE);
+                    faux.playAnimation();
+                    nButtonChoice4.setTextColor(Color.WHITE);
+                    faux.loop(true);
                     updateScore(nscore);
                     desactivebouton();
                     reponsebonne();
@@ -192,6 +228,10 @@ public class QuizzManga extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 updateQuestion();
+                bon.cancelAnimation();
+                bon.setVisibility(View.INVISIBLE);
+                faux.cancelAnimation();
+                faux.setVisibility(View.INVISIBLE);
                 if (nQuestionNumber==10){
                     suivant.setText("Fin du Quiz");                }
             }
@@ -214,12 +254,16 @@ public class QuizzManga extends AppCompatActivity {
             //pour chaque bouton de réponse affecte le texte des questions correspondant au numéro de la question et rend les boutons blancs
             nButtonChoice1.setText(nQuizz.getChoicesm(nQuestionNumber));
             nButtonChoice1.setBackgroundColor(Color.WHITE);
+            nButtonChoice1.setTextColor(Color.BLACK);
             nButtonChoice2.setText(nQuizz.getChoices2m(nQuestionNumber));
             nButtonChoice2.setBackgroundColor(Color.WHITE);
+            nButtonChoice2.setTextColor(Color.BLACK);
             nButtonChoice3.setText(nQuizz.getChoices3m(nQuestionNumber));
             nButtonChoice3.setBackgroundColor(Color.WHITE);
+            nButtonChoice3.setTextColor(Color.BLACK);
             nButtonChoice4.setText(nQuizz.getChoices4m(nQuestionNumber));
             nButtonChoice4.setBackgroundColor(Color.WHITE);
+            nButtonChoice4.setTextColor(Color.BLACK);
 
             //rend les boutons de réponse cliquable
             nButtonChoice1.setClickable(true);
@@ -244,6 +288,10 @@ public class QuizzManga extends AppCompatActivity {
 
     private  void updateScore(int a){
         nScoreView.setText("Score : "+ nscore + " / " + nQuestionNumber);//permet d'afficher le score dans le text view score en fonction du score actuel et du numéro de la question
+        if (nscore<5){
+            ndeblocage.setText("PLUS QUE "+ (5-nscore) + " BONNES RÉPONSES POUR DÉBLOQUER : MEMO-RIGOLO");
+        }
+        else {ndeblocage.setText("BRAVO ! TU AS DÉBLOQUÉ LE JEU : MÉMO-RIGOLO !");}
     }
 
 
@@ -251,15 +299,15 @@ public class QuizzManga extends AppCompatActivity {
     //permet de rendre vert le bouton contenant la bonne réponse
     private void reponsebonne() {
         if(nButtonChoice1.getText() == nAnswer){
-            nButtonChoice1.setBackgroundColor(Color.GREEN);
+            nButtonChoice1.setBackgroundColor(Color.rgb(50 ,205 ,50));
         }
         if(nButtonChoice2.getText() == nAnswer){
-            nButtonChoice2.setBackgroundColor(Color.GREEN);
+            nButtonChoice2.setBackgroundColor(Color.rgb(50 ,205 ,50));
         }
         if(nButtonChoice3.getText() == nAnswer){
-            nButtonChoice3.setBackgroundColor(Color.GREEN);
+            nButtonChoice3.setBackgroundColor(Color.rgb(50 ,205 ,50));
         }
         if(nButtonChoice4.getText() == nAnswer){
-            nButtonChoice4.setBackgroundColor(Color.GREEN);
+            nButtonChoice4.setBackgroundColor(Color.rgb(50 ,205 ,50));
         }
     }}

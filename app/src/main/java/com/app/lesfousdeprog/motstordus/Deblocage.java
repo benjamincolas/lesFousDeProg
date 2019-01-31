@@ -21,6 +21,7 @@ public class Deblocage extends AppCompatActivity {
     private Button jouerrtbd;
     private Button jouermr;
     private Button recommencer;
+    private Button accueil;
     private TextView bravo;
     private final int code_fenetre = 20;
 
@@ -39,13 +40,14 @@ public class Deblocage extends AppCompatActivity {
         bravo = (TextView)findViewById(R.id.txt_bravo);
         jouermr=(Button)findViewById(R.id.jouermr);
         jouerrtbd=(Button)findViewById(R.id.jouerrtbd);
+        accueil=(Button)findViewById(R.id.accueildeb);
         recommencer=(Button)findViewById(R.id.recommencer);
 
 
 
         //affiche la phrase ci-dessous en fonction du score du joueur dans le textview bravo
         int scoreRecup = this.getIntent().getExtras().getInt("nbscore"); //récupère le score du joueur réalisé dans le quiz
-        bravo.setText("Avec ton score de " + scoreRecup + " sur 10, tu as débloqué ceci :");
+        bravo.setText("Bravo !! Avec ton score de " + scoreRecup + " sur 10, tu as débloqué ceci :");
 
 
         //le bouton jouerrtbd permet de lancer le jeu Range ta BD
@@ -78,6 +80,15 @@ public class Deblocage extends AppCompatActivity {
             }
         });
 
+        accueil.setOnClickListener(new View.OnClickListener() {
+            //@Override
+            public void onClick(View view) {
+                Intent unIntent = new Intent(Deblocage.this, Accueil.class);
+                Deblocage.this.startActivityForResult(unIntent, code_fenetre);
+            }
+        });
+
+
 
         //permet de ne pas débloquer le jeu Memo-Rigolo si le score du joueur dans le quiz est inférieur à 5
         if (scoreRecup<5)
@@ -87,6 +98,7 @@ public class Deblocage extends AppCompatActivity {
             jouermr.setClickable(false);//le bouton jouermr devient incliquable
             jouermr.setBackgroundColor(Color.GRAY);// le bouton jouermr devient gris
             jouermr.requestLayout();
+            bravo.setText("Dommage ! Avec ton score de " + scoreRecup + " sur 10, tu as débloqué ceci :");
 
         }
 
