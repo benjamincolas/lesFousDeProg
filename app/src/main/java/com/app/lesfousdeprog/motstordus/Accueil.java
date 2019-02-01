@@ -31,6 +31,9 @@ public class Accueil extends AppCompatActivity {
     //déclarations des propriétés
     private Button btn_regles;
     private Button btn_jouer;
+    private Button btn_classement;
+    private Utilisateur user;
+
     int scoreQuizComics =0;int scoreMemo =0;int scoreRange =0;int scoreQuizManga=0;int scoreQuizBd =0;int idUser =0;
     String pseudo ="";
     private final int code_fenetre = 20;
@@ -52,7 +55,15 @@ private  UtilisateurBdd userbd;
         new GetEtudiants().execute();
         //permet de mettre l'application en plein écran pour ne pas avoir de bandeau en haut de l'écran de tablette
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
+//gestion page classement
+        btn_classement = (Button) this.findViewById(R.id.btn_classement);
+        btn_classement.setOnClickListener(new View.OnClickListener() {
+            //@Override
+            public void onClick(View view) {
+                Intent unIntent = new Intent(Accueil.this, Classement.class);
+                Accueil.this.startActivityForResult(unIntent, code_fenetre);
+            }
+        });
         //gestion du bouton JOUER
         btn_jouer = (Button) this.findViewById(R.id.btn_jouer);
         btn_jouer.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +82,8 @@ private  UtilisateurBdd userbd;
                 Accueil.this.startActivityForResult(unIntent, code_fenetre);
             }
         });
+        //gestion page classement
+
 
     }
     private class GetEtudiants extends AsyncTask<Void, Void, Void> {
@@ -106,7 +119,7 @@ private  UtilisateurBdd userbd;
                         Utilisateur user = new Utilisateur(scoreQuizComics,pseudo,scoreMemo,scoreRange,scoreQuizManga,scoreQuizBd,idUser);
 
                         long var = userbd.addUser(user);
-
+                       // return db.insert(TABLE_NAME,null,values);
                         List_etudiants.add(etudiant);
                     }
 
@@ -136,9 +149,10 @@ private  UtilisateurBdd userbd;
         @Override
         protected void onPostExecute(Void result){
             super.onPostExecute(result);
-
-                Log.d("List_etudiants.toString()", List_etudiants.toString());
-
+           //user = new Utilisateur(0,"test",1,2,3,4,5);
+           //userbd.addUser(user);
+                Log.d("oui", userbd.getUtil()); //List_etudiants.toString()
+                userbd.close();
         }
         @Override
         protected  void onPreExecute(){
