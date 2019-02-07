@@ -33,6 +33,7 @@ public class Accueil extends AppCompatActivity {
     private Button btn_jouer;
     private Button btn_classement;
     private Utilisateur user;
+    private MySQLite userbddd = new MySQLite(this);
 
     int scoreQuizComics =0;int scoreMemo =0;int scoreRange =0;int scoreQuizManga=0;int scoreQuizBd =0;int idUser =0;
     String pseudo ="";
@@ -45,7 +46,6 @@ private  UtilisateurBdd userbd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
 
         super.onCreate(savedInstanceState);
         List_etudiants = new ArrayList<>();

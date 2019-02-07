@@ -1,6 +1,8 @@
 package com.app.lesfousdeprog.motstordus;
 
-public class Utilisateur {
+import java.io.Serializable;
+
+public class Utilisateur implements Serializable {
 
     public int getScorequizbd() {
         return scorequizbd;

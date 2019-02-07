@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.Serializable;
+
 public class Deblocage extends AppCompatActivity {
 
     //region propriétés
@@ -24,7 +26,8 @@ public class Deblocage extends AppCompatActivity {
     private Button accueil;
     private TextView bravo;
     private final int code_fenetre = 20;
-
+private Utilisateur utilisateur;
+private UtilisateurBdd utilisateurBdd;
     //endregion
 
 
@@ -43,19 +46,22 @@ public class Deblocage extends AppCompatActivity {
         accueil=(Button)findViewById(R.id.accueildeb);
         recommencer=(Button)findViewById(R.id.recommencer);
 
-
+    utilisateurBdd = new UtilisateurBdd(this);
 
         //affiche la phrase ci-dessous en fonction du score du joueur dans le textview bravo
-        int scoreRecup = this.getIntent().getExtras().getInt("nbscore"); //récupère le score du joueur réalisé dans le quiz
+        final int scoreRecup = this.getIntent().getExtras().getInt("nbscore"); //récupère le score du joueur réalisé dans le quiz
         bravo.setText("Bravo !! Avec ton score de " + scoreRecup + " sur 10, tu as débloqué ceci :");
 
-
+        utilisateur = new Utilisateur(0,"Salut",0,0,0,scoreRecup,0);
         //le bouton jouerrtbd permet de lancer le jeu Range ta BD
         jouerrtbd.setOnClickListener(new View.OnClickListener() {
             //@Override
             public void onClick(View view) {
+
                 Intent unIntent = new Intent(Deblocage.this, RangeTaBd.class);
+                unIntent.putExtra("user",  utilisateur);
                 Deblocage.this.startActivityForResult(unIntent, code_fenetre);
+
             }
         });
 
@@ -65,7 +71,7 @@ public class Deblocage extends AppCompatActivity {
             //@Override
             public void onClick(View view) {
                 Intent unIntent = new Intent(Deblocage.this, MemoRigolo.class);
-                unIntent.putExtra("dif", 8);
+                unIntent.putExtra("user", utilisateur);
                 Deblocage.this.startActivityForResult(unIntent, code_fenetre);
             }
         });
@@ -76,6 +82,7 @@ public class Deblocage extends AppCompatActivity {
             //@Override
             public void onClick(View view) {
                 Intent unIntent = new Intent(Deblocage.this, Quizz.class);
+                unIntent.putExtra("user", (Serializable) utilisateur);
                 Deblocage.this.startActivityForResult(unIntent, code_fenetre);
             }
         });
@@ -104,7 +111,9 @@ public class Deblocage extends AppCompatActivity {
 
 
 
+        utilisateurBdd.addUser(utilisateur);
     }
+
     //permet de ne pas pouvoir cliquer sur le bouton retour de la tablette
     @Override
     public void onBackPressed() {

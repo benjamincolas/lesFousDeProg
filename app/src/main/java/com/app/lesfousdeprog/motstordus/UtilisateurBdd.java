@@ -47,7 +47,7 @@ public class UtilisateurBdd {
 
     public long addUser(Utilisateur utilisateur) {
         // Ajout d'un enregistrement dans la table
-
+open();
         ContentValues values = new ContentValues();
         values.put(SCOREQUIZCOMICS, utilisateur.getScorequizcomics());
         values.put(NOMUTIL, utilisateur.getPseudo());
@@ -59,6 +59,23 @@ public class UtilisateurBdd {
         // insert() retourne l'id du nouvel enregistrement inséré, ou -1 en cas d'erreur
         return db.insert(TABLE_NAME,null,values);
     }
+
+    public int updateUser(Utilisateur utilisateur) {
+        // Ajout d'un enregistrement dans la table
+        open();
+        ContentValues values = new ContentValues();
+        values.put(SCOREQUIZCOMICS, utilisateur.getScorequizcomics());
+        values.put(NOMUTIL, utilisateur.getPseudo());
+        values.put(SCOREMEMO, utilisateur.getScoreMemo());
+        values.put(SCORERANGE, utilisateur.getScoreRange());
+        values.put(SCOREQUIZMANGA, utilisateur.getScorequizmanga());
+        values.put(SCOREQUIZBD, utilisateur.getScorequizbd());
+        values.put(IDUSER, utilisateur.getIdUser());
+        String[] arg = {IDUSER};
+        // insert() retourne l'id du nouvel enregistrement inséré, ou -1 en cas d'erreur
+        return db.update(TABLE_NAME,values,"idUser = ?",arg);
+    }
+
     public String getUtil()
     {
         Cursor cursor = null;

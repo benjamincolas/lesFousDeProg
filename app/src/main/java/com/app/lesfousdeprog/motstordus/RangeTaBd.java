@@ -33,6 +33,8 @@ public class RangeTaBd extends AppCompatActivity {
     RelativeLayout layoutdef,layoutvic,layoutLancer,layoutRegles;
     ObjectAnimator  ObjectAnimator,ObjectAnimator2,ObjectAnimator3,ObjectAnimator4,ObjectAnimator5,AnimatorRegle1,AnimatorRegle2;
     private int vie=2;
+    private Utilisateur utilisateur;
+    private UtilisateurBdd userbdd;
     private int clicsurregles =1;
     private boolean boolImg1 = false;
     private boolean boolImg2 = false;
@@ -81,6 +83,9 @@ public class RangeTaBd extends AppCompatActivity {
         rect2 = (LinearLayout) findViewById(R.id.rect2);
         rect3 = (LinearLayout) findViewById(R.id.rect3);
         rect4 = (LinearLayout) findViewById(R.id.rect4);
+        userbdd = new UtilisateurBdd(this);
+        //a oter
+        utilisateur = new Utilisateur(0,"Salut",0,0,0,4,0);
         layoutdef = (RelativeLayout) findViewById(R.id.layoutdef);
         layoutvic = (RelativeLayout) findViewById(R.id.layoutvic);
         valider = (Button) findViewById(R.id.btn_valider);
@@ -108,6 +113,7 @@ public class RangeTaBd extends AppCompatActivity {
         img3.setOnDragListener(listenerimg3);
         img4.setOnDragListener(listenerimg4);
         suivant.setVisibility(View.INVISIBLE);
+
         disableLayout(true); // enleve la possibilité de bouger les images
         layoutLancer.setEnabled(true); // permet d'activer la possibilité de cliquer sur le bouton
         ObjectAnimator = ObjectAnimator.ofFloat(layout,"x",-50);
@@ -850,7 +856,10 @@ if (erreurPrecedent==true) { // si il a fait une erreur
              handler.postDelayed(runnable, 1500); // après un timer d'1.5 sec
              txtviewlayoutvic.setText("Victoire");
             }
-        }
+       // final Utilisateur utilisateur = (Utilisateur) this.getIntent().getExtras().getSerializable("user");
+        utilisateur.setScoreRange(nombreFautes);
+    userbdd.updateUser(utilisateur);
+    }
     private void disableLayout(boolean lay){// permet de "désactiver" ou non la possibilité d'utiliser le layout de jeu
 
         if (lay){
@@ -922,6 +931,7 @@ if (erreurPrecedent==true) { // si il a fait une erreur
                        AnimatorRegle2.start();
                        valider.setVisibility(View.VISIBLE);
                        valider.setEnabled(true);   // désactive le bouton valider
+                        valider.setClickable(false);
                         blinkAnim(valider);
 
 
@@ -929,6 +939,7 @@ if (erreurPrecedent==true) { // si il a fait une erreur
                 if(clicsurregles==6){
                     txtRegles.setText(R.string.Règles6);
             valider.clearAnimation();
+            valider.setVisibility(View.INVISIBLE);
              blinkAnim(coeurgauche); // fait clignoter les coeurs
              blinkAnim(coeurdroit);
 
