@@ -62,8 +62,8 @@ public class Deblocage extends AppCompatActivity {
         jouermr.setOnClickListener(new View.OnClickListener() {
             //@Override
             public void onClick(View view) {
-                Intent unIntent = new Intent(Deblocage.this, MemoRigolo.class);
-                unIntent.putExtra("dif", 8);
+                Intent unIntent = new Intent(Deblocage.this, MemoRigolo2.class);
+                //unIntent.putExtra("dif", 8);
                 Deblocage.this.startActivityForResult(unIntent, code_fenetre);
             }
         });

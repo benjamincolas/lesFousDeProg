@@ -86,10 +86,10 @@ public class MemoRigolo extends AppCompatActivity {
             }
         });
 
-        setImage(); //permet la gestion des images du jeu mémo
+        //setImage(); //permet la gestion des images du jeu mémo
     }
 
-    public void setImage(){
+    /*public void setImage(){
         difficulte = Objects.requireNonNull(this.getIntent().getExtras()).getInt("dif"); //change la difficultée du jeu
         score =0; //met le score à 0
         tempscore = difficulte; //tempscore prend la valeur de difficulté
@@ -218,5 +218,5 @@ public class MemoRigolo extends AppCompatActivity {
                 }
             }
         });
-    }
+    }*/
 }

@@ -62,7 +62,7 @@ public class GridAdapter extends BaseAdapter {
             image.requestLayout();
         }
 
-        gridView.setBackgroundResource(R.mipmap.pow);
+        gridView.setBackgroundResource(R.drawable.pow);
 
         return gridView;
     }
