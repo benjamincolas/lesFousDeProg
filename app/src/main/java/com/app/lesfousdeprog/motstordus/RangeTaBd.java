@@ -85,7 +85,7 @@ public class RangeTaBd extends AppCompatActivity {
         rect4 = (LinearLayout) findViewById(R.id.rect4);
         userbdd = new UtilisateurBdd(this);
         //a oter
-        utilisateur = new Utilisateur(0,"Salut",0,0,0,4,0);
+      //  utilisateur = new Utilisateur(0,"Salut",0,0,0,4,0);
         layoutdef = (RelativeLayout) findViewById(R.id.layoutdef);
         layoutvic = (RelativeLayout) findViewById(R.id.layoutvic);
         valider = (Button) findViewById(R.id.btn_valider);
@@ -856,7 +856,7 @@ if (erreurPrecedent==true) { // si il a fait une erreur
              handler.postDelayed(runnable, 1500); // après un timer d'1.5 sec
              txtviewlayoutvic.setText("Victoire");
             }
-       // final Utilisateur utilisateur = (Utilisateur) this.getIntent().getExtras().getSerializable("user");
+        final Utilisateur utilisateur = (Utilisateur) this.getIntent().getExtras().getSerializable("user");
         utilisateur.setScoreRange(nombreFautes);
     userbdd.updateUser(utilisateur);
     }

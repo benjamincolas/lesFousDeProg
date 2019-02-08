@@ -100,6 +100,15 @@ idUser = unid;
         ScoreRange=unScoreRange;
         scorequizcomics=unScoreQuizComics;
     }
+    public Utilisateur(int unScoreQuizComics,String unPseudo,int unScoreMemo,int unScoreRange,int unScoreQuizManga, int unScoreBd){
+        idUser= 0;
+        pseudo = unPseudo;
+        scoreMemo = unScoreMemo;
+        scorequizbd = unScoreBd;
+        scorequizmanga = unScoreQuizManga;
+        ScoreRange=unScoreRange;
+        scorequizcomics=unScoreQuizComics;
+    }
 
 
 

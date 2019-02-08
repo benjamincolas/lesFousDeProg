@@ -28,6 +28,8 @@ public class Deblocage extends AppCompatActivity {
     private final int code_fenetre = 20;
 private Utilisateur utilisateur;
 private UtilisateurBdd utilisateurBdd;
+
+private long idUser;
     //endregion
 
 
@@ -46,13 +48,14 @@ private UtilisateurBdd utilisateurBdd;
         accueil=(Button)findViewById(R.id.accueildeb);
         recommencer=(Button)findViewById(R.id.recommencer);
 
-    utilisateurBdd = new UtilisateurBdd(this);
+         utilisateurBdd = new UtilisateurBdd(this);
+         idUser = utilisateurBdd.lastId();
 
         //affiche la phrase ci-dessous en fonction du score du joueur dans le textview bravo
         final int scoreRecup = this.getIntent().getExtras().getInt("nbscore"); //récupère le score du joueur réalisé dans le quiz
         bravo.setText("Bravo !! Avec ton score de " + scoreRecup + " sur 10, tu as débloqué ceci :");
 
-        utilisateur = new Utilisateur(0,"Salut",0,0,0,scoreRecup,0);
+        utilisateur = new Utilisateur(0,"Loïc",0,0,0,scoreRecup);
         //le bouton jouerrtbd permet de lancer le jeu Range ta BD
         jouerrtbd.setOnClickListener(new View.OnClickListener() {
             //@Override
@@ -111,7 +114,7 @@ private UtilisateurBdd utilisateurBdd;
 
 
 
-        utilisateurBdd.addUser(utilisateur);
+       long lastId =  utilisateurBdd.addUser(utilisateur);
     }
 
     //permet de ne pas pouvoir cliquer sur le bouton retour de la tablette

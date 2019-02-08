@@ -14,10 +14,12 @@ public class UtilisateurBdd {
     public static final String SCOREQUIZBD="scoreQuizBd";
     public static final String SCORERANGE="scoreRange";
 
+
+    public static int lastIdUser;
     private Utilisateur user;
     public static final String CREATE_TABLE_UTIL = "CREATE TABLE IF NOT EXISTS "+TABLE_NAME+
             " (" +
-            " "+IDUSER+" INTEGER primary key," +
+            " "+IDUSER+" INTEGER primary key AUTOINCREMENT," +
             " "+NOMUTIL+" TEXT," +
             " "+SCOREMEMO+" INTEGER," +
             " "+SCOREQUIZBD+" INTEGER," +
@@ -31,6 +33,14 @@ public class UtilisateurBdd {
     public UtilisateurBdd(Context context)
     {
         maBaseSQLite = MySQLite.getInstance(context);
+        //db=maBaseSQLite.getReadableDatabase();
+
+      //  Cursor cursor = db.rawQuery("SELECT MAX(idUser) FROM "+TABLE_NAME, null);::if(cursor.moveToLast()){
+            //name = cursor.getString(column_index);//to get other values
+       //     lastIdUser = cursor.getInt(0);//to get id, 0 is the column index
+        //}
+        //open();
+        //lastIdUser = (int) cmd.ExecuteScalar();
     }
 
     public void open()
@@ -45,19 +55,23 @@ public class UtilisateurBdd {
         db.close();
     }
 
+    public long lastId(){ return lastIdUser;}
+
     public long addUser(Utilisateur utilisateur) {
         // Ajout d'un enregistrement dans la table
-open();
+    open();
+   // int id =
         ContentValues values = new ContentValues();
-        values.put(SCOREQUIZCOMICS, utilisateur.getScorequizcomics());
+        values.put(IDUSER, utilisateur.getIdUser());
         values.put(NOMUTIL, utilisateur.getPseudo());
         values.put(SCOREMEMO, utilisateur.getScoreMemo());
-        values.put(SCORERANGE, utilisateur.getScoreRange());
-        values.put(SCOREQUIZMANGA, utilisateur.getScorequizmanga());
         values.put(SCOREQUIZBD, utilisateur.getScorequizbd());
-        values.put(IDUSER, utilisateur.getIdUser());
+        values.put(SCOREQUIZCOMICS, utilisateur.getScorequizcomics());
+        values.put(SCOREQUIZMANGA, utilisateur.getScorequizmanga());
+        values.put(SCORERANGE, utilisateur.getScoreRange());
         // insert() retourne l'id du nouvel enregistrement inséré, ou -1 en cas d'erreur
-        return db.insert(TABLE_NAME,null,values);
+        //lastIdUser = ;
+      return db.insert(TABLE_NAME,null,values) ;
     }
 
     public int updateUser(Utilisateur utilisateur) {
@@ -70,8 +84,8 @@ open();
         values.put(SCORERANGE, utilisateur.getScoreRange());
         values.put(SCOREQUIZMANGA, utilisateur.getScorequizmanga());
         values.put(SCOREQUIZBD, utilisateur.getScorequizbd());
-        values.put(IDUSER, utilisateur.getIdUser());
-        String[] arg = {IDUSER};
+       // values.put(IDUSER, utilisateur.getIdUser());
+        String[] arg = {String.valueOf(utilisateur.getIdUser())};
         // insert() retourne l'id du nouvel enregistrement inséré, ou -1 en cas d'erreur
         return db.update(TABLE_NAME,values,"idUser = ?",arg);
     }
