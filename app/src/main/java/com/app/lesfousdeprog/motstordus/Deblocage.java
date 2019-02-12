@@ -29,7 +29,7 @@ public class Deblocage extends AppCompatActivity {
 private Utilisateur utilisateur;
 private UtilisateurBdd utilisateurBdd;
 
-private long idUser;
+private int idUser;
     //endregion
 
 
@@ -55,7 +55,7 @@ private long idUser;
         final int scoreRecup = this.getIntent().getExtras().getInt("nbscore"); //récupère le score du joueur réalisé dans le quiz
         bravo.setText("Bravo !! Avec ton score de " + scoreRecup + " sur 10, tu as débloqué ceci :");
 
-        utilisateur = new Utilisateur(0,"Loïc",0,0,0,scoreRecup);
+        utilisateur = new Utilisateur(0,"Loïc",0,0,0,scoreRecup,idUser);
         //le bouton jouerrtbd permet de lancer le jeu Range ta BD
         jouerrtbd.setOnClickListener(new View.OnClickListener() {
             //@Override

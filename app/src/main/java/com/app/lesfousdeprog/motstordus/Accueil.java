@@ -151,7 +151,7 @@ private  UtilisateurBdd userbd;
             super.onPostExecute(result);
            //user = new Utilisateur(0,"test",1,2,3,4,5);
            //userbd.addUser(user);
-                Log.d("oui", userbd.getUtil()); //List_etudiants.toString()
+                Log.d("oui", userbd.getUtil().toString()); //List_etudiants.toString()
                 userbd.close();
         }
         @Override

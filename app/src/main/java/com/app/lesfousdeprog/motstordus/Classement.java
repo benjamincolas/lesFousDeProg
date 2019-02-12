@@ -17,7 +17,12 @@ private TextView txt;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_classement);
         userbdd = new UtilisateurBdd(this);
-
+String text;
+text ="";
         txt =  this.findViewById(R.id.txt);
-txt.setText(userbdd.getUtil());
+
+        for (Utilisateur unUtil:userbdd.getUtil()) {
+         text=text+unUtil.getPseudo()+" "+unUtil.getScorequizbd()+" "+unUtil.getScoreRange()+" "+unUtil.getScoreMemo()+"\n";
+        }
+        txt.setText(text);
 }}

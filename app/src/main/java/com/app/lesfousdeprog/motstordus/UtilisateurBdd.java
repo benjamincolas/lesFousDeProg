@@ -3,6 +3,10 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class UtilisateurBdd {
 
     private static final String TABLE_NAME = "utilisateur";
@@ -33,14 +37,8 @@ public class UtilisateurBdd {
     public UtilisateurBdd(Context context)
     {
         maBaseSQLite = MySQLite.getInstance(context);
-        //db=maBaseSQLite.getReadableDatabase();
+        db=maBaseSQLite.getReadableDatabase();
 
-      //  Cursor cursor = db.rawQuery("SELECT MAX(idUser) FROM "+TABLE_NAME, null);::if(cursor.moveToLast()){
-            //name = cursor.getString(column_index);//to get other values
-       //     lastIdUser = cursor.getInt(0);//to get id, 0 is the column index
-        //}
-        //open();
-        //lastIdUser = (int) cmd.ExecuteScalar();
     }
 
     public void open()
@@ -55,7 +53,17 @@ public class UtilisateurBdd {
         db.close();
     }
 
-    public long lastId(){ return lastIdUser;}
+    public int lastId(){
+
+        open();
+        Cursor cursor = db.rawQuery("SELECT MAX(idUser) FROM "+TABLE_NAME, null);
+        if(cursor.moveToLast()){
+
+            lastIdUser = cursor.getInt(0)+1;//to get id, 0 is the column index
+        }
+
+
+        return lastIdUser;}
 
     public long addUser(Utilisateur utilisateur) {
         // Ajout d'un enregistrement dans la table
@@ -90,16 +98,26 @@ public class UtilisateurBdd {
         return db.update(TABLE_NAME,values,"idUser = ?",arg);
     }
 
-    public String getUtil()
+    public List<Utilisateur> getUtil()
     {
+        List<Utilisateur> list = new ArrayList<Utilisateur>();
+
         Cursor cursor = null;
         try {
             db=maBaseSQLite.getWritableDatabase();
             cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME,null);
-            return (cursor.moveToFirst()) ? String.valueOf(cursor.getInt(3))+" "+cursor.getString(1): null;
+            cursor.moveToFirst();
+            while (cursor.isAfterLast() == false)
+            {
+                user = new Utilisateur(cursor.getInt(4),cursor.getString(1),cursor.getInt(2),cursor.getInt(6),cursor.getInt(5),cursor.getInt(3));
+                list.add(user);
+                cursor.moveToNext();
+            }
+
         } finally {
             if (cursor != null) cursor.close();
         }
+return list;
     }
     private Utilisateur cursorToClient(Cursor cursor) {
          user = new Utilisateur(cursor.getInt(3),cursor.getString(1),cursor.getInt(6),cursor.getInt(5),cursor.getInt(2),cursor.getInt(0),cursor.getInt(4));

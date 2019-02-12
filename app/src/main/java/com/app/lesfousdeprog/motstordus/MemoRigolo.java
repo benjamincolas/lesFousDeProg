@@ -44,6 +44,8 @@ public class MemoRigolo extends AppCompatActivity {
     private ArrayList<Integer> imgClicker;
     private LottieAnimationView trophy;
     private int compteClick;
+    private UtilisateurBdd userbdd;
+    private Utilisateur utilisateur;
     //endregion
 
 
@@ -68,7 +70,11 @@ public class MemoRigolo extends AppCompatActivity {
         btnHome = this.findViewById(R.id.btn_acc);
         //endregion
 
-        compteClick = 0; //met le compteur de click à 0
+        userbdd = new UtilisateurBdd(this);
+        final Utilisateur utilisateur = (Utilisateur) this.getIntent().getExtras().getSerializable("user");
+        compteClick = 8; //met le compteur de click à 0
+        utilisateur.setScoreMemo(compteClick); //met a jour le score de l'utilisateur dans la base
+        userbdd.updateUser(utilisateur); //met a jour le score de l'utilisateur dans la base
 
         btnAgain.setOnClickListener(new View.OnClickListener(){ //au click sur le bouton niveau suivant
             public void onClick(View v) {
@@ -199,6 +205,9 @@ public class MemoRigolo extends AppCompatActivity {
                                         trophy.setVisibility(View.VISIBLE); //affiche le trophé
                                         trophy.playAnimation(); //lance l'animation du trophé
                                         trophy.loop(true); //lance l'animation du trophé en boucle
+
+                                        utilisateur.setScoreMemo(compteClick); //met a jour le score de l'utilisateur dans la base
+                                        userbdd.updateUser(utilisateur); //met a jour le score de l'utilisateur dans la base
 
                                         if(tempscore == 8){ //si tempscore est égale à 8
                                             btnAgain.setVisibility(View.VISIBLE); //affiche le bouton niveau suivant
