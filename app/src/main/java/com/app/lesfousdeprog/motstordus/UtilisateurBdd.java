@@ -98,14 +98,14 @@ public class UtilisateurBdd {
         return db.update(TABLE_NAME,values,"idUser = ?",arg);
     }
 
-    public List<Utilisateur> getUtil()
+    public List<Utilisateur> getUtilScoreBD() //Instancie et ajoute les 10 meilleurs utilisateur en fonction de leur score au quiz dans une liste
     {
         List<Utilisateur> list = new ArrayList<Utilisateur>();
 
         Cursor cursor = null;
         try {
             db=maBaseSQLite.getWritableDatabase();
-            cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME,null);
+            cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " ORDER BY "+SCOREQUIZBD + " DESC LIMIT 10",null);
             cursor.moveToFirst();
             while (cursor.isAfterLast() == false)
             {
@@ -118,6 +118,48 @@ public class UtilisateurBdd {
             if (cursor != null) cursor.close();
         }
 return list;
+    }
+    public List<Utilisateur> getUtilScoreRTBD()//Instancie et ajoute les 10 meilleurs utilisateur en fonction de leur score au jeu Range Ta BD dans une liste
+    {
+        List<Utilisateur> list = new ArrayList<Utilisateur>();
+
+        Cursor cursor = null;
+        try {
+            db=maBaseSQLite.getWritableDatabase();
+            cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " ORDER BY "+SCORERANGE + "  LIMIT 10",null);
+            cursor.moveToFirst();
+            while (cursor.isAfterLast() == false)
+            {
+                user = new Utilisateur(cursor.getInt(4),cursor.getString(1),cursor.getInt(2),cursor.getInt(6),cursor.getInt(5),cursor.getInt(3));
+                list.add(user);
+                cursor.moveToNext();
+            }
+
+        } finally {
+            if (cursor != null) cursor.close();
+        }
+        return list;
+    }
+    public List<Utilisateur> getUtilScoreMemo()//Instancie et ajoute les 10 meilleurs utilisateur en fonction de leur score au mémo rigolo dans une liste
+    {
+        List<Utilisateur> list = new ArrayList<Utilisateur>();
+
+        Cursor cursor = null;
+        try {
+            db=maBaseSQLite.getWritableDatabase();
+            cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " ORDER BY "+SCOREMEMO + "  LIMIT 10",null);
+            cursor.moveToFirst();
+            while (cursor.isAfterLast() == false)
+            {
+                user = new Utilisateur(cursor.getInt(4),cursor.getString(1),cursor.getInt(2),cursor.getInt(6),cursor.getInt(5),cursor.getInt(3));
+                list.add(user);
+                cursor.moveToNext();
+            }
+
+        } finally {
+            if (cursor != null) cursor.close();
+        }
+        return list;
     }
     private Utilisateur cursorToClient(Cursor cursor) {
          user = new Utilisateur(cursor.getInt(3),cursor.getString(1),cursor.getInt(6),cursor.getInt(5),cursor.getInt(2),cursor.getInt(0),cursor.getInt(4));
