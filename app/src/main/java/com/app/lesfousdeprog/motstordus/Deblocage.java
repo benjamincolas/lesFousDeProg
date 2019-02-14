@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.Serializable;
@@ -74,7 +73,6 @@ private int idUser;
             //@Override
             public void onClick(View view) {
                 Intent unIntent = new Intent(Deblocage.this, MemoRigolo.class);
-                unIntent.putExtra("user", utilisateur);
                 Deblocage.this.startActivityForResult(unIntent, code_fenetre);
             }
         });

@@ -84,6 +84,7 @@
     <string name="txt_rtbdexpl">Remets les vignettes de tes bandes dessinées préférées dans le bon ordre !</string>
     <string name="txt_mrexpl">Retrouve les paires des différents personnages de bande dessinées !</string>
     <string name="recommencer">RECOMMENCER LE QUIZ</string>
+    <string name="btn_jouer_memo">Commencer</string>
     <string name="Accueil">ACCUEIL</string>
     <string name="quiz">LE QUIZ</string>
 </resources>

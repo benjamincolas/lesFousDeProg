@@ -4,110 +4,221 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/backgroundrtbd"
     android:layout_gravity="center"
+    android:background="@mipmap/backgroundrtbd"
     tools:context=".MemoRigolo">
 
     <TextView
         android:id="@+id/memorigolo"
         android:layout_width="500dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/bouton_arrondie"
         android:fontFamily="@font/adventure"
         android:text="@string/memorigolo"
         android:textAlignment="center"
+        android:textAllCaps="true"
         android:textColor="@color/noir"
         android:textSize="60sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <GridView
-        android:id="@+id/gridView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:gravity="center"
-        android:horizontalSpacing="20dp"
-        android:numColumns="4"
-        android:stretchMode="columnWidth"
-        android:verticalSpacing="20dp"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@drawable/pow"
+        app:layout_constraintBottom_toTopOf="@+id/imageView6"
+        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/memorigolo"
+        android:onClick="onClick"/>
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@drawable/pow"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio=""
+        app:layout_constraintEnd_toStartOf="@+id/imageView7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        android:onClick="onClick"/>
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@drawable/pow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView8"
+        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        android:onClick="onClick"/>
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@drawable/pow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView9"
+        app:layout_constraintStart_toEndOf="@+id/imageView7"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        android:onClick="onClick"/>
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@drawable/pow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView10"
+        app:layout_constraintStart_toEndOf="@+id/imageView8"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        android:onClick="onClick"/>
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@drawable/pow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView9"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        android:onClick="onClick"/>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@drawable/pow"
+        app:layout_constraintBottom_toTopOf="@+id/imageView7"
+        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/memorigolo"
+        android:onClick="onClick"/>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@drawable/pow"
+        app:layout_constraintBottom_toTopOf="@+id/imageView8"
+        app:layout_constraintEnd_toStartOf="@+id/imageView4"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/memorigolo"
+        android:onClick="onClick"/>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@drawable/pow"
+        app:layout_constraintBottom_toTopOf="@+id/imageView9"
+        app:layout_constraintEnd_toStartOf="@+id/imageView5"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/memorigolo"
+        android:onClick="onClick"/>
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@drawable/pow"
+        app:layout_constraintBottom_toTopOf="@+id/imageView10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/memorigolo"
+        android:onClick="onClick"/>
+
+    <Button
+        android:id="@+id/btn_commencer"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:background="@drawable/bouton_arrondie"
+        android:fontFamily="@font/adventure"
+        android:text="@string/btn_jouer_memo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        android:onClick="onClick"/>
+
+    <Chronometer
+        android:id="@+id/timer"
+        android:layout_width="155dp"
+        android:layout_height="62dp"
+        android:fontFamily="@font/adventure"
+        android:textAlignment="center"
+        android:textColor="@color/noir"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/memorigolo"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="155dp"
+        android:layout_height="62dp"
+        android:fontFamily="@font/adventure"
+        android:text="TIMER :"
+        android:textAlignment="center"
+        android:textColor="@color/noir"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/timer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <ImageView
+        android:id="@+id/imgBlancMemo"
+        android:layout_width="800dp"
+        android:layout_height="650dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:src="@color/blanc"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/memorigolo" />
 
-    <ImageView
-        android:id="@+id/finpartie"
-        android:layout_width="900dp"
-        android:layout_height="700dp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.471"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/win" />
-
     <TextView
-        android:id="@+id/txtfinpartie"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/txtFinMemo"
+        android:layout_width="242dp"
+        android:layout_height="53dp"
         android:fontFamily="@font/adventure"
-        android:textColor="@color/noir"
-        android:textSize="40sp"
+        android:text="  Tu as gagné !  "
+        android:textSize="36sp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/finpartie"
-        app:layout_constraintEnd_toEndOf="@+id/finpartie"
-        app:layout_constraintStart_toStartOf="@+id/finpartie"
-        app:layout_constraintTop_toTopOf="@+id/finpartie"
-        app:layout_constraintVertical_bias="0.4" />
-
-    <Button
-        android:id="@+id/btn_acc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bouton_arrondie"
-        android:fontFamily="@font/adventure"
-        android:text="Acceuil"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/finpartie"
-        app:layout_constraintEnd_toEndOf="@+id/finpartie"
-        app:layout_constraintStart_toEndOf="@+id/btn_suiv"
-        app:layout_constraintTop_toBottomOf="@+id/txtfinpartie"
-        app:layout_constraintVertical_bias="0.2" />
-
-    <Button
-        android:id="@+id/btn_suiv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bouton_arrondie"
-        android:fontFamily="@font/adventure"
-        android:text="  Niveau suivant  "
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/finpartie"
-        app:layout_constraintEnd_toStartOf="@+id/btn_acc"
-        app:layout_constraintStart_toStartOf="@+id/finpartie"
-        app:layout_constraintTop_toBottomOf="@+id/txtfinpartie"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintBottom_toBottomOf="@+id/imgBlancMemo"
+        app:layout_constraintEnd_toEndOf="@+id/imgBlancMemo"
+        app:layout_constraintStart_toStartOf="@+id/imgBlancMemo"
+        app:layout_constraintTop_toTopOf="@+id/imgBlancMemo"
+        app:layout_constraintVertical_bias="0.100000024" />
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/stars"
-        android:layout_width="400dp"
-        android:layout_height="400dp"
+        android:id="@+id/trophy"
+        android:layout_width="100dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="8dp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/finpartie"
-        app:layout_constraintEnd_toStartOf="@+id/btn_acc"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btn_suiv"
-        app:layout_constraintTop_toBottomOf="@+id/txtfinpartie"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintBottom_toBottomOf="@+id/imgBlancMemo"
+        app:layout_constraintEnd_toEndOf="@+id/imgBlancMemo"
+        app:layout_constraintStart_toStartOf="@+id/imgBlancMemo"
+        app:layout_constraintTop_toBottomOf="@+id/txtFinMemo"
         app:lottie_autoPlay="false"
         app:lottie_fileName="trophy.json" />
 
