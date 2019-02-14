@@ -31,11 +31,10 @@ public class Accueil extends AppCompatActivity {
     //déclarations des propriétés
     private Button btn_regles;
     private Button btn_jouer;
-    int scoreQuizComics =0;int scoreMemo =0;int scoreRange =0;int scoreQuizManga=0;int scoreQuizBd =0;int idUser =0;
-    String pseudo ="";
+    private Button btn_classement;
     private final int code_fenetre = 20;
     String uneUrl = String.format("http://benjamincolaspro.ddns.net/appAndroid/json.php");
-    ArrayList<HashMap<String, String>>List_etudiants;
+    ArrayList<HashMap<String, String>>List_util;
     private String TAG = Accueil.class.getSimpleName();
 private  UtilisateurBdd userbd;
     //endregion
@@ -43,16 +42,23 @@ private  UtilisateurBdd userbd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
         super.onCreate(savedInstanceState);
-        List_etudiants = new ArrayList<>();
+        List_util = new ArrayList<>();
         setContentView(R.layout.activity_accueil);
          userbd = new UtilisateurBdd(Accueil.this);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);//permet de bloquer l'orientation de la tablette en mode paysage
-        new GetEtudiants().execute();
+        new rempJsonDansSQLITE().execute();
         //permet de mettre l'application en plein écran pour ne pas avoir de bandeau en haut de l'écran de tablette
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
+//gestion page classement
+        btn_classement = (Button) this.findViewById(R.id.btn_classement);
+        btn_classement.setOnClickListener(new View.OnClickListener() {
+            //@Override
+            public void onClick(View view) {
+                Intent unIntent = new Intent(Accueil.this, Classement.class);
+                Accueil.this.startActivityForResult(unIntent, code_fenetre);
+            }
+        });
         //gestion du bouton JOUER
         btn_jouer = (Button) this.findViewById(R.id.btn_jouer);
         btn_jouer.setOnClickListener(new View.OnClickListener() {
@@ -71,9 +77,11 @@ private  UtilisateurBdd userbd;
                 Accueil.this.startActivityForResult(unIntent, code_fenetre);
             }
         });
+        //gestion page classement
+
 
     }
-    private class GetEtudiants extends AsyncTask<Void, Void, Void> {
+    private class rempJsonDansSQLITE extends AsyncTask<Void, Void, Void> {
 
         protected Void doInBackground(Void... arg0) {
             HttpHandler sh = new HttpHandler();
@@ -95,19 +103,19 @@ private  UtilisateurBdd userbd;
                         int scoreQuizManga = c.getInt("scoreQuizManga");
                         int scoreRange = c.getInt("scoreRange");
 
-                        HashMap<String, String> etudiant = new HashMap<>();
-                        etudiant.put("idUser", String.valueOf(idUser));
-                        etudiant.put("pseudo", pseudo);
-                        etudiant.put("scoreMemo", String.valueOf(scoreMemo));
-                        etudiant.put("scoreQuizBd", String.valueOf(scoreQuizBd));
-                        etudiant.put("scoreQuizComics", String.valueOf(scoreQuizComics));
-                        etudiant.put("scoreQuizManga", String.valueOf(scoreQuizManga));
-                        etudiant.put("scoreRange", String.valueOf(scoreRange));
+                        HashMap<String, String> util = new HashMap<>();
+                        util.put("idUser", String.valueOf(idUser));
+                        util.put("pseudo", pseudo);
+                        util.put("scoreMemo", String.valueOf(scoreMemo));
+                        util.put("scoreQuizBd", String.valueOf(scoreQuizBd));
+                        util.put("scoreQuizComics", String.valueOf(scoreQuizComics));
+                        util.put("scoreQuizManga", String.valueOf(scoreQuizManga));
+                        util.put("scoreRange", String.valueOf(scoreRange));
                         Utilisateur user = new Utilisateur(scoreQuizComics,pseudo,scoreMemo,scoreRange,scoreQuizManga,scoreQuizBd,idUser);
 
                         long var = userbd.addUser(user);
-
-                        List_etudiants.add(etudiant);
+                       // return db.insert(TABLE_NAME,null,values);
+                        List_util.add(util);
                     }
 
                 } catch (final JSONException e) {
@@ -136,14 +144,15 @@ private  UtilisateurBdd userbd;
         @Override
         protected void onPostExecute(Void result){
             super.onPostExecute(result);
-
-                Log.d("List_etudiants.toString()", List_etudiants.toString());
-
+           //user = new Utilisateur(0,"test",1,2,3,4,5);
+           //userbd.addUser(user);
+             //   Log.d("oui", userbd.getUtil().toString()); //List_etudiants.toString()
+                userbd.close();
         }
         @Override
         protected  void onPreExecute(){
             super.onPreExecute();
-            Toast.makeText(Accueil.this,"Salut ça charge",Toast.LENGTH_LONG).show();
+           // Toast.makeText(Accueil.this,"Salut ça charge",Toast.LENGTH_LONG).show();
         }}
 
 }

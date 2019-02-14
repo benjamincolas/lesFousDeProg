@@ -1,6 +1,8 @@
 package com.app.lesfousdeprog.motstordus;
 
-public class Utilisateur {
+import java.io.Serializable;
+
+public class Utilisateur implements Serializable {
 
     public int getScorequizbd() {
         return scorequizbd;
@@ -91,6 +93,15 @@ idUser = unid;
     }
     public Utilisateur(int unScoreQuizComics,String unPseudo,int unScoreMemo,int unScoreRange,int unScoreQuizManga, int unScoreBd,int unid){
         idUser = unid;
+        pseudo = unPseudo;
+        scoreMemo = unScoreMemo;
+        scorequizbd = unScoreBd;
+        scorequizmanga = unScoreQuizManga;
+        ScoreRange=unScoreRange;
+        scorequizcomics=unScoreQuizComics;
+    }
+    public Utilisateur(int unScoreQuizComics,String unPseudo,int unScoreMemo,int unScoreRange,int unScoreQuizManga, int unScoreBd){
+        idUser= 0;
         pseudo = unPseudo;
         scoreMemo = unScoreMemo;
         scorequizbd = unScoreBd;
