@@ -34,7 +34,6 @@ public class MemoRigolo extends AppCompatActivity implements View.OnClickListene
     private LottieAnimationView trophy;
     private ImageView imgBlanc;
     private TextView txtFin;
-
     //endregion
 
     @Override
@@ -58,7 +57,6 @@ public class MemoRigolo extends AppCompatActivity implements View.OnClickListene
         imgClick1 = new ImageView(this);
         imgClick2 = new ImageView(this);
         //endregion
-
         setImages(); //permet l'affectation des images
         desactiveClick(); //désactive les images
     }
@@ -245,7 +243,6 @@ public class MemoRigolo extends AppCompatActivity implements View.OnClickListene
             }, 1000);
         }
     }
-
     public void activeClick(){
         for (ImageView imageView : listImageView) {
             imageView.setEnabled(true);

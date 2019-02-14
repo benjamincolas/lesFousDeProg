@@ -2,19 +2,19 @@
     <string name="app_name">MotsTordus</string>
     <string name="btn_jouer">Jouer</string>
     <string name="btn_regles">Règles</string>
-    <string name="txt_titreregles">Les Règles du Jeu</string>
+    <string name="txt_titreregles">LES RÈGLES DU JEU</string>
     <string name="txt_regles">IL FAUT BIEN REPONDRE AU QUIZ POUR DÉBLOQUER LA SUITE
 \n
 \n
 
-\n SI TU AS ENTRE 0/10 ET 4/10 : DÉBLOQUE LE JEU "RANGE TA BD !"
+\n SI TU AS ENTRE 0/10 ET 4/10 : DÉBLOQUE LE JEU : "RANGE TA BD !"
 \n
         \n
-\n SI TU AS ENTRE 5/10 ET 10/10 : DÉBLOQUE LES JEUX "MÉMO-RIGOLO" \n ET "RANGE TA BD !"
+\n SI TU AS ENTRE 5/10 ET 10/10 : DÉBLOQUE LES JEUX : "MÉMO-RIGOLO" \n ET "RANGE TA BD !"
 \n
 
 					\n BONNE CHANCE !</string>
-    <string name="txt_choix">Choisis le thème du Quiz :</string>
+    <string name="txt_choix">CHOISIS LE THEME DU QUIZ :</string>
     <string name="btn_manga">MANGA</string>
     <string name="btn_bd">BANDE DESSINÉE</string>
     <string name="btn_comics">COMICS</string>
@@ -85,4 +85,6 @@
     <string name="txt_mrexpl">Retrouve les paires des différents personnages de bande dessinées !</string>
     <string name="recommencer">RECOMMENCER LE QUIZ</string>
     <string name="btn_jouer_memo">Commencer</string>
+    <string name="Accueil">ACCUEIL</string>
+    <string name="quiz">LE QUIZ</string>
 </resources>

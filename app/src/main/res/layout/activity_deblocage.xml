@@ -8,8 +8,27 @@
     tools:context=".Deblocage">
 
     <Button
+        android:id="@+id/accueildeb"
+        android:layout_width="176dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bouton_arrondie"
+        android:fontFamily="@font/adventure"
+        android:text="@string/Accueil"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.021"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.013" />
+
+    <Button
         android:id="@+id/recommencer"
-        android:layout_width="198dp"
+        android:layout_width="243dp"
         android:layout_height="106dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -18,13 +37,13 @@
         android:background="@drawable/bouton_arrondie"
         android:fontFamily="@font/adventure"
         android:text="@string/recommencer"
-        android:textSize="25sp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.007"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.012" />
+        app:layout_constraintVertical_bias="0.013" />
 
     <TextView
         android:id="@+id/txt_mrexpl"
@@ -38,13 +57,13 @@
 
         android:text="@string/txt_mrexpl"
         android:textColor="@android:color/black"
-        android:textSize="30sp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.908"
+        app:layout_constraintHorizontal_bias="0.942"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.809" />
+        app:layout_constraintVertical_bias="0.741" />
 
     <ImageView
         android:id="@+id/imgmr"
@@ -72,7 +91,7 @@
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/adventure"
         android:textColor="@android:color/black"
-        android:textSize="30sp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.546"
@@ -98,8 +117,8 @@
 
     <Button
         android:id="@+id/jouerrtbd"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
+        android:layout_width="196dp"
+        android:layout_height="100dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -107,18 +126,18 @@
         android:background="@drawable/bouton_arrondie"
         android:fontFamily="@font/adventure"
         android:text="JOUER"
-        android:textSize="25sp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.742"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.453" />
 
     <Button
         android:id="@+id/jouermr"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
+        android:layout_width="196dp"
+        android:layout_height="100dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -126,13 +145,13 @@
         android:background="@drawable/bouton_arrondie"
         android:fontFamily="@font/adventure"
         android:text="JOUER"
-        android:textSize="25sp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.742"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.945" />
+        app:layout_constraintVertical_bias="0.939" />
 
     <TextView
         android:id="@+id/txt_rtbdexpl"
@@ -146,11 +165,27 @@
 
         android:text="@string/txt_rtbdexpl"
         android:textColor="@android:color/black"
-        android:textSize="30sp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.908"
+        app:layout_constraintHorizontal_bias="0.926"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.319" />
+        app:layout_constraintVertical_bias="0.262" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="1104dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.717"
+        app:srcCompat="@drawable/ligne" />
 </android.support.constraint.ConstraintLayout>
