@@ -4,15 +4,27 @@ package com.app.lesfousdeprog.motstordus;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
+import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
+
+import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
+import static java.net.Proxy.Type.HTTP;
 
 public class Deblocage extends AppCompatActivity {
 
@@ -25,6 +37,7 @@ public class Deblocage extends AppCompatActivity {
     private Button recommencer;
     private Button accueil;
     private TextView bravo;
+    private HttpHandler httpHandler;
     private final int code_fenetre = 20;
 private Utilisateur utilisateur;
 private UtilisateurBdd utilisateurBdd;
@@ -47,7 +60,7 @@ private int idUser;
         jouerrtbd=(Button)findViewById(R.id.jouerrtbd);
         accueil=(Button)findViewById(R.id.accueildeb);
         recommencer=(Button)findViewById(R.id.recommencer);
-
+httpHandler = new HttpHandler();
          utilisateurBdd = new UtilisateurBdd(this);
          idUser = utilisateurBdd.lastId();
 
@@ -56,6 +69,7 @@ private int idUser;
         bravo.setText("Bravo !! Avec ton score de " + scoreRecup + " sur 10, tu as débloqué ceci :");
 
         utilisateur = new Utilisateur(0,"Loïc",0,0,0,scoreRecup,idUser);
+
         //le bouton jouerrtbd permet de lancer le jeu Range ta BD
         jouerrtbd.setOnClickListener(new View.OnClickListener() {
             //@Override
@@ -113,7 +127,6 @@ private int idUser;
         }
 
 
-
        long lastId =  utilisateurBdd.addUser(utilisateur);
     }
 
@@ -122,4 +135,5 @@ private int idUser;
     public void onBackPressed() {
 
     }
+
 }

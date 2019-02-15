@@ -1,11 +1,25 @@
 package com.app.lesfousdeprog.motstordus;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class UtilisateurBdd {
 
@@ -167,10 +181,17 @@ return list;
         return user;
     }
 
+public void envoiVersJson() throws JSONException {
+    JSONObject requestObject = new JSONObject();
+    requestObject.put("idUser", String.valueOf(4));
+    requestObject.put("pseudo", "test25");
+    requestObject.put("scoreQuizBd", 3);
+    requestObject.put("scoreQuizComics", 2);
+    requestObject.put("scoreQuizManga", 1);
+    requestObject.put("scoreRange", 0);
+    requestObject.put("scoreMemo", 5);
 
-
-
-
+}
 
 
 }
