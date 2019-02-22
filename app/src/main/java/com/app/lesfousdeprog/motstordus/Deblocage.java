@@ -67,8 +67,8 @@ httpHandler = new HttpHandler();
         //affiche la phrase ci-dessous en fonction du score du joueur dans le textview bravo
         final int scoreRecup = this.getIntent().getExtras().getInt("nbscore"); //récupère le score du joueur réalisé dans le quiz
         bravo.setText("Bravo !! Avec ton score de " + scoreRecup + " sur 10, tu as débloqué ceci :");
-
-        utilisateur = new Utilisateur(0,"Loïc",0,0,0,scoreRecup,idUser);
+        final String pseudo = (String) this.getIntent().getExtras().getString("pseudo");
+        utilisateur = new Utilisateur(0,pseudo,99,99,0,scoreRecup,idUser);
 
         //le bouton jouerrtbd permet de lancer le jeu Range ta BD
         jouerrtbd.setOnClickListener(new View.OnClickListener() {

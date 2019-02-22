@@ -245,6 +245,8 @@ public class QuizzManga extends AppCompatActivity {
             Intent unIntent = new Intent(QuizzManga.this,Deblocage.class);
             unIntent.putExtra("score", lescore);
             unIntent.putExtra("nbscore", nscore);
+            final String pseudo = (String) this.getIntent().getExtras().getString("pseudo");
+            unIntent.putExtra("pseudo", pseudo);
             QuizzManga.this.startActivityForResult(unIntent, code_fenetre);}
 
         //s'il reste des questions :
