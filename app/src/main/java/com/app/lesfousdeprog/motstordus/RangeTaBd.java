@@ -858,7 +858,7 @@ if (erreurPrecedent==true) { // si il a fait une erreur
             }
         final Utilisateur utilisateur = (Utilisateur) this.getIntent().getExtras().getSerializable("user");
         utilisateur.setScoreRange(nombreFautes);
-    userbdd.updateUser(utilisateur);
+    userbdd.updateUser(utilisateur); //met a jour la base de données
     }
     private void disableLayout(boolean lay){// permet de "désactiver" ou non la possibilité d'utiliser le layout de jeu
 

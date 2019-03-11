@@ -83,7 +83,6 @@ public class QuizzBD extends AppCompatActivity{
         updateQuestion();//appel de la méthode updateQuestion
 
 
-
         nButtonChoice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -253,6 +252,8 @@ private void updateQuestion(){
         Intent unIntent = new Intent(QuizzBD.this,Deblocage.class);
         unIntent.putExtra("score", lescore);
         unIntent.putExtra("nbscore", nscore);
+        final String pseudo = (String) this.getIntent().getExtras().getString("pseudo");
+        unIntent.putExtra("pseudo", pseudo);
         QuizzBD.this.startActivityForResult(unIntent, code_fenetre);}
 
         //s'il reste des questions :

@@ -43,6 +43,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.675" />
 
+
     <Button
         android:id="@+id/btn_bd"
         android:layout_width="400dp"
@@ -94,10 +95,31 @@
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.26" />
+        app:layout_constraintVertical_bias="0.567" />
+
+    <TextView
+        android:id="@+id/txt_saispseudo"
+        android:layout_width="344dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bouton_arrondie"
+        android:fontFamily="@font/adventure"
+        android:text="Saisit ton pseudo !"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.195" />
+
+
 
     <TextView
         android:id="@+id/textView"
@@ -118,4 +140,79 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.012" />
+
+    <EditText
+        android:id="@+id/edittxtpseudo"
+        android:layout_width="357dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="462dp"
+        android:layout_marginTop="58dp"
+        android:layout_marginEnd="461dp"
+        android:layout_marginBottom="96dp"
+        android:background="@color/blancgris"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/txt_choix"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_saispseudo" />
+
+    <RelativeLayout
+        android:id="@+id/msgErreurLayout"
+        android:layout_width="1264dp"
+        android:layout_height="216dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="52dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/txt_choix"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <TextView
+            android:id="@+id/msgErreur"
+            android:layout_width="419dp"
+            android:layout_height="152dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="408dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="437dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bouton_arrondie"
+            android:fontFamily="@font/adventure"
+            android:text="N'oublie pas de saisir ton pseudo !"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="35sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.232" />
+
+        <Button
+            android:id="@+id/btn_ok"
+            android:layout_width="161dp"
+            android:layout_height="47dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="566dp"
+            android:layout_marginBottom="67dp"
+            android:background="@drawable/bouton_arrondie"
+            android:fontFamily="@font/adventure"
+            android:text="@android:string/ok"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.334" />
+    </RelativeLayout>
+
+
 </android.support.constraint.ConstraintLayout>

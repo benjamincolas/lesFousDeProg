@@ -242,6 +242,9 @@ public class QuizzComics extends AppCompatActivity {
             Intent unIntent = new Intent(QuizzComics.this,Deblocage.class);
             unIntent.putExtra("score", lescore);
             unIntent.putExtra("nbscore", nscore);
+            final String pseudo = (String) this.getIntent().getExtras().getString("pseudo");
+            unIntent.putExtra("pseudo", pseudo);
+
             QuizzComics.this.startActivityForResult(unIntent, code_fenetre);}
 
         //s'il reste des questions :

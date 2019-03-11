@@ -4,12 +4,16 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 
 import java.util.PriorityQueue;
@@ -22,8 +26,12 @@ public class Quizz extends AppCompatActivity {
     private Button btn_bd;
     private Button btn_comics;
     private Button btn_retour;
+    private EditText editpseudo;
+    private boolean pseudoValable=true;
+    private RelativeLayout msgErreur;
+    private Button btn_ok;
     private final int code_fenetre = 20;
-
+private String pseudo;
     //private UtilisateurBdd m;
    private  UtilisateurBdd m = new UtilisateurBdd(this);
 private Utilisateur salut;
@@ -31,7 +39,6 @@ private Utilisateur salut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quizz);
@@ -41,14 +48,31 @@ private Utilisateur salut;
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 
+        editpseudo = this.findViewById(R.id.edittxtpseudo);
+        msgErreur = this.findViewById(R.id.msgErreurLayout);
+        btn_ok = this.findViewById(R.id.btn_ok);
+
+
+        btn_ok.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                msgErreur.setVisibility(View.INVISIBLE);
+            }
+        });
         //le bouton btn_manga permet de lancer le quiz de manga
         btn_manga = (Button) this.findViewById(R.id.btn_manga);
 
         btn_manga.setOnClickListener(new View.OnClickListener() {
             //@Override
             public void onClick(View view) {
-                Intent unIntent = new Intent(Quizz.this, QuizzManga.class);
-                Quizz.this.startActivityForResult(unIntent, code_fenetre);
+                if (verifPseudo()==true) {
+                    Intent unIntent = new Intent(Quizz.this, QuizzManga.class);
+                    unIntent.putExtra("pseudo", pseudo);
+                    Quizz.this.startActivityForResult(unIntent, code_fenetre);
+                }
+                else{
+                    messageErreur();
+                }
+
             }
         });
 
@@ -57,8 +81,11 @@ private Utilisateur salut;
         btn_comics.setOnClickListener(new View.OnClickListener() {
             //@Override
             public void onClick(View view) {
+                if (verifPseudo()==true) {
                 Intent unIntent = new Intent(Quizz.this, QuizzComics.class);
-                Quizz.this.startActivityForResult(unIntent, code_fenetre);
+                    unIntent.putExtra("pseudo", pseudo);
+                Quizz.this.startActivityForResult(unIntent, code_fenetre);}
+                else {messageErreur();}
             }
         });
 
@@ -67,8 +94,11 @@ private Utilisateur salut;
         btn_bd.setOnClickListener(new View.OnClickListener() {
             //@Override
             public void onClick(View view) {
+                if (verifPseudo()==true) {
                 Intent unIntent = new Intent(Quizz.this, QuizzBD.class);
-                Quizz.this.startActivityForResult(unIntent, code_fenetre);
+                    unIntent.putExtra("pseudo", pseudo);
+                Quizz.this.startActivityForResult(unIntent, code_fenetre);}
+                else {messageErreur();}
             }
         });
 
@@ -77,15 +107,29 @@ private Utilisateur salut;
         btn_retour.setOnClickListener(new View.OnClickListener() {
             //@Override
             public void onClick(View view) {
+
                 Intent unIntent = new Intent(Quizz.this, Accueil.class);
-                Quizz.this.startActivityForResult(unIntent, code_fenetre);
-            }
+                Quizz.this.startActivityForResult(unIntent, code_fenetre);}
+
+
         });
 
 
     }
+private boolean verifPseudo(){
+    pseudo="";
+        pseudo = editpseudo.getText().toString();
 
+        if(pseudo.matches("")){ // vérifie que l'utilisateur a remplit le formulaire
+            pseudoValable=false;
+        }
 
+return pseudoValable;
+    }
+private void messageErreur(){
+
+    msgErreur.setVisibility(View.VISIBLE);
+}
 
 
     //stocke les questions du quiz de bande dessinée

@@ -3,6 +3,9 @@ package com.app.lesfousdeprog.motstordus;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.os.Looper;
+import android.provider.ContactsContract;
+import android.provider.ContactsContract.CommonDataKinds.Website;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.JsonReader;
@@ -18,12 +21,21 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.support.v7.app.AppCompatActivity;
+
+import org.apache.http.params.HttpConnectionParams;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import static java.net.Proxy.Type.HTTP;
 
 public class Accueil extends AppCompatActivity {
 
@@ -81,6 +93,7 @@ private  UtilisateurBdd userbd;
 
 
     }
+
     private class rempJsonDansSQLITE extends AsyncTask<Void, Void, Void> {
 
         protected Void doInBackground(Void... arg0) {
@@ -90,6 +103,7 @@ private  UtilisateurBdd userbd;
             String jsonStr = sh.makeServiceCall(url);
             Log.e(TAG, "Response from url: " + jsonStr);
             userbd.open();
+
             if (jsonStr != null) {
                 try {
                     JSONArray contacts = new JSONArray(jsonStr);
@@ -116,6 +130,7 @@ private  UtilisateurBdd userbd;
                         long var = userbd.addUser(user);
                        // return db.insert(TABLE_NAME,null,values);
                         List_util.add(util);
+
                     }
 
                 } catch (final JSONException e) {
@@ -140,6 +155,7 @@ private  UtilisateurBdd userbd;
             }
             userbd.close();
             return null;
+
         }
         @Override
         protected void onPostExecute(Void result){
@@ -155,4 +171,7 @@ private  UtilisateurBdd userbd;
            // Toast.makeText(Accueil.this,"Salut ça charge",Toast.LENGTH_LONG).show();
         }}
 
-}
+
+
+    }
+
