@@ -65,10 +65,8 @@ httpHandler = new HttpHandler();
          idUser = utilisateurBdd.lastId();
 
         //affiche la phrase ci-dessous en fonction du score du joueur dans le textview bravo
-        final int scoreRecup = this.getIntent().getExtras().getInt("nbscore"); //récupère le score du joueur réalisé dans le quiz
-        bravo.setText("Bravo !! Avec ton score de " + scoreRecup + " sur 10, tu as débloqué ceci :");
-        final String pseudo = (String) this.getIntent().getExtras().getString("pseudo");
-        utilisateur = new Utilisateur(0,pseudo,99,99,0,scoreRecup,idUser);
+        int scoreRecup = this.getIntent().getExtras().getInt("nbscore"); //récupère le score du joueur réalisé dans le quiz
+        bravo.setText("Bravo !! Avec ton score de " + scoreRecup + " sur 10, tu as débloqué ces 2 jeux :");
 
         //le bouton jouerrtbd permet de lancer le jeu Range ta BD
         jouerrtbd.setOnClickListener(new View.OnClickListener() {
@@ -122,7 +120,7 @@ httpHandler = new HttpHandler();
             jouermr.setClickable(false);//le bouton jouermr devient incliquable
             jouermr.setBackgroundColor(Color.GRAY);// le bouton jouermr devient gris
             jouermr.requestLayout();
-            bravo.setText("Dommage ! Avec ton score de " + scoreRecup + " sur 10, tu as débloqué ceci :");
+            bravo.setText("Dommage ! Avec ton score de " + scoreRecup + " sur 10, tu as débloqué ce jeu :");
 
         }
 
